@@ -18,9 +18,22 @@
       app.route = 'home';
     });
 
+    page('/surveys', scrollToTop, function() {
+      app.route = 'surveys';
+    });
+    
+    page('/events', scrollToTop, function() {
+      app.route = 'events';
+    });
+    
     page('/contact', scrollToTop, function() {
       app.route = 'contact';
     });
+    
+    page('/account', scrollToTop, function() {
+      app.route = 'account';
+    });
+
 
     // add #! before urls
     // page({

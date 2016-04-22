@@ -26,6 +26,7 @@
     /* paper-input */
     --paper-input-container-color: #fff;
     --paper-input-container-input-color: #fff;
+    --paper-tabs-selection-bar-color: var(--accent-color);
   }
   /* General styles */
   
@@ -33,6 +34,20 @@
     color: var(--secondary-text-color);
     background-color: var(--drawer-menu-color);
     border-bottom: var(--drawer-toolbar-border-color);
+  }
+  
+  paper-tabs {
+    height: 28px;
+    margin-left: 20px;
+    font-size: 20px;
+  }
+  
+  paper-input {
+    font-size: 20px;
+  }
+  
+  paper-tab {
+    margin-left: 10px;
   }
   
   paper-scroll-header-panel {
@@ -60,6 +75,41 @@
   
   .paper-menu > .iron-selected {
     color: var(--default-primary-color);
+  }
+  
+  paper-menu hr {
+    width: 80%;
+    color: #888
+  }
+  
+  paper-menu #home span {
+    color: var(--default-primary-color);
+  }
+  
+  paper-menu #home iron-icon {
+    color: var(--default-primary-color);
+  }
+  
+  paper-menu #surveys span {
+    color: red;
+  }
+  
+  paper-menu #surveys iron-icon {
+    color: red;
+  }
+  
+  paper-menu #events span {
+    color: green;
+  }
+  
+  paper-menu #events iron-icon {
+    color: green;
+  }
+  
+  paper-menu #menubottom {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
   }
   
   paper-menu a {
@@ -91,6 +141,7 @@
     -webkit-transform-origin: left center;
     transform-origin: left center;
   }
+
   
   #mainToolbar .middle-container {
     height: 100%;

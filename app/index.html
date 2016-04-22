@@ -65,15 +65,37 @@
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="/" on-click="onDataRouteClick">
-            <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
-          </a>
-
-          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+          <div id="home">
+            <a data-route="home" href="/" on-click="onDataRouteClick">
+              <iron-icon icon="home"></iron-icon>
+              <span>All</span>
+            </a>
+          </div>
+          <div id="surveys">
+            <a data-route="surveys" href="/surveys" on-click="onDataRouteClick">
+              <iron-icon icon="assessment"></iron-icon>
+              <span>Surveys</span>
+            </a>
+          </div>
+          <div id="events">
+            <a data-route="events" href="/events" on-click="onDataRouteClick">
+              <iron-icon icon="event"></iron-icon>
+              <span>Events</span>
+            </a>
+          </div>
+          <div id="menubottom">
+          <hr>          
+          <a data-route="events" href="/contact" on-click="onDataRouteClick">
             <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
+              <span>Contact</span>
           </a>
+          <a data-route="events" href="/account" on-click="onDataRouteClick">
+            <iron-icon icon="account-circle"></iron-icon>
+            <span>Account</span>
+          </a>
+ 
+          </div>
+            
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -85,6 +107,12 @@
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
                     
           <paper-input label="Search" no-label-float></paper-input>
+          
+          <paper-tabs selected="0">
+            <paper-tab>Yours</paper-tab>
+            <paper-tab>DCH</paper-tab>
+          </paper-tabs>
+          
             
           <span class="flex"></span>
          
@@ -104,7 +132,6 @@
                </paper-material>
                
             </section>
-
 
             <section data-route="contact">
               <paper-material elevation="1">
