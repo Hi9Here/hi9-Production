@@ -85,11 +85,11 @@
           </div>
           <div id="menubottom">
           <hr>          
-          <a data-route="events" href="/contact" on-click="onDataRouteClick">
+          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
             <iron-icon icon="mail"></iron-icon>
               <span>Contact</span>
           </a>
-          <a data-route="events" href="/account" on-click="onDataRouteClick">
+          <a data-route="account" href="/account" on-click="onDataRouteClick">
             <iron-icon icon="account-circle"></iron-icon>
             <span>Account</span>
           </a>
@@ -105,19 +105,22 @@
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar">
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-                    
-          <paper-input label="Search" no-label-float></paper-input>
+            <paper-input label="Search" no-label-float>
+            <iron-icon prefix icon="search"></iron-icon>                
+            </paper-input>
+          
+          
+          <span class="flex"></span>
           
           <paper-tabs selected="0">
             <paper-tab>Yours</paper-tab>
             <paper-tab>DCH</paper-tab>
           </paper-tabs>
-          
-            
-          <span class="flex"></span>
-         
-          <!-- Toolbar icons -->
-          <paper-icon-button icon="search"></paper-icon-button>
+
+          <!--  Logo -->
+          <div id="logo">
+            <img src="/images/hi9-logos/hi9-60px.png" alt="Hi9 Logo">
+          </div>
 
         </paper-toolbar>
 
@@ -126,11 +129,9 @@
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
- 
                <paper-material elevation="1">
-                 
-               </paper-material>
-               
+                
+               </paper-material>     
             </section>
 
             <section data-route="contact">
