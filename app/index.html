@@ -65,9 +65,9 @@
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-          <div id="home">
-            <a data-route="home" href="/" on-click="onDataRouteClick">
-              <iron-icon icon="home"></iron-icon>
+          <div id="all">
+            <a data-route="all" href="/" on-click="onDataRouteClick">
+              <iron-icon icon="apps"></iron-icon>
               <span>All</span>
             </a>
           </div>
@@ -127,17 +127,28 @@
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-            <section data-route="home">
-               <paper-material elevation="1">
-                  Home Page
-               </paper-material>     
+            <section data-route="all">
+                 All Cards
             </section>
 
+            <section data-route="surveys">
+                <h2 class="page-title">Surveys</h2>
+                <p>This is the surveys section</p>
+            </section>
+            
+            <section data-route="events">
+                <h2 class="page-title">Events</h2>
+                <p>This is the events section</p>
+            </section>
+            
             <section data-route="contact">
-              <paper-material elevation="1">
                 <h2 class="page-title">Contact</h2>
                 <p>This is the contact section</p>
-              </paper-material>
+            </section>
+            
+            <section data-route="account">
+                <h2 class="page-title">Account</h2>
+                <p>This is the account section</p>
             </section>
 
           </iron-pages>

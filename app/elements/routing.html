@@ -15,7 +15,7 @@
 
     // Routes
     page('/', scrollToTop, function() {
-      app.route = 'home';
+      app.route = 'all';
     });
 
     page('/surveys', scrollToTop, function() {
@@ -35,10 +35,10 @@
     });
 
 
-    // add #! before urls
-    // page({
-    //   hashbang: true
-    // });
+   // add #! before urls
+    page({
+      hashbang: true
+    });
 
   });
 </script>
