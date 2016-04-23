@@ -56,7 +56,7 @@
 
     <paper-drawer-panel id="paperDrawerPanel">
       <!-- Drawer Scroll Header Panel -->
-      <paper-scroll-header-panel keep-condensed-header drawer fixed>
+      <paper-scroll-header-panel  drawer fixed keep-condensed-header="true">
 
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
@@ -100,7 +100,7 @@
       </paper-scroll-header-panel>
 
       <!-- Main Area -->
-      <paper-scroll-header-panel main condenses keep-condensed-header>
+      <paper-scroll-header-panel main fixed>
 
         <!-- Main Toolbar -->
         <paper-toolbar>
@@ -128,7 +128,7 @@
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="all">
-                 All Cards
+                 <card-control url="https://open-elements.firebaseio.com/all/marcus6666"  search="{{search}}" token=""></card-control>
             </section>
 
             <section data-route="surveys">

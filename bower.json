@@ -10,7 +10,16 @@
     "page": "visionmedia/page.js#~1.6.3",
     "paper-input": "~1.1.11",
     "paper-tabs": "~1.5.0",
-    "paper-header-panel": "~1.1.5"
+    "paper-header-panel": "~1.1.5",
+    "card-data": "hi9here/card-data#master",
+    "card-control": "hi9here/card-control#master",
+    "card-display": "marcus7777/card-display#master",
+    "card-deck": "marcus7777/card-deck#master",
+    "paper-material": "PolymerElements/paper-material#~1.0.6",
+    "sortable-list": "marcus7777/sortable-list#master",
+    "update-data": "marcus7777/update-data#master",
+    "iron-icons": "PolymerElements/iron-icons#master",
+    "iron-selector": "PolymerElements/iron-selector#~1.0.8"
   },
   "devDependencies": {
     "web-component-tester": "*",
