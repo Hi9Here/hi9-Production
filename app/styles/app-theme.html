@@ -26,6 +26,7 @@
     /* paper-input */
     --paper-input-container-color: #fff;
     --paper-input-container-input-color: #fff;
+    --paper-input-container-focus-color: var(--accent-color);
     --paper-tabs-selection-bar-color: var(--accent-color);
     --paper-input-container-input: {
       font-size: 20px;
@@ -39,8 +40,6 @@
       width: 20px;
       margin-right: 5px;
     }
-    
-    
   }
   /* General styles */
   
@@ -49,6 +48,11 @@
     background-color: var(--drawer-menu-color);
     border-bottom: var(--drawer-toolbar-border-color);
   }
+
+/*Hi9 Logo in Top Right*/
+  #logo img {
+    height: 100px;
+  }
   
   paper-tabs {
     height: 28px;
@@ -56,8 +60,8 @@
     margin-right: 5%;
     font-size: 20px;
     font-weight: 300;
+    width:45%;
   }
-  
   
   paper-tab {
     margin-left: 10px;
@@ -69,7 +73,7 @@
   
   paper-input {
     width: 60%;
-    margin-left:5%;
+    margin-left: 5%;
   }
   
   paper-material {
@@ -79,6 +83,11 @@
     width: calc(98.66% - 16px);
     margin: 16px auto;
     background: white;
+  }
+  /*Menu on the Top Left*/
+  
+  .paper-font-title {
+    color: var(--default-primary-color);
   }
   
   paper-menu iron-icon {
@@ -147,7 +156,7 @@
     padding: 0 16px;
   }
   
-  #mainToolbar .middle-container {
+  /*#mainToolbar .middle-container {
     height: 100%;
     margin-left: 48px;
   }
@@ -162,7 +171,7 @@
     /* Required for main area's paper-scroll-header-panel custom condensing transformation */
     -webkit-transform-origin: left center;
     transform-origin: left center;
-  }
+  }*/
   /* Height of the scroll area */
   
   .content {
@@ -178,7 +187,6 @@
       padding-left: 16px;
       padding-right: 16px;
     }
-
     #drawer .paper-toolbar {
       margin-left: 16px;
     }

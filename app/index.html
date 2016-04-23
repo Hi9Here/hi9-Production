@@ -56,7 +56,7 @@
 
     <paper-drawer-panel id="paperDrawerPanel">
       <!-- Drawer Scroll Header Panel -->
-      <paper-scroll-header-panel drawer fixed>
+      <paper-scroll-header-panel keep-condensed-header drawer fixed>
 
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
@@ -103,13 +103,12 @@
       <paper-scroll-header-panel main condenses keep-condensed-header>
 
         <!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar">
+        <paper-toolbar>
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
             <paper-input label="Search" no-label-float>
             <iron-icon prefix icon="search"></iron-icon>                
             </paper-input>
-          
-          
+                 
           <span class="flex"></span>
           
           <paper-tabs selected="0">
@@ -119,7 +118,7 @@
 
           <!--  Logo -->
           <div id="logo">
-            <img src="/images/hi9-logos/hi9-60px.png" alt="Hi9 Logo">
+            <img src="/images/hi9-logos/hi9-logox128-white.png" alt="Hi9 Logo">
           </div>
 
         </paper-toolbar>
@@ -130,7 +129,7 @@
 
             <section data-route="home">
                <paper-material elevation="1">
-                
+                  Home Page
                </paper-material>     
             </section>
 

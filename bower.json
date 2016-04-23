@@ -9,7 +9,8 @@
     "neon-elements": "PolymerElements/neon-elements#^1.0.0",
     "page": "visionmedia/page.js#~1.6.3",
     "paper-input": "~1.1.11",
-    "paper-tabs": "~1.5.0"
+    "paper-tabs": "~1.5.0",
+    "paper-header-panel": "~1.1.5"
   },
   "devDependencies": {
     "web-component-tester": "*",
