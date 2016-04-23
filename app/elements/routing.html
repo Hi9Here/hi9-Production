@@ -21,21 +21,24 @@
     page('/surveys', scrollToTop, function() {
       app.route = 'surveys';
     });
-    
+
     page('/events', scrollToTop, function() {
       app.route = 'events';
     });
-    
+
+    page('/dashboard', scrollToTop, function() {
+      app.route = 'dashboard';
+    });
+
     page('/contact', scrollToTop, function() {
       app.route = 'contact';
     });
-    
+
     page('/account', scrollToTop, function() {
       app.route = 'account';
     });
 
-
-   // add #! before urls
+    // add #! before urls
     page({
       hashbang: true
     });

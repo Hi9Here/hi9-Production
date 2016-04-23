@@ -73,7 +73,7 @@
           </div>
           <div id="surveys">
             <a data-route="surveys" href="/surveys" on-click="onDataRouteClick">
-              <iron-icon icon="assessment"></iron-icon>
+              <iron-icon icon="check-box"></iron-icon>
               <span>Surveys</span>
             </a>
           </div>
@@ -81,6 +81,12 @@
             <a data-route="events" href="/events" on-click="onDataRouteClick">
               <iron-icon icon="event"></iron-icon>
               <span>Events</span>
+            </a>
+          </div>
+           <div id="dashboard">
+            <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick">
+              <iron-icon icon="assessment"></iron-icon>
+              <span>Dashboard</span>
             </a>
           </div>
           <div id="menubottom">
@@ -100,7 +106,7 @@
       </paper-scroll-header-panel>
 
       <!-- Main Area -->
-      <paper-scroll-header-panel main fixed>
+      <paper-scroll-header-panel main keep-condensed-header>
 
         <!-- Main Toolbar -->
         <paper-toolbar>
@@ -139,6 +145,11 @@
             <section data-route="events">
                 <h2 class="page-title">Events</h2>
                 <p>This is the events section</p>
+            </section>
+            
+            <section data-route="dashboard">
+                <h2 class="page-title">Dashboard</h2>
+                <p>This is the dashboard section</p>
             </section>
             
             <section data-route="contact">
