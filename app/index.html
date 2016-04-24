@@ -83,8 +83,9 @@
               <span>Events</span>
             </a>
           </div>
+          <hr> 
            <div id="dashboard">
-            <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick">
+            <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick, hide()">
               <iron-icon icon="assessment"></iron-icon>
               <span>Dashboard</span>
             </a>
@@ -99,7 +100,7 @@
             <iron-icon icon="account-circle"></iron-icon>
             <span>Account</span>
           </a>
- 
+
           </div>
             
         </paper-menu>
@@ -115,17 +116,17 @@
             <iron-icon prefix icon="search"></iron-icon>                
             </paper-input>
                  
-          <span class="flex"></span>
+            <span class="flex"></span>
           
-          <paper-tabs selected="0">
-            <paper-tab>Yours</paper-tab>
-            <paper-tab>DCH</paper-tab>
-          </paper-tabs>
+            <paper-tabs selected="0">
+              <paper-tab>Yours</paper-tab>
+              <paper-tab>DCH</paper-tab>
+            </paper-tabs>
 
-          <!--  Logo -->
-          <div id="logo">
-            <img src="/images/hi9-logos/hi9-logox128-white.png" alt="Hi9 Logo">
-          </div>
+            <!--  Logo -->
+            <div id="logo">
+              <img src="/images/hi9-logos/hi9-logox128-white.png" alt="Hi9 Logo">
+            </div>
 
         </paper-toolbar>
 
@@ -138,12 +139,12 @@
             </section>
 
             <section data-route="surveys">
-                <h2 class="page-title">Surveys</h2>
+                <h2>Surveys</h2>
                 <p>This is the surveys section</p>
             </section>
             
             <section data-route="events">
-                <h2 class="page-title">Events</h2>
+                <h2>Events</h2>
                 <p>This is the events section</p>
             </section>
             
@@ -151,15 +152,14 @@
                 <dash-board></dash-board>
             </section>
             
-            <section data-route="contact">
-                <h2 class="page-title">Contact</h2>
-                <p>This is the contact section</p>
+            <section data-route="contactpage">
+                <contact-page></contact-page>
             </section>
             
-            <section data-route="account">
-                <h2 class="page-title">Account</h2>
-                <p>This is the account section</p>
+            <section data-route="accountpage">
+                <account-page></account-page>
             </section>
+            
 
           </iron-pages>
         </div>
@@ -189,6 +189,7 @@
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
+
 </body>
 
 </html>
