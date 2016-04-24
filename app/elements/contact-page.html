@@ -5,27 +5,42 @@
     <style include="shared-styles"></style>
     <style>
        paper-material {
-         padding: 5px 20px 20px 20px;
-         float: left;
-         margin: 20px;
-         width:250px;
+      background-color:#512da8;
+        padding: 20px;
+        width: 790px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 500px;
        }
        p {
          line-height: 0.5;
          font-size:14px;
+         color: #fff;
        }
-       .entry {
-         float: left;
-         width: 100%;
+       h2 {
+         color: #fff;
        }
+       h3 {
+         color: #fff;
+       }
+       h4 {
+         color: #fff;
+       }
+
+       .contacts {
+        float: left;
+        height: 100%;
+        margin-left: 50px;
+        width: 300px;
+        
+      }
 
     </style>
 
-    <h2>Contact</h2>
-    
-    <h3>Please feel free to Contact Us if you have any issues</h3>
 
   <paper-material elevation="1" id="admincontact">
+        <h2>Contact</h2>
+    <div class="contacts"> 
     <h3>{{adminname}}</h3>
     <h4>Tel {{admintel}}</h4> 
     <h4>Email {{adminemail}}</h4> 
@@ -37,9 +52,9 @@
     <p>{{admincounty}}</p>
     <p>{{admincountry}}</p>
     <p>{{adminpostcode}}</p>
-  </paper-material>
-  
-  <paper-material elevation="1" id="hi9contact">
+    </div>
+
+  <div class="contacts">
     <h3>Hi9</h3>
     <h4>Tel 01736 7373737</h4>
     <h4>Email dch@someaddress.com</h4>
@@ -50,6 +65,7 @@
     <p>Town</p>
     <p>Country</p>
     <p>TR19 6XQ</p>  
+  </div>
   </paper-material>
   
 

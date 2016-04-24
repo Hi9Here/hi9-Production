@@ -4,29 +4,50 @@
   <template>
     <style>
       h2 {
-        color: #333;
+        color: #FFF;
       }
       h4 {
-        color: #333;
+        color: #FFF;
+      }
+      paper-material {
+        background-color:#512da8;
+        padding: 20px;
+        width: 790px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 500px;
       }
       paper-input {
-        color: #333;
+        width: 300px;
       }
+      .accountdetails {
+        float: left;
+        height: 100%;
+        margin-left: 50px;
+      }
+
     </style>
 
+<paper-material elevation="1">
    <h2>Account</h2>
-    
-    <paper-input label="Name" value="{{username}}"></paper-input>
-    <paper-input label="Tel" value="{{usertel}}"></paper-input>
-    <paper-input label="EmailName" value="{{useremail}}"></paper-input>
+    <div class="accountdetails">
+      
+      <paper-input label="Name" value="{{username}}"></paper-input>
+      <paper-input label="Tel" value="{{usertel}}"></paper-input>
+      <paper-input label="EmailName" value="{{useremail}}"></paper-input>
     <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
-    <h4>Address</h4>
-    <paper-input label="House" value="{{useradd1}}"></paper-input>
-    <paper-input label="Street" value="{{useradd2}}"></paper-input>
-    <paper-input label="Town" value="{{usertown}}"></paper-input>
-    <paper-input label="County" value="{{usercounty}}"></paper-input>
-    <paper-input label="Country" value="{{usercountry}}"></paper-input>
-    <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
+    </div>
+    <div class="accountdetails">
+
+      <paper-input label="House" value="{{useradd1}}"></paper-input>
+      <paper-input label="Street" value="{{useradd2}}"></paper-input>
+      <paper-input label="Town" value="{{usertown}}"></paper-input>
+      <paper-input label="County" value="{{usercounty}}"></paper-input>
+      <paper-input label="Country" value="{{usercountry}}"></paper-input>
+      <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
+    </div>
+    
+</paper-material>
    
   </template>
 
