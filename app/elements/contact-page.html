@@ -4,11 +4,54 @@
   <template>
     <style include="shared-styles"></style>
     <style>
-
+       paper-material {
+         padding: 5px 20px 20px 20px;
+         float: left;
+         margin: 20px;
+         width:250px;
+       }
+       p {
+         line-height: 0.5;
+         font-size:14px;
+       }
+       .entry {
+         float: left;
+         width: 100%;
+       }
 
     </style>
 
     <h2>Contact</h2>
+    
+    <h3>Please feel free to Contact Us if you have any issues</h3>
+
+  <paper-material elevation="1" id="admincontact">
+    <h3>{{adminname}}</h3>
+    <h4>Tel {{admintel}}</h4> 
+    <h4>Email {{adminemail}}</h4> 
+    <h4>Twitter {{admintwitter}}</h4> 
+    <h4>Address</h4>
+    <p>{{adminadd1}}</p>
+    <p>{{adminadd2}}</p>
+    <p>{{admintown}}</p>
+    <p>{{admincounty}}</p>
+    <p>{{admincountry}}</p>
+    <p>{{adminpostcode}}</p>
+  </paper-material>
+  
+  <paper-material elevation="1" id="hi9contact">
+    <h3>Hi9</h3>
+    <h4>Tel 01736 7373737</h4>
+    <h4>Email dch@someaddress.com</h4>
+    <h4>Twitter @dch</h4>
+    <h4>Address</h4>
+    <p>First Line of Address</p>
+    <p>Second Line of Address</p>
+    <p>Town</p>
+    <p>Country</p>
+    <p>TR19 6XQ</p>  
+  </paper-material>
+  
 
   </template>
 
@@ -17,8 +60,60 @@
       'use strict';
 
       Polymer({
-        is: 'contact-page'
+        is: 'contact-page',
 
+        properties: {
+          adminname: {
+            type: String,
+            value: 'DCH',
+            notify: true
+          },
+          admintel: {
+            type: String,
+            value: '01736 732324',
+            notify: true
+          },
+          adminemail: {
+            type: String,
+            value: 'admin@dch.com',
+            notify: true
+          },
+          admintwitter: {
+            type: String,
+            value: '@dch',
+            notify: true
+          },
+          adminadd1: {
+            type: String,
+            value: '1st Line of Address',
+            notify: true
+          },
+          adminadd2: {
+            type: String,
+            value: '2nd Line of Address',
+            notify: true
+          },
+          admintown: {
+            type: String,
+            value: 'Penznace',
+            notify: true
+          },
+          admincounty: {
+            type: String,
+            value: 'Cornwall',
+            notify: true
+          },
+          admincountry: {
+            type: String,
+            value: 'United Kingdom',
+            notify: true
+          },
+          adminpostcode: {
+            type: String,
+            value: 'TR18 2ED',
+            notify: true
+          }
+        }
       });
     })();
   </script>

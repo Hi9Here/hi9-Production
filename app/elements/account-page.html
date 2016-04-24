@@ -2,14 +2,32 @@
 
 <dom-module id="account-page">
   <template>
-    <style include="shared-styles"></style>
     <style>
-
-
+      h2 {
+        color: #333;
+      }
+      h4 {
+        color: #333;
+      }
+      paper-input {
+        color: #333;
+      }
     </style>
 
-    <h2>Account</h2>
-
+   <h2>Account</h2>
+    
+    <paper-input label="Name" value="{{username}}"></paper-input>
+    <paper-input label="Tel" value="{{usertel}}"></paper-input>
+    <paper-input label="EmailName" value="{{useremail}}"></paper-input>
+    <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
+    <h4>Address</h4>
+    <paper-input label="House" value="{{useradd1}}"></paper-input>
+    <paper-input label="Street" value="{{useradd2}}"></paper-input>
+    <paper-input label="Town" value="{{usertown}}"></paper-input>
+    <paper-input label="County" value="{{usercounty}}"></paper-input>
+    <paper-input label="Country" value="{{usercountry}}"></paper-input>
+    <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
+   
   </template>
 
   <script>
@@ -17,8 +35,60 @@
       'use strict';
 
       Polymer({
-        is: 'account-page'
+        is: 'account-page',
 
+        properties: {
+          username: {
+            type: String,
+            value: 'Wo King',
+            notify: true
+          },
+          usertel: {
+            type: String,
+            value: '01736 732324',
+            notify: true
+          },
+          useremail: {
+            type: String,
+            value: 'mywoisme@gmail.com',
+            notify: true
+          },
+          usertwitter: {
+            type: String,
+            value: '@mywoisme',
+            notify: true
+          },
+          useradd1: {
+            type: String,
+            value: '1st Line of Address',
+            notify: true
+          },
+          useradd2: {
+            type: String,
+            value: '2nd Line of Address',
+            notify: true
+          },
+          usertown: {
+            type: String,
+            value: 'Penznace',
+            notify: true
+          },
+          usercounty: {
+            type: String,
+            value: 'Cornwall',
+            notify: true
+          },
+          usercountry: {
+            type: String,
+            value: 'United Kingdom',
+            notify: true
+          },
+          userpostcode: {
+            type: String,
+            value: 'TR18 2ED',
+            notify: true
+          }
+        }
       });
     })();
   </script>
