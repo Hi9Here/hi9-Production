@@ -19,7 +19,8 @@
     "sortable-list": "marcus7777/sortable-list#master",
     "update-data": "marcus7777/update-data#master",
     "iron-icons": "PolymerElements/iron-icons#master",
-    "iron-selector": "PolymerElements/iron-selector#~1.0.8"
+    "iron-selector": "PolymerElements/iron-selector#~1.0.8",
+    "google-chart": "GoogleWebComponents/google-chart#^1.0.4"
   },
   "devDependencies": {
     "web-component-tester": "*",
@@ -31,6 +32,8 @@
     "mediator-data": "master",
     "card-deck": "master",
     "card-display": "master",
-    "iron-icon": "master"
+    "iron-icon": "master",
+    "iron-icons": "master",
+    "polymer": "^1.2.4"
   }
 }

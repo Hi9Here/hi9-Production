@@ -12,10 +12,10 @@
       app.scrollPageToTop();
       next();
     }
-
+    app.route = 'home';
     // Routes
     page('/', scrollToTop, function() {
-      app.route = 'all';
+      app.route = 'home';
     });
 
     page('/surveys', scrollToTop, function() {
@@ -28,10 +28,6 @@
 
     page('/services', scrollToTop, function() {
       app.route = 'services';
-    });
-
-    page('/projects', scrollToTop, function() {
-      app.route = 'projects';
     });
 
     page('/dashboard', scrollToTop, function() {

@@ -67,7 +67,7 @@
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
           <div id="all">
-            <a data-route="all" href="/" on-click="onDataRouteClick">
+            <a data-route="home" href="/" on-click="onDataRouteClick">
               <iron-icon icon="apps"></iron-icon>
               <span>All</span>
             </a>
@@ -89,13 +89,7 @@
               <iron-icon icon="shopping-cart"></iron-icon>
               <span>Services</span>
             </a>
-          </div>
-          <div id="projects">
-            <a data-route="projects" href="/projects" on-click="onDataRouteClick">
-              <iron-icon icon="build"></iron-icon>
-              <span>Projects</span>
-            </a>
-          </div>
+          </div>   
           <hr> 
             <a data-route="contact" href="/contact" on-click="onDataRouteClick">
             <iron-icon icon="mail"></iron-icon>
@@ -153,7 +147,7 @@
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-            <section data-route="all">
+            <section data-route="home">
                  <card-control url="https://open-elements.firebaseio.com/all/marcus6666"  search="{{search}}" token=""></card-control>
             </section>
 
