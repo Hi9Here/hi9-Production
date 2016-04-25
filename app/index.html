@@ -62,7 +62,6 @@
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
           <span class="paper-font-title">Menu</span>
-          <hi9-login user="{{user}}"></hi9-login>
         </paper-toolbar>
 
         <!-- Drawer Content -->
@@ -131,11 +130,16 @@
             </paper-input>
                  
             <span class="flex"></span>
-          
-            <paper-tabs selected="0">
-              <paper-tab>Yours</paper-tab>
-              <paper-tab>More</paper-tab>
-            </paper-tabs>
+            <template is="dom-if" if="{{!user}}">
+              <hi9-login></hi9-login>
+            </template>
+            <hi9-login hidden user="{{user}}"></hi9-login>
+            <template is="dom-if" if="{{user}}">
+              <paper-tabs selected="0">
+                <paper-tab>Yours</paper-tab>
+                <paper-tab>More</paper-tab>
+              </paper-tabs>
+            </template>
 
             <!--  Logo -->
             <div id="logo">
@@ -177,7 +181,7 @@
             </section>
             
             <section data-route="accountpage">
-                <account-page></account-page>
+                <account-page user="{{user}}"></account-page>
             </section>
             
             <section data-route="contactpage">

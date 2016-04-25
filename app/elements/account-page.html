@@ -57,16 +57,16 @@
 <paper-material elevation="1" id="acc">
    <h2>Account</h2>
     <div class="accountdetails">
-      
-      <paper-input label="Name" value="{{username}}"></paper-input>
+      <hi9-login></hi9-login>      
+      <paper-input label="Name" value="{{user.google.displayName}}"></paper-input>
       <paper-input label="Tel" value="{{usertel}}"></paper-input>
-      <paper-input label="EmailName" value="{{useremail}}"></paper-input>
+      <paper-input label="EmailName" value="{{user.google.email}}"></paper-input>
       <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
     
       <div id="papbutts">
       
-      <paper-button raised on-tap="interests">Interests</paper-button>
-      <paper-button raised on-tap="share">Help Us</paper-button>
+      <paper-button raised on-tap="openInterests">Interests</paper-button>
+      <paper-button raised on-tap="openShare">Help Us</paper-button>
         
       </div>
     
@@ -121,10 +121,6 @@
   </template>
   <script>
     
-  </script>
-
-  <script>
-    
     (function() {
       'use strict';
 
@@ -140,11 +136,6 @@
           usertel: {
             type: String,
             value: '01736 732324',
-            notify: true
-          },
-          useremail: {
-            type: String,
-            value: 'mywoisme@gmail.com',
             notify: true
           },
           usertwitter: {
@@ -182,10 +173,13 @@
             value: 'TR18 2ED',
             notify: true
           }
+        },
+        openInterests: function () {
+          this.$.interests.open()
+        },
+        openShare : function () {
+          this.$.share.open()
         }
-      //  function () {
-      //     this.$.interests.open()
-      //   }
       });
     })();
   </script>
