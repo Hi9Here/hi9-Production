@@ -29,7 +29,7 @@
   },
   "resolutions": {
     "card-data": "master",
-    "firebase-element": "master",
+    "firebase-element": "^1.0.0",
     "mediator-data": "master",
     "card-deck": "master",
     "card-display": "master",
