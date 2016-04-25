@@ -2,7 +2,7 @@
   "name": "polymer-starter-kit",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.1.0",
+    "polymer": "master",
     "iron-elements": "PolymerElements/iron-elements#^1.0.0",
     "paper-elements": "PolymerElements/paper-elements#^1.0.1",
     "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",
@@ -31,6 +31,8 @@
     "mediator-data": "master",
     "card-deck": "master",
     "card-display": "master",
-    "iron-icon": "master"
+    "iron-icon": "master",
+    "iron-icons": "master",
+    "polymer": "master"
   }
 }
