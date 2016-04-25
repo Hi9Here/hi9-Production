@@ -14,7 +14,6 @@
        }
        p {
          line-height: 0.5;
-         font-size:14px;
          color: #fff;
        }
        h2 {
@@ -22,9 +21,12 @@
        }
        h3 {
          color: #fff;
+         font-size: 24px;
        }
        h4 {
          color: #fff;
+         font-size: 20px;
+         line-height: 0.6;
        }
 
        .contacts {
@@ -34,6 +36,22 @@
         width: 300px;
         
       }
+      
+        @media (max-width: 600px) {
+        paper-input {
+          width: 250px;
+        } 
+        paper-material {
+          width: 300px;
+          height: 900px;
+        }
+        .contacts {
+          margin-left: 10px;
+          height: 45%;
+          
+        }
+        }
+
 
     </style>
 

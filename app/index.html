@@ -9,7 +9,8 @@
   <meta name="generator" content="Hi9 Personal Web" />
   <title>Hi9 Personal Web</title>
   <!-- Place favicon.ico in the `app/` directory -->
-
+  <link rel="shortcut icon"" href="favicon.ico"" type="image/x-icon"/>
+  
   <!-- Chrome for Android theme color -->
   <meta name="theme-color" content="#512da8">
 
@@ -79,8 +80,20 @@
           </div>
           <div id="events">
             <a data-route="events" href="/events" on-click="onDataRouteClick">
-              <iron-icon icon="event"></iron-icon>
+              <iron-icon icon="today"></iron-icon>
               <span>Events</span>
+            </a>
+          </div>
+          <div id="services">
+            <a data-route="services" href="/services" on-click="onDataRouteClick">
+              <iron-icon icon="shopping-cart"></iron-icon>
+              <span>Services</span>
+            </a>
+          </div>
+          <div id="projects">
+            <a data-route="projects" href="/projects" on-click="onDataRouteClick">
+              <iron-icon icon="build"></iron-icon>
+              <span>Projects</span>
             </a>
           </div>
           <hr> 
@@ -112,14 +125,14 @@
         <!-- Main Toolbar -->
         <paper-toolbar>
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-            <paper-input label="Search" no-label-float>
-            <iron-icon prefix icon="search"></iron-icon>                
+            <paper-input label="Search" no-label-float id="topsearch">
+            <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
             </paper-input>
                  
             <span class="flex"></span>
           
             <paper-tabs selected="0">
-              <paper-tab>Yours</paper-tab>
+              <paper-tab>You</iron-icon></paper-tab>
               <paper-tab>DCH</paper-tab>
             </paper-tabs>
 
@@ -139,13 +152,19 @@
             </section>
 
             <section data-route="surveys">
-                <h2>Surveys</h2>
-                <p>This is the surveys section</p>
+                <surveys-page></surveys-page>
             </section>
             
             <section data-route="events">
-                <h2>Events</h2>
-                <p>This is the events section</p>
+                <events-page></events-page>
+            </section>
+
+            <section data-route="services">
+                <services-page></services-page>
+            </section>
+            
+            <section data-route="projects">
+                <projects-page></projects-page>
             </section>
             
             <section data-route="dashboard">
