@@ -98,6 +98,11 @@
   <paper-checkbox>Events</paper-checkbox>
   <paper-checkbox>Mental Health Issues</paper-checkbox>
   <paper-checkbox>Health Issues</paper-checkbox>
+  <paper-checkbox>Groups I Can Join</paper-checkbox>
+  <paper-checkbox>Financial Help</paper-checkbox>
+  
+  <paper-button dialog-dismiss>Cancel</paper-button>
+  <paper-button dialog-confirm>OK</paper-button>
   
 </paper-dialog>
 
@@ -110,9 +115,28 @@
     
     <paper-checkbox>Share My Data</paper-checkbox>  
     
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm>OK</paper-button>
+    
 </paper-dialog>
 
   </template>
+  <script>
+     function clickHandler(e) {
+      var button = e.target;
+      while (!button.hasAttribute('data-dialog') && button !== document.body) {
+        button = button.parentElement;
+      }
+      if (!button.hasAttribute('data-dialog')) {
+        return;
+      }
+      var id = button.getAttribute('data-dialog');
+      var dialog = document.getElementById(id);
+      if (dialog) {
+        dialog.open();
+      }
+    }
+  </script>
 
   <script>
     
