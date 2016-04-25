@@ -9,8 +9,8 @@
   <meta name="generator" content="Hi9 Personal Web" />
   <title>Hi9 Personal Web</title>
   <!-- Place favicon.ico in the `app/` directory -->
-  <link rel="shortcut icon"" href="favicon.ico"" type="image/x-icon"/>
-  
+  <link rel="shortcut icon" " href="favicon.ico "" type="image/x-icon" />
+
   <!-- Chrome for Android theme color -->
   <meta name="theme-color" content="#512da8">
 
@@ -97,7 +97,18 @@
             </a>
           </div>
           <hr> 
-           <div id="users">
+            <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+            <iron-icon icon="mail"></iron-icon>
+              <span>Contact</span>
+            </a>
+          <a data-route="account" href="/account" on-click="onDataRouteClick">
+            <iron-icon icon="account-circle"></iron-icon>
+            <span>Account</span>
+          </a>    
+          
+          <div id="menubottom">
+          <hr>          
+          <div id="users">
             <a data-route="users" href="/users" on-click="onDataRouteClick">
               <iron-icon icon="face"></iron-icon>
               <span>Users</span>
@@ -109,17 +120,6 @@
               <span>Dashboard</span>
             </a>
           </div>
-          <div id="menubottom">
-          <hr>          
-          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
-            <iron-icon icon="mail"></iron-icon>
-              <span>Contact</span>
-          </a>
-          <a data-route="account" href="/account" on-click="onDataRouteClick">
-            <iron-icon icon="account-circle"></iron-icon>
-            <span>Account</span>
-          </a>
-
           </div>
             
         </paper-menu>
@@ -138,7 +138,7 @@
             <span class="flex"></span>
           
             <paper-tabs selected="0">
-              <paper-tab>You</iron-icon></paper-tab>
+              <paper-tab>You</paper-tab>
               <paper-tab>DCH</paper-tab>
             </paper-tabs>
 
@@ -188,7 +188,6 @@
             <section data-route="accountpage">
                 <account-page></account-page>
             </section>
-            
 
           </iron-pages>
         </div>

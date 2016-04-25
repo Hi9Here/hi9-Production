@@ -34,17 +34,21 @@
         width: 60%;
       }
       
+      #papbutts {
+        float: left;
+      }
+      
        @media (max-width: 600px) {
         paper-input {
           width: 250px;
         } 
         paper-material {
           width: 300px;
-          height: 700px;
+          height: 900px;
         }
         .accountdetails {
           margin-left: 10px;
-          height: 40%;   
+          height: 50%;   
         }
 
        }
@@ -57,21 +61,18 @@
       <paper-input label="Name" value="{{username}}"></paper-input>
       <paper-input label="Tel" value="{{usertel}}"></paper-input>
       <paper-input label="EmailName" value="{{useremail}}"></paper-input>
-    <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
+      <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
     
       <div id="papbutts">
       
       <paper-button raised data-dialog="share">Share Use</paper-button>
       <paper-button raised data-dialog="interests">Interests</paper-button>
         
-    </div>
+      </div>
     
     </div>
-    
-  
     
     <div class="accountdetails">
-      
 
       <paper-input label="House" value="{{useradd1}}"></paper-input>
       <paper-input label="Street" value="{{useradd2}}"></paper-input>
@@ -80,8 +81,7 @@
       <paper-input label="Country" value="{{usercountry}}"></paper-input>
       <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
     </div>
-    
-    
+ 
 </paper-material>
 
 

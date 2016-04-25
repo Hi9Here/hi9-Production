@@ -30,6 +30,7 @@
     "firebase-element": "master",
     "mediator-data": "master",
     "card-deck": "master",
-    "card-display": "master"
+    "card-display": "master",
+    "iron-icon": "master"
   }
 }
