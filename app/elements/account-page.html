@@ -65,8 +65,8 @@
     
       <div id="papbutts">
       
-      <paper-button raised data-dialog="interests">Interests</paper-button>
-      <paper-button raised data-dialog="share">Help Us</paper-button>
+      <paper-button raised on-tap="interests">Interests</paper-button>
+      <paper-button raised on-tap="share">Help Us</paper-button>
         
       </div>
     
@@ -102,8 +102,7 @@
   <paper-checkbox>Financial Help</paper-checkbox>
   
   <paper-button dialog-dismiss>Cancel</paper-button>
-  <paper-button dialog-confirm>OK</paper-button>
-  
+  <paper-button dialog-confirm autofocus>OK</paper-button>
 </paper-dialog>
 
 <paper-dialog id="share" modal>
@@ -115,8 +114,7 @@
     
     <paper-checkbox>Share My Data</paper-checkbox>  
     
-    <paper-button dialog-dismiss>Cancel</paper-button>
-    <paper-button dialog-confirm>OK</paper-button>
+    <paper-button dialog-confirm autofocus>OK</paper-button>
     
 </paper-dialog>
 
@@ -185,7 +183,9 @@
             notify: true
           }
         }
-        
+      //  function () {
+      //     this.$.interests.open()
+      //   }
       });
     })();
   </script>
