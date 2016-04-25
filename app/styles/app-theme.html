@@ -185,6 +185,9 @@
     min-height: 48px;
     padding: 0 16px;
   }
+  iron-pages {
+    margin-left: 20px;
+  }
   
   /*#mainToolbar .middle-container {
     height: 100%;
@@ -246,29 +249,42 @@
     paper-tabs {
       width: 220px;
     }
-    paper-tabs iron-icon {
-      color: #FFF;
+    span {
+      font-size: 120%;
     }
-    paper-input.account-page {
-      width: 100px;
+    iron-pages {
+      margin-left: 10px;
     }
+
 
   }
   /* Tablet+ */
   
-  @media (min-width: 601px) {
+  @media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1)
+   {
     paper-material {
-      width: calc(98% - 46px);
-      margin-bottom: 32px;
-      padding-left: 30px;
-      padding-right: 30px;
+      --menu-container-display: none;
+      width: calc(97.33% - 32px);
+      padding-left: 16px;
+      padding-right: 16px;
     }
-    #drawer.paper-drawer-panel > [drawer] {
-      border-right: 1px solid rgba(0, 0, 0, 0.14);
+     #drawer .paper-toolbar {
+      margin-left: 16px;
+    }
+    .bg {
+      background: white;
     }
     iron-pages {
-      padding: 48px 62px;
+      margin-left: 10px;
     }
+    span {
+      font-size: 120%;
+    }
+
+    
   }
   /* Material Design Adaptive Breakpoints */
   /*

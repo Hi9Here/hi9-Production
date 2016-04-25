@@ -23,16 +23,16 @@
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Hi9">
-  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+  <link rel="icon" sizes="192x192" href="images/hi9-logos/hi9-logo-color-white-bg-192.png">
 
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Hi9 Personal Web">
-  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="images/hi9-logos/hi9-logo-color-152.png">
 
   <!-- Tile icon for Win8 (144x144) -->
-  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileImage" content="images/hi9-logos/hi9-logo-colr-white-144.png">
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
@@ -97,8 +97,14 @@
             </a>
           </div>
           <hr> 
+           <div id="users">
+            <a data-route="users" href="/users" on-click="onDataRouteClick">
+              <iron-icon icon="face"></iron-icon>
+              <span>Users</span>
+            </a>
+          </div>
            <div id="dashboard">
-            <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick, hide()">
+            <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick">
               <iron-icon icon="assessment"></iron-icon>
               <span>Dashboard</span>
             </a>
@@ -165,6 +171,10 @@
             
             <section data-route="projects">
                 <projects-page></projects-page>
+            </section>
+            
+            <section data-route="users">
+                <users-page></users-page>
             </section>
             
             <section data-route="dashboard">

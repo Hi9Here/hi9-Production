@@ -24,5 +24,12 @@
   "devDependencies": {
     "web-component-tester": "*",
     "test-fixture": "PolymerElements/test-fixture#^1.0.0"
+  },
+  "resolutions": {
+    "card-data": "master",
+    "firebase-element": "master",
+    "mediator-data": "master",
+    "card-deck": "master",
+    "card-display": "master"
   }
 }
