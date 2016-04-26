@@ -55,7 +55,7 @@
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
 
-    <paper-drawer-panel id="paperDrawerPanel">
+    <paper-drawer-panel id="paperDrawerPanel" responsive-width="770px">
       <!-- Drawer Scroll Header Panel -->
       <paper-scroll-header-panel  drawer fixed keep-condensed-header="true">
 
@@ -101,25 +101,25 @@
             </a>
           
           <div id="menubottom">
-          <hr />          
-          <div id="users">
-            <a data-route="users" href="/users" on-click="onDataRouteClick">
-              <iron-icon icon="face"></iron-icon>
-              <span>Users</span>
-            </a>
-          </div>
-          <div id="admins">
-            <a data-route="admins" href="/admins" on-click="onDataRouteClick">
-              <iron-icon icon="face"></iron-icon>
-              <span>Admins</span>
-            </a>
-          </div>
-           <div id="dashboard">
-            <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick">
-              <iron-icon icon="assessment"></iron-icon>
-              <span>Dashboard</span>
-            </a>
-          </div>
+            <hr>          
+            <div id="users">
+              <a data-route="users" href="/users" on-click="onDataRouteClick">
+                <iron-icon icon="face"></iron-icon>
+                <span>Users</span>
+              </a>
+            </div>
+            <div id="admins">
+              <a data-route="admins" href="/admins" on-click="onDataRouteClick">
+                <iron-icon icon="perm-identity"></iron-icon>
+                <span>Admins</span>
+              </a>
+            </div>
+            <div id="dashboard">
+              <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick" id="dashb">
+                <iron-icon icon="assessment"></iron-icon>
+                <span>Dashboard</span>
+              </a>
+            </div>
           </div>
             
         </paper-menu>
@@ -182,7 +182,7 @@
               <users-page></users-page>
             </section>
             
-            <section data-route="users">
+            <section data-route="admins">
               <admins-page></admins-page>
             </section>
             
