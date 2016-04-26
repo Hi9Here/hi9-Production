@@ -93,13 +93,13 @@
           usercounty: { value: 'Cornwall' },
           usercountry: { value: 'United Kingdom' },
           userpostcode: { value: 'TR18 2ED' },
-          cards: { computed: "getCards(user.google, saveMe)" }
+          cards: { computed: 'getCards(user.google, saveMe)' }
         },
         openInterests: function () {
-          this.$.interests.open()
+          this.$.interests.open();
         },
         openShare : function () {
-          this.$.share.open()
+          this.$.share.open();
         }
       });
     })();
