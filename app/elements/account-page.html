@@ -1,5 +1,5 @@
 <!doctype html>
-
+<link rel="import" href="../image-base64/image-base64.html">
 <dom-module id="account-page">
   <template>
     <style>
@@ -21,68 +21,68 @@
       }
     </style>
 
-<paper-material elevation="1" id="acc">
-   <h2>Account</h2>
-    <div class="accountdetails">
-      <paper-input label="Name" value="{{user.google.displayName}}"></paper-input>
-      <paper-input label="Tel" value="{{usertel}}"></paper-input>
-      <paper-input label="EmailName" value="{{user.google.email}}"></paper-input>
-      <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
-    
-      <div id="papbutts">
-        <paper-button raised on-tap="openInterests">Interests</paper-button>
-        <paper-button raised on-tap="openShare">Help Us</paper-button>
+    <paper-material elevation="1" id="acc">
+      <h2>Account</h2>
+      <div class="accountdetails">
+        <paper-input label="Name" value="{{user.google.displayName}}"></paper-input>
+        <paper-input label="Tel" value="{{usertel}}"></paper-input>
+        <paper-input label="EmailName" value="{{user.google.email}}"></paper-input>
+        <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
+      
+        <div id="papbutts">
+          <paper-button raised on-tap="openInterests">Interests</paper-button>
+          <paper-button raised on-tap="openShare">Help Us</paper-button>
+        </div>
       </div>
-    </div>
-    
-    <div class="accountdetails">
-      <paper-input label="House" value="{{useradd1}}"></paper-input>
-      <paper-input label="Street" value="{{useradd2}}"></paper-input>
-      <paper-input label="Town" value="{{usertown}}"></paper-input>
-      <paper-input label="County" value="{{usercounty}}"></paper-input>
-      <paper-input label="Country" value="{{usercountry}}"></paper-input>
-      <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
-    </div>
+      
+      <div class="accountdetails">
+        <paper-input label="House" value="{{useradd1}}"></paper-input>
+        <paper-input label="Street" value="{{useradd2}}"></paper-input>
+        <paper-input label="Town" value="{{usertown}}"></paper-input>
+        <paper-input label="County" value="{{usercounty}}"></paper-input>
+        <paper-input label="Country" value="{{usercountry}}"></paper-input>
+        <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
+      </div>
  
-    <hi9-login></hi9-login>      
-</paper-material>
+      <hi9-login></hi9-login>      
+    </paper-material>
 
-    <img src="{{user.google.profileImageURL}}" width />
+    <image-base64 url="{{user.google.profileImageURL}}" width="100" base64="{{saveMe}}"></image-base64>
 
-<paper-dialog id="interests" modal>
-  <h2>Interests</h2>
-  <p>Please Share your Interests. More we know the more we can recommend cards to you</p>
+    <paper-dialog id="interests" modal>
+      <h2>Interests</h2>
+      <p>Please Share your Interests. More we know the more we can recommend cards to you</p>
   
-  <paper-checkbox>Skills</paper-checkbox>
-  <paper-checkbox>Job Searching</paper-checkbox>
-  <paper-checkbox>Starting a Business</paper-checkbox>
-  <paper-checkbox>Social Events</paper-checkbox>
-  <paper-checkbox>Volunteering</paper-checkbox>
-  <paper-checkbox>Sports Clubs</paper-checkbox>
-  <paper-checkbox>Events</paper-checkbox>
-  <paper-checkbox>Mental Health Issues</paper-checkbox>
-  <paper-checkbox>Health Issues</paper-checkbox>
-  <paper-checkbox>Groups I Can Join</paper-checkbox>
-  <paper-checkbox>Financial Help</paper-checkbox>
-  <div class="button"> 
-    <paper-button dialog-dismiss>Cancel</paper-button>
-    <paper-button dialog-confirm autofocus>OK</paper-button>
-  </div>
-</paper-dialog>
+      <paper-checkbox>Skills</paper-checkbox>
+      <paper-checkbox>Job Searching</paper-checkbox>
+      <paper-checkbox>Starting a Business</paper-checkbox>
+      <paper-checkbox>Social Events</paper-checkbox>
+      <paper-checkbox>Volunteering</paper-checkbox>
+      <paper-checkbox>Sports Clubs</paper-checkbox>
+      <paper-checkbox>Events</paper-checkbox>
+      <paper-checkbox>Mental Health Issues</paper-checkbox>
+      <paper-checkbox>Health Issues</paper-checkbox>
+      <paper-checkbox>Groups I Can Join</paper-checkbox>
+      <paper-checkbox>Financial Help</paper-checkbox>
+      <div class="button"> 
+        <paper-button dialog-dismiss>Cancel</paper-button>
+        <paper-button dialog-confirm autofocus>OK</paper-button>
+      </div>
+    </paper-dialog>
 
-<paper-dialog id="share" modal>
-  <h2>Can you help us?</h2>
-  <p>If you would like to share your usage of this platform with your housing association then please tick yes below. This means the housing association can help you more with your needs and understand how best to help you. If you don't tick Yes then all we do is collect anonymous data of clicks on this platform with no chance that this data can be associated with this account. If you have any questions then please contact us in the account page.</p>
+    <paper-dialog id="share" modal>
+      <h2>Can you help us?</h2>
+      <p>If you would like to share your usage of this platform with your housing association then please tick yes below. This means the housing association can help you more with your needs and understand how best to help you. If you don't tick Yes then all we do is collect anonymous data of clicks on this platform with no chance that this data can be associated with this account. If you have any questions then please contact us in the account page.</p>
     
-  <p>You can always come back and change your mind at any time</p>
-  <br>
+      <p>You can always come back and change your mind at any time</p>
+      <br>
+      
+      <paper-checkbox>Share My Data</paper-checkbox>  
     
-  <paper-checkbox>Share My Data</paper-checkbox>  
-    
-  <div class="button"> 
-    <paper-button dialog-confirm autofocus>OK</paper-button>
-  </div>
-</paper-dialog>
+      <div class="button"> 
+        <paper-button dialog-confirm autofocus>OK</paper-button>
+      </div>
+    </paper-dialog>
 
   </template>
   <script>
