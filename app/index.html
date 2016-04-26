@@ -159,39 +159,43 @@
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
-                 <card-control url="https://open-elements.firebaseio.com/all/marcus6666"  search="{{search}}" token=""></card-control>
+               <card-control url="https://open-elements.firebaseio.com/all/marcus6666"  search="{{search}}" token=""></card-control>
             </section>
 
             <section data-route="surveys">
-                <surveys-page></surveys-page>
+              <surveys-page></surveys-page>
             </section>
             
             <section data-route="events">
-                <events-page></events-page>
+              <events-page></events-page>
             </section>
 
             <section data-route="services">
-                <services-page></services-page>
+              <services-page></services-page>
             </section>
             
             <section data-route="projects">
-                <projects-page></projects-page>
+              <projects-page></projects-page>
             </section>
             
             <section data-route="users">
-                <users-page></users-page>
+              <users-page></users-page>
+            </section>
+            
+            <section data-route="users">
+              <admins-page></admins-page>
             </section>
             
             <section data-route="dashboard">
-                <dash-board></dash-board>
+              <dash-board></dash-board>
             </section>
             
             <section data-route="accountpage">
-                <account-page user="{{user}}"></account-page>
+              <account-page user="{{user}}"></account-page>
             </section>
             
             <section data-route="contactpage">
-                <contact-page></contact-page>
+              <contact-page></contact-page>
             </section>
 
           </iron-pages>
