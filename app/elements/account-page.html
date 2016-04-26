@@ -3,77 +3,40 @@
 <dom-module id="account-page">
   <template>
     <style>
-      h2 {
-        color: #FFF;
-      }
-      h4 {
-        color: #FFF;
-      }
-      paper-material {
-        background-color:#512da8;
-        padding: 20px;
-        width: 790px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 50px;
-        height: 500px;
-      }
-      paper-input {
-        width: 300px;
-      }
-      .accountdetails {
-        float: left;
-        height: 100%;
-        margin-left: 50px;
-      }
+      h2 { color: #FFF; }
+      h4 { color: #FFF; }
+      paper-material { background-color:#512da8; padding: 20px; width: 790px; margin-left: auto; margin-right: auto;
+        margin-top: 50px; height: 500px; }
+      paper-input { width: 300px; }
+      .accountdetails { float: left; height: 100%; margin-left: 50px; }
       
-      #papbutts paper-button {
-        margin-top: 20px;
-        color: #333;
-        background-color: #fff;
-        width: 60%;
-      }
+      #papbutts paper-button { margin-top: 20px; color: #333; background-color: #fff; width: 60%; }
       
-      #papbutts {
-        float: left;
-      }
+      #papbutts { float: left; }
       
       @media (max-width: 600px) {
-        paper-input {
-          width: 250px;
-        } 
-        paper-material {
-          width: 300px;
-          height: 900px;
-        }
-        .accountdetails {
-          margin-left: 10px;
-          height: 50%;   
-        }
-
+        paper-input { width: 250px; } 
+        paper-material { width: 300px; height: 900px; }
+        .accountdetails { margin-left: 10px; height: 50%;   }
       }
     </style>
 
 <paper-material elevation="1" id="acc">
    <h2>Account</h2>
     <div class="accountdetails">
-      <hi9-login></hi9-login>      
       <paper-input label="Name" value="{{user.google.displayName}}"></paper-input>
       <paper-input label="Tel" value="{{usertel}}"></paper-input>
       <paper-input label="EmailName" value="{{user.google.email}}"></paper-input>
       <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
     
       <div id="papbutts">
-      
-      <paper-button raised on-tap="openInterests">Interests</paper-button>
-      <paper-button raised on-tap="openShare">Help Us</paper-button>
-        
+        <paper-button raised on-tap="openInterests">Interests</paper-button>
+        <paper-button raised on-tap="openShare">Help Us</paper-button>
       </div>
-    
     </div>
     
+    <img src="{{user.google.profileImageURL}}" width />
     <div class="accountdetails">
-
       <paper-input label="House" value="{{useradd1}}"></paper-input>
       <paper-input label="Street" value="{{useradd2}}"></paper-input>
       <paper-input label="Town" value="{{usertown}}"></paper-input>
@@ -82,6 +45,7 @@
       <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
     </div>
  
+    <hi9-login></hi9-login>      
 </paper-material>
 
 
@@ -130,51 +94,14 @@
         is: 'account-page',
 
         properties: {
-          username: {
-            type: String,
-            value: 'Wo King',
-            notify: true
-          },
-          usertel: {
-            type: String,
-            value: '01736 732324',
-            notify: true
-          },
-          usertwitter: {
-            type: String,
-            value: '@mywoisme',
-            notify: true
-          },
-          useradd1: {
-            type: String,
-            value: '1st Line of Address',
-            notify: true
-          },
-          useradd2: {
-            type: String,
-            value: '2nd Line of Address',
-            notify: true
-          },
-          usertown: {
-            type: String,
-            value: 'Penznace',
-            notify: true
-          },
-          usercounty: {
-            type: String,
-            value: 'Cornwall',
-            notify: true
-          },
-          usercountry: {
-            type: String,
-            value: 'United Kingdom',
-            notify: true
-          },
-          userpostcode: {
-            type: String,
-            value: 'TR18 2ED',
-            notify: true
-          }
+          usertel: { value: '01736 732324', },
+          usertwitter: { value: '@mywoisme' },
+          useradd1: { value: '1st Line of Address' },
+          useradd2: { value: '2nd Line of Address' },
+          usertown: { value: 'Penznace' },
+          usercounty: { value: 'Cornwall' },
+          usercountry: { value: 'United Kingdom' },
+          userpostcode: { value: 'TR18 2ED' }
         },
         openInterests: function () {
           this.$.interests.open()
