@@ -5,20 +5,19 @@
     <style>
       h2 { color: #FFF; }
       h4 { color: #FFF; }
-      paper-material { background-color:#512da8; padding: 20px; width: 790px; margin-left: auto; margin-right: auto;
-        margin-top: 50px; height: 500px; }
       paper-input { width: 300px; }
       .accountdetails { float: left; height: 100%; margin-left: 50px; }
       #papbutts paper-button { margin-top: 20px; color: #333; background-color: #fff; width: 60%; }
       #papbutts { float: left; }
       @media (max-width: 600px) {
         paper-input { width: 250px; } 
-        paper-material { width: 300px; height: 900px; }
         .accountdetails { margin-left: 10px; height: 50%;   }
       }
     </style>
 
-    <paper-material elevation="1" id="acc">
+    <card-display cards="{{cards}}" on-tapped="openAcc"></card-display>
+
+    <paper-dialog id="acc">
       <h2>Account</h2>
       <div class="accountdetails">
         <paper-input label="Name" value="{{user.google.displayName}}"></paper-input>
@@ -40,12 +39,11 @@
         <paper-input label="Country" value="{{usercountry}}"></paper-input>
         <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
       </div>
- 
       <hi9-login></hi9-login>      
-    </paper-material>
+    </paper-dialog>
+ 
 
     <image-base64 url="{{user.google.profileImageURL}}" width="250" base64="{{saveMe}}"></image-base64>
-
     <paper-dialog id="interests" modal>
       <h2>Interests</h2>
       <p>Please Share your Interests. More we know the more we can recommend cards to you</p>
@@ -85,21 +83,27 @@
       Polymer({
         is: 'account-page',
         properties: {
-          usertel: { value: '01736 732324', },
-          usertwitter: { value: '@mywoisme' },
-          useradd1: { value: '1st Line of Address' },
-          useradd2: { value: '2nd Line of Address' },
-          usertown: { value: 'Penznace' },
-          usercounty: { value: 'Cornwall' },
-          usercountry: { value: 'United Kingdom' },
-          userpostcode: { value: 'TR18 2ED' },
-          cards: { computed: "getCards(user.google, saveMe)" }
+          usertel: {value: '01736 732324'},
+          usertwitter: {value: '@mywoisme'},
+          useradd1: {value: '1st Line of Address'},
+          useradd2: {value: '2nd Line of Address'},
+          usertown: {value: 'Penznace'},
+          usercounty: {value: 'Cornwall'},
+          usercountry: {value: 'United Kingdom'},
+          userpostcode: {value: 'TR18 2ED'},
+          cards: {computed: "getCards(user.uid, user.google, saveMe)"}
         },
         openInterests: function () {
           this.$.interests.open()
         },
-        openShare : function () {
+        openShare: function () {
           this.$.share.open()
+        },
+        openAcc: function () {
+          this.$.acc.open()
+        },
+        getCards: function (uid, google, image) {
+          return [{title: google.displayName, image: image, url:"user:"+uid}]  
         }
       });
     })();

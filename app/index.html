@@ -101,7 +101,7 @@
             </a>
           
           <div id="menubottom">
-          <hr>          
+          <hr />          
           <div id="users">
             <a data-route="users" href="/users" on-click="onDataRouteClick">
               <iron-icon icon="face"></iron-icon>
@@ -159,7 +159,7 @@
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
-               <card-control url="https://open-elements.firebaseio.com/all/marcus6666"  search="{{search}}" token=""></card-control>
+              <card-control url="https://open-elements.firebaseio.com/all/marcus6666"  search="{{search}}" token="{{user.token}}"></card-control>
             </section>
 
             <section data-route="surveys">
