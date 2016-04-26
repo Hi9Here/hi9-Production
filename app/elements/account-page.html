@@ -38,7 +38,7 @@
         float: left;
       }
       
-       @media (max-width: 600px) {
+      @media (max-width: 600px) {
         paper-input {
           width: 250px;
         } 
@@ -51,7 +51,7 @@
           height: 50%;   
         }
 
-       }
+      }
     </style>
 
 <paper-material elevation="1" id="acc">
@@ -100,22 +100,24 @@
   <paper-checkbox>Health Issues</paper-checkbox>
   <paper-checkbox>Groups I Can Join</paper-checkbox>
   <paper-checkbox>Financial Help</paper-checkbox>
-  
-  <paper-button dialog-dismiss>Cancel</paper-button>
-  <paper-button dialog-confirm autofocus>OK</paper-button>
+  <div class="button"> 
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm autofocus>OK</paper-button>
+  </div>
 </paper-dialog>
 
 <paper-dialog id="share" modal>
   <h2>Can you help us?</h2>
   <p>If you would like to share your usage of this platform with your housing association then please tick yes below. This means the housing association can help you more with your needs and understand how best to help you. If you don't tick Yes then all we do is collect anonymous data of clicks on this platform with no chance that this data can be associated with this account. If you have any questions then please contact us in the account page.</p>
     
-    <p>You can always come back and change your mind at any time</p>
-    <br>
+  <p>You can always come back and change your mind at any time</p>
+  <br>
     
-    <paper-checkbox>Share My Data</paper-checkbox>  
+  <paper-checkbox>Share My Data</paper-checkbox>  
     
+  <div class="button"> 
     <paper-button dialog-confirm autofocus>OK</paper-button>
-    
+  </div>
 </paper-dialog>
 
   </template>
