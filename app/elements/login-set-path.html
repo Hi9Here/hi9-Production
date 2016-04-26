@@ -17,21 +17,21 @@ Polymer({
   is: "login-set-path",
   properties: {
     yours: {value: true},
-    location: {
+    url: {
       value: "https://g1.firebaseio.com/"
     },
     user: {
       notify: true
     },
     cardPath: {
-      notify: true, computed: "getPath(user.uid, location, yours, 'yhg' )"
+      notify: true, computed: "getPath(user.uid, url, yours, 'yhg' )"
     }
   },
-  getPath: function(uid, location, yours, more) {
+  getPath: function(uid, url, yours, more) {
     if (yours) {
-      return location + "users/" + uid + "/cards/"
+      return url + "users/" + uid + "/cards/"
     } else {
-      return location + "share/" + more + "/"+ uid + "/cards/"
+      return url + "share/" + more + "/"+ uid + "/cards/"
     }
   },
   setToYours: function() {
