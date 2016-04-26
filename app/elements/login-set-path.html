@@ -1,0 +1,42 @@
+<dom-module id="login-set-path">
+  <template>
+    <template is="dom-if" if="{{!user}}">
+      <hi9-login location="{{location}}"></hi9-login>
+    </template>
+    <hi9-login hidden user="{{user}}"  location="{{location}}"></hi9-login>
+    <template is="dom-if" if="{{user}}">
+      <paper-tabs selected="0">
+        <paper-tab on-tap="setToYours">Yours</paper-tab>
+        <paper-tab on-tap="setToMore">YHG</paper-tab>
+      </paper-tabs>
+    </template>
+  </template>
+</dom-module>
+<script>
+Polymer({
+  is: "login-set-path",
+  properties: {
+    yours: {value: true},
+    location: {
+      value: "https://g1.firebaseio.com/"
+    },
+    user: {
+      notify: true
+    },
+    cardPath: {
+      notify: true, computed: "getPath(user.uid, location, yours)"
+    }
+  },
+  getPath: function(uid, location, yours) {
+    if (yours) {
+      return location + "users/" + uid + "/cards/"
+    }  
+  },
+  setToYours: function() {
+    this.set("yours", true)
+  },  
+  setToMore: function() {
+    this.set("yours", false)
+  } 
+})
+</script>
