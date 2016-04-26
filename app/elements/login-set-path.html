@@ -24,13 +24,15 @@ Polymer({
       notify: true
     },
     cardPath: {
-      notify: true, computed: "getPath(user.uid, location, yours)"
+      notify: true, computed: "getPath(user.uid, location, yours, 'yhg' )"
     }
   },
-  getPath: function(uid, location, yours) {
+  getPath: function(uid, location, yours, more) {
     if (yours) {
       return location + "users/" + uid + "/cards/"
-    }  
+    } else {
+      return location + "share/" + more + "/"+ uid + "/cards/"
+    }
   },
   setToYours: function() {
     this.set("yours", true)
