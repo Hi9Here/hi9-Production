@@ -17,14 +17,14 @@ Polymer({
   is: "login-set-path",
   properties: {
     yours: {value: true},
-    url: {
+    _url: {
       value: "https://g1.firebaseio.com/"
     },
     user: {
       notify: true
     },
-    cardPath: {
-      notify: true, computed: "getPath(user.uid, url, yours, 'yhg' )"
+    url: {
+      notify: true, computed: "getPath(user.uid, _url, yours, 'yhg' )"
     }
   },
   getPath: function(uid, url, yours, more) {
