@@ -9,7 +9,7 @@
   <meta name="generator" content="Hi9 Personal Web" />
   <title>Hi9 Personal Web</title>
   <!-- Place favicon.ico in the `app/` directory -->
-  <link rel="shortcut icon" " href="favicon.ico "" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
   <!-- Chrome for Android theme color -->
   <meta name="theme-color" content="#512da8">
@@ -131,19 +131,21 @@
         <!-- Main Toolbar -->
         <paper-toolbar>
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-            <paper-input label="Search" no-label-float id="topsearch">
-            <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
+            <paper-input label="Search" value="{{search}}" no-label-float id="topsearch">
+              <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
             </paper-input>
                  
             <span class="flex"></span>
+            <login-set-path></login-set-path>
             <template is="dom-if" if="{{!user}}">
-              <hi9-login></hi9-login>
+              <hi9-login location="https://g1.firebaseio.com/"></hi9-login>
             </template>
-            <hi9-login hidden user="{{user}}"></hi9-login>
+
+            <hi9-login hidden user="{{user}}"  location="https://g1.firebaseio.com/"></hi9-login>
             <template is="dom-if" if="{{user}}">
               <paper-tabs selected="0">
-                <paper-tab>Yours</paper-tab>
-                <paper-tab>More</paper-tab>
+                <paper-tab on-tap="setToYours">Yours</paper-tab>
+                <paper-tab on-tap="setToMore">More</paper-tab>
               </paper-tabs>
             </template>
 
@@ -159,7 +161,7 @@
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
-              <card-control url="https://open-elements.firebaseio.com/all/marcus6666"  search="{{search}}" token="{{user.token}}"></card-control>
+              <card-control url="{{urlForCards}}" search="{{search}}" token="{{user.token}}"></card-control>
             </section>
 
             <section data-route="surveys">

@@ -99,11 +99,27 @@
         openShare: function () {
           this.$.share.open()
         },
-        openAcc: function () {
-          this.$.acc.open()
+        openAcc: function (e, d) {
+          if (d === 0) {
+            this.$.acc.open()
+          } else {
+            this.install
         },
-        getCards: function (uid, google, image) {
-          return [{title: google.displayName, image: image, url:"user:"+uid}]  
+        getCards: function (uid, google, image, installed) {
+          if (chrome.app.isInstalled) {
+            return [{title: google.displayName, image: image, url: "user:" + uid}]  
+          } else {
+            var ext = {title:"Add cards", url: "user:ext"}
+            return [{title: google.displayName, image: image, url:"user:"+uid},ext]
+          }
+        },  
+        install: function(e) {
+          that = this
+          chrome.webstore.install("https://chrome.google.com/webstore/detail/nkbabmancickiacfoeoadibicncombep",function(e) {
+            that.installed = true
+          },function(e) {
+            that.installed = false
+          })
         }
       });
     })();

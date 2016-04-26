@@ -22,6 +22,7 @@
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
     // imports are loaded and elements have been registered
+    
   });
   // Close drawer after menu item is selected if drawerPanel is narrow
   app.onDataRouteClick = function() {
@@ -35,7 +36,6 @@
   app.scrollPageToTop = function() {
     document.getElementById('mainContainer').scrollTop = 0;
   };
-
 })(document);
 
 
