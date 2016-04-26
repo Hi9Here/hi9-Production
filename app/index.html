@@ -138,18 +138,7 @@
             </paper-input>
                  
             <span class="flex"></span>
-            <login-set-path></login-set-path>
-            <template is="dom-if" if="{{!user}}">
-              <hi9-login location="https://g1.firebaseio.com/"></hi9-login>
-            </template>
-
-            <hi9-login hidden user="{{user}}"  location="https://g1.firebaseio.com/"></hi9-login>
-            <template is="dom-if" if="{{user}}">
-              <paper-tabs selected="0">
-                <paper-tab on-tap="setToYours">Yours</paper-tab>
-                <paper-tab on-tap="setToMore">More</paper-tab>
-              </paper-tabs>
-            </template>
+            <login-set-path user="{{user}}" card-path="{{urlForCards}}"></login-set-path>
 
             <!--  Logo -->
             <div id="logo">
