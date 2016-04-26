@@ -1,5 +1,5 @@
 <!doctype html>
-<link rel="import" href="../../bower_component/image-base64/image-base64.html">
+<link rel="import" href="../../bower_components/image-base64/image-base64.html">
 <dom-module id="account-page">
   <template>
     <style>
@@ -9,11 +9,8 @@
         margin-top: 50px; height: 500px; }
       paper-input { width: 300px; }
       .accountdetails { float: left; height: 100%; margin-left: 50px; }
-      
       #papbutts paper-button { margin-top: 20px; color: #333; background-color: #fff; width: 60%; }
-      
       #papbutts { float: left; }
-      
       @media (max-width: 600px) {
         paper-input { width: 250px; } 
         paper-material { width: 300px; height: 900px; }
@@ -47,7 +44,7 @@
       <hi9-login></hi9-login>      
     </paper-material>
 
-    <image-base64 url="{{user.google.profileImageURL}}" width="100" base64="{{saveMe}}"></image-base64>
+    <image-base64 url="{{user.google.profileImageURL}}" width="250" base64="{{saveMe}}"></image-base64>
 
     <paper-dialog id="interests" modal>
       <h2>Interests</h2>
@@ -73,12 +70,9 @@
     <paper-dialog id="share" modal>
       <h2>Can you help us?</h2>
       <p>If you would like to share your usage of this platform with your housing association then please tick yes below. This means the housing association can help you more with your needs and understand how best to help you. If you don't tick Yes then all we do is collect anonymous data of clicks on this platform with no chance that this data can be associated with this account. If you have any questions then please contact us in the account page.</p>
-    
       <p>You can always come back and change your mind at any time</p>
       <br>
-      
       <paper-checkbox>Share My Data</paper-checkbox>  
-    
       <div class="button"> 
         <paper-button dialog-confirm autofocus>OK</paper-button>
       </div>
@@ -86,13 +80,10 @@
 
   </template>
   <script>
-    
     (function() {
       'use strict';
-
       Polymer({
         is: 'account-page',
-
         properties: {
           usertel: { value: '01736 732324', },
           usertwitter: { value: '@mywoisme' },
@@ -101,7 +92,8 @@
           usertown: { value: 'Penznace' },
           usercounty: { value: 'Cornwall' },
           usercountry: { value: 'United Kingdom' },
-          userpostcode: { value: 'TR18 2ED' }
+          userpostcode: { value: 'TR18 2ED' },
+          cards: { computed: "getCards(user.google, saveMe)" }
         },
         openInterests: function () {
           this.$.interests.open()
