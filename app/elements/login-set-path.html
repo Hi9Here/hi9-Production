@@ -24,7 +24,7 @@
 Polymer({
   is: "login-set-path",
   properties: {
-    yours: {value: true},
+    yours: {notify: true, value: true},
     _url: {
       value: "https://g1.firebaseio.com/"
     },
@@ -32,7 +32,10 @@ Polymer({
       notify: true
     },
     url: {
-      notify: true, computed: "getPath(_url, yours, 'yhg' )"
+      notify: true, computed: "getPath(_url, true, 'yhg' )"
+    },
+    moreUrl: {
+      notify: true, computed: "getPath(_url, false, 'yhg' )"
     },
     uid: {
       notify: true, computed: "got(user.uid)"
