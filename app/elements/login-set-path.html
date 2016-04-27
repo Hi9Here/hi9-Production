@@ -38,11 +38,11 @@ Polymer({
       notify: true, computed: "got(user.uid)"
     }
   },
-  getPath: function(uid, url, yours, more) {
+  getPath: function(url, yours, more) {
     if (yours) {
-      return url + "users/" + uid + "/cards/"
+      return url + "users/"
     } else {
-      return url + "share/" + more + "/"+ uid + "/cards/"
+      return url + "share/" + more + "/"
     }
   },
   setToYours: function() {
