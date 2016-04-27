@@ -24,7 +24,7 @@
     "paper-checkbox": "~1.1.3",
     "hi9-login": "*",
     "image-base64": "marcus7777/image-base64",
-    "mediator-data": "marcus7777/mediator-data#master"
+    "mediator-data": "marcus7777/mediator-data#ef7d623873ae20d51342e55cad2bcc3e3221a0c1"
   },
   "devDependencies": {
     "web-component-tester": "*",
@@ -33,7 +33,7 @@
   "resolutions": {
     "card-data": "master",
     "firebase-element": "^1.0.0",
-    "mediator-data": "master",
+    "mediator-data": "ef7d623873ae20d51342e55cad2bcc3e3221a0c1",
     "card-deck": "master",
     "card-display": "master",
     "iron-icon": "master",

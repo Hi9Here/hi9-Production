@@ -30,7 +30,7 @@
 
     <card-display cards="{{cards}}" on-tapped="openAcc"></card-display>
 <!-- TODO Update stylings  -->
-    <paper-dialog id="acc" style="background: #512da8"" >
+    <paper-dialog id="acc" style="background: #512da8" >
       <h2>Account</h2>
       <div class="accountdetails">
         <paper-input label="Name" value="{{user.google.displayName}}"></paper-input>
@@ -85,6 +85,8 @@
       </div>
     </paper-dialog>-->
 
+    <iron-ajax id="set" method="PUT"></iron-ajax>
+
   </template>
   <script>
     (function() {
@@ -92,33 +94,15 @@
       Polymer({
         is: 'account-page',
         properties: {
-          usertel: {
-            value: '01736 732324'
-          },
-          usertwitter: {
-            value: '@mywoisme'
-          },
-          useradd1: {
-            value: '1st Line of Address'
-          },
-          useradd2: {
-            value: '2nd Line of Address'
-          },
-          usertown: {
-            value: 'Penznace'
-          },
-          usercounty: {
-            value: 'Cornwall'
-          },
-          usercountry: {
-            value: 'United Kingdom'
-          },
-          userpostcode: {
-            value: 'TR18 2ED'
-          },
-          cards: {
-            computed: "getCards(user.uid, user.google, saveMe)"
-          }
+          usertel: { value: '01736 732324' },
+          usertwitter: { value: '@mywoisme' },
+          useradd1: { value: '1st Line of Address' },
+          useradd2: { value: '2nd Line of Address' },
+          usertown: { value: 'Penznace' },
+          usercounty: { value: 'Cornwall' },
+          usercountry: { value: 'United Kingdom' },
+          userpostcode: { value: 'TR18 2ED' },
+          cards: { computed: "getCards(user.uid, user.google, saveMe)" }
         },
         openInterests: function() {
           this.$.interests.open()
@@ -134,6 +118,12 @@
           }
         },
         getCards: function(uid, google, image, installed) {
+
+          this.$.set.headers = {'content-type':'application/json'}
+          this.$.set.body = JSON.stringify({title: google.displayName, image: image, url: "user:" + uid})
+          this.$.set.url = "https://g1.firebaseio.com/share/users/" + uid + ".json"
+          this.$.set.generateRequest()
+
           if (chrome.app.isInstalled) {
             return [{
               title: google.displayName,
