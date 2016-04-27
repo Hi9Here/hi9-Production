@@ -6,10 +6,14 @@
      paper-textarea {
        margin: 10px;
      }
+
      paper-material {
        width: 200px;
        height: 250px;
+       background-color: #512da8;
      }
+     
+
      paper-fab {
        position: absolute;
        bottom: 20px;
@@ -21,15 +25,16 @@
 
       <h2>Surveys</h2>
 
-
-<paper-material elevation="1">
+<div id="surveyadd">
+  <paper-material elevation="1">
   
-  <paper-textarea label="Question" style="color: #333;"></paper-textarea>
+  <paper-textarea label="Question" char-counter maxlength="100"></paper-textarea>
   
   <paper-fab icon="add"></paper-fab>
-  
-  
+ 
 </paper-material>
+
+</div>
 
   
 
