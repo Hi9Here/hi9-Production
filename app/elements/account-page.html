@@ -9,14 +9,18 @@
       .accountdetails { float: left; height: 100%; margin-left: 50px; }
       #papbutts paper-button { margin-top: 20px; color: #333; background-color: #fff; width: 60%; }
       #papbutts { float: left; }
-      @media (max-width: 600px) {
-        paper-input { width: 250px; } 
-        .accountdetails { margin-left: 10px; height: 50%;   }
-      }
       #acc {height: 500px;}
+      #interests {background: #fff;}
       #interests  h2 {color: #333;}
       #pbutton {position: absolute; right: 30px; bottom: 30px;}
       #pbutton paper-button {background: #FF4081; color: #fff;}
+      
+      @media (max-width: 600px) {
+        paper-input { width: 250px; } 
+        .accountdetails { margin-left: 10px; height: 50%; }
+        .acc {height: 619px;}
+      }
+      
     </style>
 
     <card-display cards="{{cards}}" on-tapped="openAcc"></card-display>
@@ -31,8 +35,8 @@
       
         <div id="papbutts">
           <paper-button raised on-tap="openInterests">Interests</paper-button>
-          <!--TODO Add a share more information dialog-->
-          <!--<paper-button raised on-tap="openShare">Help Us</paper-button>-->
+<!--TODO Add a share more information dialog-->
+<!--<paper-button raised on-tap="openShare">Help Us</paper-button>-->
         </div>
       </div>
       
