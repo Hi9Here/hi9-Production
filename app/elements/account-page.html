@@ -16,9 +16,13 @@
       #pbutton paper-button {background: #FF4081; color: #fff;}
       
       @media (max-width: 600px) {
-        paper-input { width: 250px; } 
-        .accountdetails { margin-left: 10px; height: 50%; }
-        .acc {height: 619px;}
+        paper-input { width: 250px;}
+        .accountdetails { margin-left: 0px; height: 50%; }
+        #acc {height: 400px;}
+        #papbutts paper-button {width: 100px;}
+        /* TODO Sort out account display and login button */
+        #lastacc {display: none;}
+        hi9-login {display: none;}
       }
       
     </style>
@@ -39,8 +43,8 @@
 <!--<paper-button raised on-tap="openShare">Help Us</paper-button>-->
         </div>
       </div>
-      
-      <div class="accountdetails">
+      <!-- TODO Get rid of lastacc and sort out account display -->
+      <div class="accountdetails" id="lastacc">
         <paper-input label="House" value="{{useradd1}}"></paper-input>
         <paper-input label="Street" value="{{useradd2}}"></paper-input>
         <paper-input label="Town" value="{{usertown}}"></paper-input>
