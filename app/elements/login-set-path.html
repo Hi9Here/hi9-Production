@@ -1,5 +1,13 @@
 <dom-module id="login-set-path">
   <template>
+    <style>
+      paper-tabs {
+        font-size: 18px;
+        font-weight: 300;
+        height: 28px;
+        font-family: Roboto, Arial, Helvetica, sans-serif
+      }
+    </style>
     <template is="dom-if" if="{{!user}}">
       <hi9-login location="{{location}}"></hi9-login>
     </template>

@@ -12,17 +12,24 @@
       google-chart {
         font-size: 20px;
       }
-
+      #board {width: 100%; float: left;}
+      #totalusers { width: 100%}
     </style>
 
     <h2>Dashboard</h2>
+    <div id="totalusers">
+       <paper-material elevation="1" style="padding: 10px;">
+      <h4>Total Users 18</h4>
+    </paper-material>
+    </div>
+       
 <div id="board">
     <paper-material elevation="1">
       <google-chart
         type="pie"
         options='{"title": "Reasons"}'
         cols='[{"label":"Reasons", "type":"string"}, {"label":"Number", "type":"number"}]'
-        rows='[["Skills", 6],["Employment", 3],["Health & Social Inclusion", 3],["Business Startup", 2],["Financial Services", 7],["Education", 3]]'>
+        rows='[["Skills", 4],["Employment", 7],["Health & Social Inclusion", 3],["Business Startup", 2],["Services", 11],["Education", 2]]'>
       </google-chart>
     </paper-material>
     <paper-material elevation="1">
@@ -30,7 +37,7 @@
         type="pie"
         options='{"title": "Connections"}'
         cols='[{"label":"Connection", "type":"string"}, {"label":"Number", "type":"number"}]'
-        rows='[["Data SIM", 7],["Landline", 4],["Switching to Landline", 4],["Switching to Data SIM", 4]]'>
+        rows='[["Data SIM", 2],["Landline", 8],["Switching to Landline or SIM", 8]]'>
       </google-chart>
     </paper-material>
     <paper-material elevation="1">
@@ -38,36 +45,34 @@
         type="pie"
         options='{"title": "Surveys Answered"}'
         cols='[{"label":"Surveys Answered", "type":"string"}, {"label":"Number", "type":"number"}]'
-        rows='[["Answered", 13],["Not Answered", 0]]'>
+        rows='[["Answered", 17],["Not Answered", 0]]'>
       </google-chart>
     </paper-material>
     <paper-material elevation="1">
       <google-chart
         type="pie"
-        options='{"title": "Badges"}'
-        cols='[{"label":"Badges Earned", "type":"string"}, {"label":"Number", "type":"number"}]'
-        rows='[["Email", 11],["Login", 13]]'>
+        options='{"title": "Got Work"}'
+        cols='[{"label":"Employment", "type":"string"}, {"label":"Number", "type":"number"}]'
+        rows='[["Full Time", 1],["Part Time", 1]]'>
       </google-chart>
     </paper-material>
     <paper-material elevation="1">
       <google-chart
         type="pie"
-        options='{"title": "Want to Continue"}'
-        cols='[{"label":"Continue", "type":"string"}, {"label":"Number", "type":"number"}]'
-        rows='[["Continue", 13],["Not Continue", 0]]'>
-      </google-chart>
-    </paper-material>
-    <paper-material elevation="1">
-      <google-chart
-        type="pie"
-        options='{"title": "Multi Users in Household"}'
+        options='{"title": "Logged Into HI9"}'
         cols='[{"label":"Users", "type":"string"}, {"label":"Number", "type":"number"}]'
-        rows='[["Multi", 4],["Not", 9]]'>
+        rows='[["Yes", 18],["No", 0]]'>
       </google-chart>
     </paper-material>
-    <paper-material elevation="1" style="padding: 10px;">
-      <h4>Total Users in 13 Households: 22</h4>
+    <paper-material elevation="1">
+      <google-chart
+        type="pie"
+        options='{"title": "Emailed"}'
+        cols='[{"label":"Users", "type":"string"}, {"label":"Number", "type":"number"}]'
+        rows='[["Yes", 18],["No", 0]]'>
+      </google-chart>
     </paper-material>
+
   </div>
 
 
