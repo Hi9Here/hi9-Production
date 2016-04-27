@@ -138,7 +138,7 @@
             </paper-input>
                  
             <span class="flex"></span>
-            <login-set-path user="{{user}}" url="{{urlForCards}}"></login-set-path>
+            <login-set-path user="{{user}}" url="{{urlForCards}}" uid="{{uid}}"></login-set-path>
 
             <!--  Logo -->
             <div id="logo">
@@ -152,7 +152,7 @@
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
-              <card-control url="{{urlForCards}}" search="{{search}}" token="{{user.token}}" uid="{{user.uid}}"></card-control>
+              <card-control url="{{urlForCards}}" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
             </section>
 
             <section data-route="surveys">
