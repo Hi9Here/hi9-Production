@@ -33,13 +33,16 @@ Polymer({
     },
     url: {
       notify: true, computed: "getPath(user.uid, _url, yours, 'yhg' )"
+    },
+    uid: {
+      notify: true, computed: "got(user.uid)"
     }
   },
-  getPath: function(uid, url, yours, more) {
+  getPath: function(url, yours, more) {
     if (yours) {
-      return url + "users/" + uid + "/cards/"
+      return url + "users/"
     } else {
-      return url + "share/" + more + "/"+ uid + "/cards/"
+      return url + "share/" + more + "/"
     }
   },
   setToYours: function() {
@@ -47,6 +50,9 @@ Polymer({
   },  
   setToMore: function() {
     this.set("yours", false)
-  } 
+  },
+  got: function(it) {
+    return it
+  }
 })
 </script>
