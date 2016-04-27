@@ -1,75 +1,53 @@
-<!doctype html>
-
 <dom-module id="surveys-page">
   <template>
     <style>
-     paper-textarea {
-       margin: 10px;
-     }
-
-     paper-material {
-       width: 200px;
-       height: 250px;
-       background-color: #512da8;
-     }
-     
-
-     paper-fab {
-       position: absolute;
-       bottom: 20px;
-       right: 20px;
-     }
-
+      paper-textarea { margin: 10px; }
+      paper-material { width: 200px; height: 250px; background-color: #512da8; }
+      paper-fab { position: absolute; bottom: 20px; right: 20px; }
     </style>
-
-
-      <h2>Surveys</h2>
-
-<div id="surveyadd">
-  <paper-material elevation="1">
-  
-  <paper-textarea label="Question" char-counter maxlength="100" value="{{q}}"></paper-textarea>
-  
-  <paper-fab icon="add" on-tap="add"></paper-fab>
- 
-</paper-material>
-  <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked" ></card-display>
-      <template is="dom-if" if="{{!_mode}}">
-        <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
-      </template>
-      <template is="dom-if" if="{{_mode}}">
-        <paper-toolbar style="position:fixed;bottom:0;right:0;">
-            <div class="container">
-            <template is="dom-if" if="{{selected.length}}">
-              <paper-button on-tap="doneIt" raised><iron-icon icon="done"></iron-icon>{{_mode}}</paper-button>
-            </template>
-            <paper-button raised on-tap="cancel"><iron-icon icon="cancel"></iron-icon>cancel</paper-button>
-          </div>
-        </paper-toolbar>
-      </template>
-</div>
-
-  
-
+    <h2>Surveys</h2>
+    <paper-material elevation="1">
+      <paper-textarea label="Question" char-counter maxlength="100" value="{{q}}"></paper-textarea>
+      <paper-fab icon="add" on-tap="add"></paper-fab>
+    </paper-material>
+    <hr style="clear:both">
+    <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked" ></card-display>
+    <template is="dom-if" if="{{!_mode}}">
+      <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
+    </template>
+    <template is="dom-if" if="{{_mode}}">
+      <hr style="clear:both">
+      <paper-toolbar style="position:fixed;bottom:0;right:0;">
+        <div class="container">
+          <template is="dom-if" if="{{selected.length}}">
+            <paper-button on-tap="doneIt" raised><iron-icon icon="done"></iron-icon>{{_mode}}</paper-button>
+          </template>
+          <paper-button raised on-tap="cancel"><iron-icon icon="cancel"></iron-icon>cancel</paper-button>
+        </div>
+      </paper-toolbar>
+    </template>
+    <iron-ajax auto url="https://g1.firebaseio.com/share/users.json" last-response="{{users}}"></iron-ajax>  
+    <template is="dom-if" if="{{pickUsers}}">
+      <card-display cards="{{usersAsA}}" selectable selected="{{selectedUsers}}" ></card-display>
+    </template>
   </template>
-
   <script>
     (function() {
       'use strict';
-
       Polymer({
         is: 'surveys-page',
         properties: {
           cards: {type: Array, value:[]},
-    _menu:{ 
-      value: [
-        {label:"Delete",icon:"delete",fire:{type:"delete"}},
-        {label:"Share",icon:"social:share",fire:{type:"share"}}
-      ],
-      type: Array
-    },
-    _select: {type: Array},
-    _mode: {type: String, value: ""},
+          usersAsA: {computed:"objectToArray(users)"},
+          _menu:{ 
+            value: [
+              {label:"Delete",icon:"delete",fire:{type:"delete"}},
+              {label:"Share",icon:"social:share",fire:{type:"share"}}
+            ],
+            type: Array
+          },
+          _select: {type: Array},
+          _mode: {type: String, value: ""},
         },
         add: function () {
           this.set("cards" ,this.cards.concat([{title: this.q, url:"survey:22121"}]))
@@ -78,59 +56,87 @@
         picked: function (e,d) {
           this.splice("cards",d ,1)
         },
-fabDelete: function() {
-    this._mode = "Delete"
-    this.set("pickable", true)
-  },
-  fabAdd: function(e,detail) {
-    if (detail === "deck") {
-      this._mode = "Add to a Deck"
-      this.set("selectable", true)
-    }
-    if (detail === "card") {
-      //add 
-    }
-  },
-  fabShare: function() {
-    this._mode = "share"
-    this.set("selectable", true)
-  },
-  fabEdit: function() {
-    this._mode = "Pick the card to edit it"
-    this.set("pickable", true)
-  },
-  picked: function(e,d) {
-    if (this._mode === "Pick the card to edit it") {
-      // edit 
-      this.set("editing", this.cards[d])
-      this.set("editingIndex", d) 
-      this.$.edit.open()
-      
-      this._mode = ""
-    }
-    if (this._mode === "Delete") {
-      this.splice("cards", d, 1)
-      this._mode = ""
-      this.set("pickable", false)
-    }
-    
-  },
-  doneIt: function() {
-    if (this._mode === "Add to a Deck") {
-      var newDesk = {title:"New Deck", data: {}, url: "deck"}
-      for (var i = 0; i < this.selected.length; i++) {
-        newDesk.data["00"+i] = this.cards[this.selected[i]]
-      }
-      this.set("cards", this.cards.concat([newDesk]))
-    }
-    this._mode = ""
-    this.selected = []
-    this.set("selectable", false)
-    this.set("pickable", false)
-  }
-
+        fabDelete: function() {
+          this._mode = "Delete"
+          this.set("pickable", true)
+        },
+        objectToArray: function (data) {
+          var output = []
+          if (data) {
+            var keys = Object.keys(data)
+            for (var i = 0; i < keys.length; i++) {
+              if (typeof data[keys[i]] === 'object') {
+                output.push(data[keys[i]])
+              }
+            }
+          }
+          return output
+        },
+        fabAdd: function(e,detail) {
+          if (detail === "deck") {
+            this._mode = "Add to a Deck"
+            this.set("selectable", true)
+          }
+          if (detail === "card") {
+            //add 
+          }
+        },
+        fabShare: function() {
+          this._mode = "share"
+          this.set("selectable", true)
+        },
+        fabEdit: function() {
+          this._mode = "Pick the card to edit it"
+          this.set("pickable", true)
+        },
+        picked: function(e,d) {
+          if (this._mode === "Pick the card to edit it") {
+            // edit 
+            this.set("editing", this.cards[d])
+            this.set("editingIndex", d) 
+            this.$.edit.open()
+            
+            this._mode = ""
+          }
+          if (this._mode === "Delete") {
+            this.splice("cards", d, 1)
+            this._mode = ""
+            this.set("pickable", false)
+          }
+          
+        },
+        doneIt: function() {
+          if (this._mode === "share") {
+            this._mode = "Pick the users to share with"
+            this.set("pickUsers", true)
+          } else if (this._mode === "Pick the users to share with") {
+            // https://g1.firebaseio.com/share/yhg/google%3A108143381081229631011/cards
+            this.set("_mode","")
+            debugger     
+            this.selectedUsers = [] 
+            this.selected = []
+        
+            this.set("pickUsers", false)
+            this.set("selectable", false)
+            this.set("pickable", false)
+          } else if (this._mode === "Add to a Deck") {
+            var newDesk = {title:"New Deck", data: {}, url: "deck"}
+            for (var i = 0; i < this.selected.length; i++) {
+              newDesk.data["00"+i] = this.cards[this.selected[i]]
+            }
+            this.set("cards", this.cards.concat([newDesk]))
+            this._mode = ""
+            this.selected = []
+            this.set("selectable", false)
+            this.set("pickable", false)
+          } else {
+            this._mode = ""
+            this.selected = []
+            this.set("selectable", false)
+            this.set("pickable", false)
+          }
+        }
       });
     })();
   </script>
-
 </dom-module>
