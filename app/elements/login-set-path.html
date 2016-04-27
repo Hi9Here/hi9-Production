@@ -33,6 +33,9 @@ Polymer({
     },
     url: {
       notify: true, computed: "getPath(user.uid, _url, yours, 'yhg' )"
+    },
+    uid: {
+      notify: true, computed: "got(user.uid)"
     }
   },
   getPath: function(uid, url, yours, more) {
@@ -47,6 +50,9 @@ Polymer({
   },  
   setToMore: function() {
     this.set("yours", false)
-  } 
+  },
+  got: function(it) {
+    return it
+  }
 })
 </script>
