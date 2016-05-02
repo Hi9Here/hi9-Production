@@ -9,7 +9,7 @@
 
 <dom-module id="enterprise-users">
   <template>
-    <iron-ajax id=set method="PUT" url="https://g1.firebaseio.com/new.json" handle-as="json" body="{{value}}" ></iron-ajax>
+    <iron-ajax id="set" method="PUT" url="https://g1.firebaseio.com/share/new.json"></iron-ajax>
     <paper-dropdown-menu label="Number of users" value="{{value.contact}}">
       <paper-listbox class="dropdown-content">
         <paper-item>about 5 - 50</paper-item>
@@ -28,8 +28,13 @@
 <script>
   Polymer({
     is: "enterprise-users",
+    properties: {
+      value: {value:{}}
+    },
     press: function() {
+      this.$.set.headers = {'content-type':'application/json'}
+      this.$.set.body = JSON.stringify(this.value)
       this.$.set.generateRequest()
-    }   
+    }
   })
 </script>

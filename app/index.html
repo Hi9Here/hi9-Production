@@ -58,179 +58,178 @@
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
 
-    <paper-drawer-panel id="paperDrawerPanel" responsive-width="770px">
-      <!-- Drawer Scroll Header Panel -->
-      <paper-scroll-header-panel  drawer fixed keep-condensed-header="true">
-
-        <!-- Drawer Toolbar -->
-        <paper-toolbar id="drawerToolbar">
-          <span class="paper-font-title">Menu</span>
-        </paper-toolbar>
-
-        <!-- Drawer Content -->
-        <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-          <div id="all">
-            <a data-route="home" href="/" on-click="onDataRouteClick">
-              <iron-icon icon="apps"></iron-icon>
-              <span>All</span>
-            </a>
-          </div>
-          <div id="surveys">
-            <a data-route="surveys" href="/surveys" on-click="onDataRouteClick">
-              <iron-icon icon="check-box"></iron-icon>
-              <span>Surveys</span>
-            </a>
-          </div>
-          <div id="events">
-            <a data-route="events" href="/events" on-click="onDataRouteClick">
-              <iron-icon icon="today"></iron-icon>
-              <span>Events</span>
-            </a>
-          </div>
-          <div id="services">
-            <a data-route="services" href="/services" on-click="onDataRouteClick">
-              <iron-icon icon="shopping-cart"></iron-icon>
-              <span>Services</span>
-            </a>
-          </div>   
-          <hr> 
-          <a data-route="account" href="/account" on-click="onDataRouteClick">
-            <iron-icon icon="account-circle"></iron-icon>
-            <span>Account</span>
-          </a>    
-          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
-            <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
-          </a>
-          
-          <div id="menubottom">
-            <hr>          
-            <div id="users">
-              <a data-route="users" href="/users" on-click="onDataRouteClick">
-                <iron-icon icon="face"></iron-icon>
-                <span>Users</span>
+    <template is="dom-if" if="{{user}}">
+      <paper-drawer-panel id="paperDrawerPanel" responsive-width="770px">
+        <!-- Drawer Scroll Header Panel -->
+        <paper-scroll-header-panel  drawer fixed keep-condensed-header="true">
+  
+          <!-- Drawer Toolbar -->
+          <paper-toolbar id="drawerToolbar">
+            <span class="paper-font-title">Menu</span>
+          </paper-toolbar>
+  
+          <!-- Drawer Content -->
+          <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+            <div id="all">
+              <a data-route="home" href="/" on-click="onDataRouteClick">
+                <iron-icon icon="apps"></iron-icon>
+                <span>All</span>
               </a>
             </div>
-            <div id="admins">
-              <a data-route="admins" href="/admins" on-click="onDataRouteClick">
-                <iron-icon icon="perm-identity"></iron-icon>
-                <span>Admins</span>
+            <div id="surveys">
+              <a data-route="surveys" href="/surveys" on-click="onDataRouteClick">
+                <iron-icon icon="check-box"></iron-icon>
+                <span>Surveys</span>
               </a>
             </div>
-            <div id="dashboard">
-              <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick" id="dashb">
-                <iron-icon icon="assessment"></iron-icon>
-                <span>Dashboard</span>
+            <div id="events">
+              <a data-route="events" href="/events" on-click="onDataRouteClick">
+                <iron-icon icon="today"></iron-icon>
+                <span>Events</span>
               </a>
             </div>
-          </div>
+            <div id="services">
+              <a data-route="services" href="/services" on-click="onDataRouteClick">
+                <iron-icon icon="shopping-cart"></iron-icon>
+                <span>Services</span>
+              </a>
+            </div>   
+            <hr> 
+            <a data-route="account" href="/account" on-click="onDataRouteClick">
+              <iron-icon icon="account-circle"></iron-icon>
+              <span>Account</span>
+            </a>    
+            <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+              <iron-icon icon="mail"></iron-icon>
+              <span>Contact</span>
+            </a>
             
-        </paper-menu>
-      </paper-scroll-header-panel>
-
-      <!-- Main Area -->
-      <paper-scroll-header-panel main keep-condensed-header>
-
-        <!-- Main Toolbar -->
-        <paper-toolbar>
-          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-            <paper-input label="Search" value="{{search}}" no-label-float id="topsearch">
-              <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
-            </paper-input>
-                 
-            <span class="flex"></span>
-            <login-set-path app="g1" user="{{user}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
-
-            <!--  Logo -->
-            <div id="logo">
-              <img src="/images/hi9-logos/hi9-logox128-white.png" alt="Hi9 Logo">
+            <div id="menubottom">
+              <hr>          
+              <div id="users">
+                <a data-route="users" href="/users" on-click="onDataRouteClick">
+                  <iron-icon icon="face"></iron-icon>
+                  <span>Users</span>
+                </a>
+              </div>
+              <div id="admins">
+                <a data-route="admins" href="/admins" on-click="onDataRouteClick">
+                  <iron-icon icon="perm-identity"></iron-icon>
+                  <span>Admins</span>
+                </a>
+              </div>
+              <div id="dashboard">
+                <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick" id="dashb">
+                  <iron-icon icon="assessment"></iron-icon>
+                  <span>Dashboard</span>
+                </a>
+              </div>
             </div>
-
-        </paper-toolbar>
-
-        <!-- Main Content -->
-        <div class="content">
-          <iron-pages attr-for-selected="data-route" selected="{{route}}">
-
-            <section data-route="home">
-              <template is="dom-if" if="{{user}}">
+              
+          </paper-menu>
+        </paper-scroll-header-panel>
+  
+        <!-- Main Area -->
+        <paper-scroll-header-panel main keep-condensed-header>
+  
+          <!-- Main Toolbar -->
+          <paper-toolbar>
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+              <paper-input label="Search" value="{{search}}" no-label-float id="topsearch">
+                <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
+              </paper-input>
+                   
+              <span class="flex"></span>
+              <login-set-path app="g1" user="{{user}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
+  
+              <!--  Logo -->
+              <div id="logo">
+                <img src="/images/hi9-logos/hi9-logox128-white.png" alt="Hi9 Logo">
+              </div>
+  
+          </paper-toolbar>
+    
+          <!-- Main Content -->
+          <div class="content">
+            <iron-pages attr-for-selected="data-route" selected="{{route}}">
+  
+              <section data-route="home">
                 <template is="dom-if" if="{{yours}}">
                   <card-control url="{{urlForCards}}" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
                 </template>
                 <template is="dom-if" if="{{!yours}}">
                   <card-control url="{{urlForMore}}" fab="" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
                 </template>
-              </template>
-              <template is="dom-if" if="{{!user}}">
-                <enterprise-users></enterprise-users>
-              </template>
-            </section>
+              </section>
+  
+              <section data-route="surveys">
+                <surveys-page></surveys-page>
+              </section>
+              
+              <section data-route="events">
+                <events-page></events-page>
+              </section>
+  
+              <section data-route="services">
+                <services-page></services-page>
+              </section>
+              
+              <section data-route="projects">
+                <projects-page></projects-page>
+              </section>
+              
+              <section data-route="users">
+                <users-page></users-page>
+              </section>
+              
+              <section data-route="admins">
+                <admins-page></admins-page>
+              </section>
+              
+              <section data-route="dashboard">
+                <dash-board></dash-board>
+              </section>
+            
+              <section data-route="accountpage">
+                <account-page user="{{user}}"></account-page>
+              </section>
+              
+              <section data-route="contactpage">
+                <contact-page></contact-page>
+              </section>
 
-            <section data-route="surveys">
-              <surveys-page></surveys-page>
-            </section>
-            
-            <section data-route="events">
-              <events-page></events-page>
-            </section>
+            </iron-pages>
+          </div>
+        </paper-scroll-header-panel>
+      </paper-drawer-panel>
 
-            <section data-route="services">
-              <services-page></services-page>
-            </section>
-            
-            <section data-route="projects">
-              <projects-page></projects-page>
-            </section>
-            
-            <section data-route="users">
-              <users-page></users-page>
-            </section>
-            
-            <section data-route="admins">
-              <admins-page></admins-page>
-            </section>
-            
-            <section data-route="dashboard">
-              <dash-board></dash-board>
-            </section>
-            
-            <section data-route="accountpage">
-              <account-page user="{{user}}"></account-page>
-            </section>
-            
-            <section data-route="contactpage">
-              <contact-page></contact-page>
-            </section>
-
-          </iron-pages>
-        </div>
-      </paper-scroll-header-panel>
-    </paper-drawer-panel>
-
-    <!-- Uncomment next block to enable Service Worker support (1/2) -->
-    <!--
-    <paper-toast id="caching-complete"
-                 duration="6000"
-                 text="Caching complete! This app will work offline.">
-    </paper-toast>
-
-    <platinum-sw-register auto-register
-                          clients-claim
-                          skip-waiting
-                          on-service-worker-installed="displayInstalledToast">
-      <platinum-sw-cache default-cache-strategy="fastest"
-                         cache-config-file="cache-config.json">
-      </platinum-sw-cache>
+      <!-- Uncomment next block to enable Service Worker support (1/2) -->
+      <!--
+      <paper-toast id="caching-complete"
+                   duration="6000"
+                   text="Caching complete! This app will work offline.">
+      </paper-toast>
+  
+      <platinum-sw-register auto-register
+                            clients-claim
+                            skip-waiting
+                            on-service-worker-installed="displayInstalledToast">
+        <platinum-sw-cache default-cache-strategy="fastest"
+                           cache-config-file="cache-config.json">
+        </platinum-sw-cache>
     </platinum-sw-register>
     -->
 
+    </template>
   </template>
-
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
 
+  <template is="dom-if" if="{{!user}}">
+    <enterprise-users></enterprise-users>
+  </template>
 </body>
 
 </html>
