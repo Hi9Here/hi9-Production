@@ -98,10 +98,10 @@
             <iron-icon icon="account-circle"></iron-icon>
             <span>Account</span>
           </a>    
-            <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
             <iron-icon icon="mail"></iron-icon>
-              <span>Contact</span>
-            </a>
+            <span>Contact</span>
+          </a>
           
           <div id="menubottom">
             <hr>          
@@ -139,7 +139,7 @@
             </paper-input>
                  
             <span class="flex"></span>
-            <login-set-path user="{{user}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
+            <login-set-path app="g1" user="{{user}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
 
             <!--  Logo -->
             <div id="logo">
@@ -154,11 +154,11 @@
 
             <section data-route="home">
               <template is="dom-if" if="{{yours}}">
-                <card-control url="{{urlForCards}}" search="{{search}}" token="" uid="{{uid}}"></card-control>
+                <card-control url="{{urlForCards}}" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
               </template>
 
               <template is="dom-if" if="{{!yours}}">
-                <card-control url="{{urlForMore}}" fab="" search="{{search}}" token="" uid="{{uid}}"></card-control>
+                <card-control url="{{urlForMore}}" fab="" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
               </template>
             </section>
 

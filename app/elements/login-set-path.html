@@ -10,9 +10,9 @@
       }
     </style>
     <template is="dom-if" if="{{!user}}">
-      <hi9-login location="{{location}}"></hi9-login>
+      <hi9-login location="{{_url}}"></hi9-login>
     </template>
-    <hi9-login hidden user="{{user}}"  location="{{location}}"></hi9-login>
+    <hi9-login hidden user="{{user}}"  location="{{_url}}"></hi9-login>
     <template is="dom-if" if="{{user}}">
       <paper-tabs selected="0">
         <paper-tab on-tap="setToYours">Yours</paper-tab>
@@ -27,7 +27,7 @@ Polymer({
   properties: {
     yours: {notify: true, value: true},
     _url: {
-      value: "https://g1.firebaseio.com/"
+      computed: "get_url(app)"
     },
     user: {
       notify: true
@@ -41,6 +41,9 @@ Polymer({
     uid: {
       notify: true, computed: "got(user.uid)"
     }
+  },
+  get_url: function(app) {
+    return "https://"+app+".firebaseio.com/"
   },
   getPath: function(url, more) {
     if (!more) {
