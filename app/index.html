@@ -153,12 +153,16 @@
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
-              <template is="dom-if" if="{{yours}}">
-                <card-control url="{{urlForCards}}" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
+              <template is="dom-if" if="{{user}}">
+                <template is="dom-if" if="{{yours}}">
+                  <card-control url="{{urlForCards}}" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
+                </template>
+                <template is="dom-if" if="{{!yours}}">
+                  <card-control url="{{urlForMore}}" fab="" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
+                </template>
               </template>
-
-              <template is="dom-if" if="{{!yours}}">
-                <card-control url="{{urlForMore}}" fab="" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
+              <template is="dom-if" if="{{!user}}">
+                <splash-screen>Hi come in </splash-screen>
               </template>
             </section>
 
