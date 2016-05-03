@@ -4,19 +4,18 @@
 
 <dom-module id="splash-screen">
 <template>
-<style>:host {display:inline-block;}</style>
+<style>:host {display:inline-block}</style>
+
 <h2>Open an account</h2>
 
 <p>Let's get organised make you more productive give you the links you need to find the website you want to use. You can also use this website to help organise your friends family you need that sort of help.</p>
 
-<paper-button>5+ users</paper-button><br />
-<paper-button>2-5 users</paper-button><br />
-<paper-button>Single user</paper-button>
+<hi9-login location="https://g1.firebaseio.com"></hi9-login>
+
 </template>
 </dom-module>
 <script>
 Polymer({
-    is: "splash-screen",
-    properties: {}
+  is: "splash-screen",
 })
 </script>
