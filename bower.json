@@ -11,12 +11,8 @@
     "paper-input": "~1.1.11",
     "paper-tabs": "~1.5.0",
     "paper-header-panel": "~1.1.5",
-    "card-data": "hi9here/card-data#master",
     "card-control": "hi9here/card-control#master",
-    "card-display": "marcus7777/card-display#master",
-    "card-deck": "marcus7777/card-deck#master",
     "paper-material": "PolymerElements/paper-material#~1.0.6",
-    "sortable-list": "marcus7777/sortable-list#master",
     "update-data": "marcus7777/update-data#master",
     "iron-icons": "PolymerElements/iron-icons#master",
     "iron-selector": "PolymerElements/iron-selector#~1.0.8",
@@ -24,10 +20,11 @@
     "paper-checkbox": "~1.1.3",
     "hi9-login": "*",
     "image-base64": "marcus7777/image-base64",
-    "mediator-data": "marcus7777/mediator-data#ef7d623873ae20d51342e55cad2bcc3e3221a0c1",
+    "mediator-data": "marcus7777/mediator-data#master",
     "paper-dropdown-menu": "~1.2.1",
     "paper-listbox": "~1.1.2",
-    "paper-item": "~1.2.1"
+    "paper-item": "~1.2.1",
+    "hide-if": "marcus7777/hide-if"
   },
   "devDependencies": {
     "web-component-tester": "*",
@@ -36,11 +33,11 @@
   "resolutions": {
     "card-data": "master",
     "firebase-element": "^1.0.0",
-    "mediator-data": "ef7d623873ae20d51342e55cad2bcc3e3221a0c1",
     "card-deck": "master",
     "card-display": "master",
     "iron-icon": "master",
     "iron-icons": "master",
-    "polymer": "^1.2.4"
+    "polymer": "^1.4.0",
+    "mediator-data": "master"
   }
 }

@@ -9,8 +9,8 @@
 
 <dom-module id="enterprise-users">
   <template>
-    <iron-ajax id="set" method="PUT" url="https://g1.firebaseio.com/share/new.json"></iron-ajax>
-    <paper-dropdown-menu label="Number of users" value="{{value.contact}}">
+    <iron-ajax id="set" method="PUT" url="https://g1.firebaseio.com/new.json"></iron-ajax>
+    <paper-dropdown-menu label="Number of users" value="{{value.numbers}}">
       <paper-listbox class="dropdown-content">
         <paper-item>about 5 - 50</paper-item>
         <paper-item>50 - 500</paper-item>
@@ -19,7 +19,7 @@
       </paper-listbox>
     </paper-dropdown-menu>
     <paper-input label="Contact person" value="{{value.contact}}"></paper-input><br />
-    <paper-input label="Phone number" value="{{value.email}}"></paper-input><br />
+    <paper-input label="Phone number" value="{{value.phone}}"></paper-input><br />
     <paper-input label="Company" value="{{value.company}}"></paper-input><br />
     <paper-input label="Email address" type="email" value="{{value.email}}"></paper-input><br />
     <paper-button on-tap="press">Ok</paper-button>

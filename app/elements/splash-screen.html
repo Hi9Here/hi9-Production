@@ -4,18 +4,21 @@
 
 <dom-module id="splash-screen">
 <template>
-<style>:host {display:inline-block}</style>
-
-<h2>Open an account</h2>
-
-<p>Let's get organised make you more productive give you the links you need to find the website you want to use. You can also use this website to help organise your friends family you need that sort of help.</p>
-
-<hi9-login location="https://g1.firebaseio.com"></hi9-login>
-
+  <style>:host {display:inline-block}</style>
+  <h2>Open an account</h2>
+  <p>Let's get organised make you more productive give you the links you need to find the website you want to use. You can also use this website to help organise your friends family you need that sort of help.</p>
+  <login-set-path app="{{app}}" user="{{user}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
+  
 </template>
 </dom-module>
 <script>
 Polymer({
   is: "splash-screen",
+  properties: {
+    user: { notify: true },
+    app: {
+      value: "g1"
+    }
+  }
 })
 </script>

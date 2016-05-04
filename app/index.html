@@ -156,7 +156,7 @@
                   <card-control url="{{urlForCards}}" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
                 </template>
                 <template is="dom-if" if="{{!yours}}">
-                  <card-control url="{{urlForMore}}" fab="" search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
+                  <card-control url="{{urlForMore}}" no-put search="{{search}}" token="{{user.token}}" uid="{{uid}}"></card-control>
                 </template>
               </section>
   
@@ -219,15 +219,13 @@
     -->
 
     </template>
+    <splash-screen hidden$="{{user}}" user="{{user}}"></splash-screen>
   </template>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
 
-  <template is="dom-if" if="{{!user}}">
-    <splash-screen></splash-screen>
-  </template>
 </body>
 
 </html>
