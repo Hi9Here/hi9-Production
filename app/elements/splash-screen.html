@@ -4,13 +4,85 @@
 
 <dom-module id="splash-screen">
 <template>
-  <style>:host {display:inline-block}</style>
-  <h2>Open an account</h2>
-  <p>Let's get organised make you more productive give you the links you need to find the website you want to use. You can also use this website to help organise your friends family you need that sort of help.</p>
-  <login-set-path app="{{app}}" user="{{user}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
+  <style>
+    
+  :host {
+    display:inline-block;
+    background-image: url("../images/splashscreen.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  h2 {
+    font-weight: 500;
+    color: #fff;
+    font-size: 50px;
+  }
+  p {
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+    margin-top: -37px;
+  }
+  
+  #logintext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+  }
+  
+  #loginbox {
+    background: rgba(38, 12, 12, 0.7);
+    margin-top: 200px;
+    padding: 1px 20px 20px 20px;
+  }
+
+  img {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+  }
+  
+  @media (max-width: 600px) {
+       h2 {
+
+    font-size: 20px;
+  }
+  p {
+    font-size: 10px;
+    margin-top: -10px;
+    display: none;
+  }
+    img {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    width:100px;
+  }
+    }
+
+
+  
+  </style>
+    <img src="../images/hi9-logos/hi9-logo-144-white.png" alt="Hi9 Logo">
+  <div id="loginbox">  
+      
+  <div id="logintext">
+    
+    <h2>Open a Free Account</h2>
+    
+    <p>Make the Web Simple for Others and for You</p>
+    <login-set-path app="{{app}}" user="{{user}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path> 
+  
+  </div>
+  
+  </div>
   
 </template>
+
 </dom-module>
+
 <script>
 Polymer({
   is: "splash-screen",
