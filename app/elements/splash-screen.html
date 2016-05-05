@@ -3,7 +3,7 @@
 -->
 
 <dom-module id="splash-screen">
-<template>
+  <template>
   <style>
     
   :host {
@@ -61,8 +61,6 @@
     width:100px;
   }
     }
-
-
   
   </style>
     <img src="../images/hi9-logos/hi9-logo-144-white.png" alt="Hi9 Logo">
@@ -84,13 +82,15 @@
 </dom-module>
 
 <script>
-Polymer({
-  is: "splash-screen",
-  properties: {
-    user: { notify: true },
-    app: {
-      value: "g1"
+  Polymer({
+    is: "splash-screen",
+    properties: {
+      user: {
+        notify: true
+      },
+      app: {
+        value: "g1"
+      }
     }
-  }
-})
+  })
 </script>
