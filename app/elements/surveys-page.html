@@ -126,7 +126,15 @@
           } else if (this._mode === "Pick the users to share with") {
             // https://g1.firebaseio.com/share/yhg/google%3A108143381081229631011/cards
             this.set("_mode","")
-            debugger     
+
+            
+            for (var s = 0; s < this.selected.length; s++) {
+              for (var u = 0; u < this.selectedUsers.length; u++) {
+                console.log(this.usersAsA[u].url) 
+                console.log(this.cards[s].url)
+              }
+            }
+            
             this.selectedUsers = [] 
             this.selected = []
         
