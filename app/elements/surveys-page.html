@@ -17,9 +17,14 @@
       <card-display cards='{{display}}' viewable></card-display>
     </template>
     <hr style="clear:both">
+    <card-data cards="{{cards}}" url="https://g1.firebaseio.com/demo/surveys" ></card-data>
     <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
     <template is="dom-if" if="{{!_mode}}">
       <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
+    </template>
+    <iron-ajax auto url="https://g1.firebaseio.com/demo/users.json?auth={{token}}" last-response="{{users}}"></iron-ajax>  
+    <template is="dom-if" if="{{pickUsers}}">
+      <card-display cards="{{usersAsA}}" selectable selected="{{selectedUsers}}" ></card-display>
     </template>
     <template is="dom-if" if="{{_mode}}">
       <hr style="clear:both">
@@ -31,10 +36,6 @@
           <paper-button raised on-tap="cancel"><iron-icon icon="cancel"></iron-icon>cancel</paper-button>
         </div>
       </paper-toolbar>
-    </template>
-    <iron-ajax auto url="https://g1.firebaseio.com/demo/users.json?auth={{token}}" last-response="{{users}}"></iron-ajax>  
-    <template is="dom-if" if="{{pickUsers}}">
-      <card-display cards="{{usersAsA}}" selectable selected="{{selectedUsers}}" ></card-display>
     </template>
   </template>
   <script>
