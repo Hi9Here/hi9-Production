@@ -32,7 +32,7 @@
         </div>
       </paper-toolbar>
     </template>
-    <iron-ajax auto url="https://g1.firebaseio.com/demo/users.json" last-response="{{users}}"></iron-ajax>  
+    <iron-ajax auto url="https://g1.firebaseio.com/demo/users.json?auth={{token}}" last-response="{{users}}"></iron-ajax>  
     <template is="dom-if" if="{{pickUsers}}">
       <card-display cards="{{usersAsA}}" selectable selected="{{selectedUsers}}" ></card-display>
     </template>
