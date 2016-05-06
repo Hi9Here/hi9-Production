@@ -51,7 +51,10 @@
   
   <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/nkbabmancickiacfoeoadibicncombep">
 
+  <style is="custom-style">
 
+    
+  </style>
 </head>
 
 <body unresolved class="fullbleed layout vertical">
@@ -132,18 +135,19 @@
   
           <!-- Main Toolbar -->
           <paper-toolbar>
-            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-              <paper-input label="Search" value="{{search}}" no-label-float id="topsearch">
+            
+              <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+              <paper-input label="Search" value="{{search}}" no-label-float>
                 <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
               </paper-input>
                    
-              <span class="flex"></span>
-              <login-set-path app="g1" user="{{user}}" token="{{token}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
-  
-              <!--  Logo -->
-              <div id="logo">
-                <img src="/images/hi9-logos/hi9-logox128-white.png" alt="Hi9 Logo">
-              </div>
+            <span class="flex"></span>
+            <login-set-path app="g1" user="{{user}}" token="{{token}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
+
+            <!--  Logo -->
+            <div id="logo">
+              <img src="/images/hi9-logos/hi9-logo-128.png" alt="Hi9 Logo">
+            </div>
   
           </paper-toolbar>
     
