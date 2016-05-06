@@ -8,13 +8,16 @@
     </style>
     <h2>Surveys</h2>
     <paper-material elevation="1">
-      <paper-textarea label="Question" char-counter maxlength="100" value="{{Question}}"></paper-textarea>
+      <paper-textarea label="Question" value="{{Question}}"></paper-textarea>
       <paper-input label="Option 1" value="{{One}}"></paper-input>
       <paper-input label="Option 2" value="{{Two}}"></paper-input>
       <paper-fab icon="add" on-tap="add"></paper-fab>
     </paper-material>
+    <template is="dom-if" if="{{Question}}">
+      <card-display cards='{{display}}' viewable></card-display>
+    </template>
     <hr style="clear:both">
-    <card-display cards="{{cards}}" sortable pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked" ></card-display>
+    <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
     <template is="dom-if" if="{{!_mode}}">
       <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
     </template>
@@ -29,7 +32,7 @@
         </div>
       </paper-toolbar>
     </template>
-    <iron-ajax auto url="https://g1.firebaseio.com/share/users.json" last-response="{{users}}"></iron-ajax>  
+    <iron-ajax auto url="https://g1.firebaseio.com/demo/users.json" last-response="{{users}}"></iron-ajax>  
     <template is="dom-if" if="{{pickUsers}}">
       <card-display cards="{{usersAsA}}" selectable selected="{{selectedUsers}}" ></card-display>
     </template>
@@ -40,6 +43,7 @@
       Polymer({
         is: 'surveys-page',
         properties: {
+          display: {computed :"getDisplay(Question, One, Two)"}, 
           cards: {type: Array, value:[]},
           usersAsA: {computed:"objectToArray(users)"},
           _menu:{ 
@@ -51,6 +55,9 @@
           },
           _select: {type: Array},
           _mode: {type: String, value: ""},
+        },
+        getDisplay: function(Question, One, Two) {
+          return [{data:"<center><h1>"+Question+"</h1><paper-button raised>"+One+"</paper-button><paper-button raised>"+Two+"</paper-button></center>","url":"custom"}]
         },
         add: function () {
 
