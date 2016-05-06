@@ -51,7 +51,8 @@
           _mode: {type: String, value: ""},
         },
         add: function () {
-          this.set("cards" ,this.cards.concat([{title: this.q, url:"survey:22121"}]))
+
+          this.set("cards" ,this.cards.concat([{q: this.q, data:"<centre><h1>{{q}}</h1><{{tag}}>Yes</{{tag}}><{{tag}}>One day</{{tag}}></centre>",tag:"paper-button", url:"custom:new:{{uid}}:hash:q"}]))
           this.set("q","")
         },
         picked: function (e,d) {
