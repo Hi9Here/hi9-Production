@@ -75,11 +75,28 @@
         },
         add: function () {
 
-          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<center><h1>{{Question}}</h1><{{tag}} raised>{{One}}</{{tag}}><{{tag}} raised>{{Two}}</{{tag}}></center>", tag:"paper-button", url:"custom:new:{{uid}}:hash:q"}]))
+          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<center><h1>{{Question}}</h1><{{tag}} raised>{{One}}</{{tag}}><{{tag}} raised>{{Two}}</{{tag}}></center>", tag:"paper-button", url:"custom:new:"+this.uid+":hash:" this.hash(this.uid, this.Question), readableBy:{this.uid: true} }]))
+// TODO readableBy other Admins
 
           this.set("Question","")
           this.set("One","")
           this.set("Two","")
+        },
+        hash: function(a,b) {
+          function hex32(val) {
+            val &= 0xFFFFFFFF
+            var hex = val.toString(16).toUpperCase()
+            return ("00000000" + hex).slice(-8)
+          }
+          var hash = 0
+          var message = a+b
+          if (message.length === 0) return hash
+            for (i = 0;i < message.length;i++) {
+              var char = message.charCodeAt(i)
+              hash = ((hash<<5)-hash)+char
+              hash = hash & hash // Convert to 32bit integer
+            }
+          return hex32(hash)
         },
         picked: function (e,d) {
           this.splice("cards",d ,1)
@@ -140,7 +157,7 @@
           if (this._mode === "share") {
             this._mode = "Share with selected user"
             this.set("pickUsers", true)
-          } else if (this._mode === "Pick the users to share with") {
+          } else if (this._mode === "Share with selected user") {
             // https://g1.firebaseio.com/share/yhg/google%3A108143381081229631011/cards
             this.set("_mode","")
 
