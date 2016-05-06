@@ -14,7 +14,7 @@
       <paper-fab icon="add" on-tap="add"></paper-fab>
     </paper-material>
     <hr style="clear:both">
-    <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked" ></card-display>
+    <card-display cards="{{cards}}" sortable pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked" ></card-display>
     <template is="dom-if" if="{{!_mode}}">
       <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
     </template>
@@ -54,7 +54,7 @@
         },
         add: function () {
 
-          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<centre><h1>{{Question}}</h1><{{tag}}>{{One}}</{{tag}}><{{tag}}>{{Two}}</{{tag}}></centre>", tag:"paper-button", url:"custom:new:{{uid}}:hash:q"}]))
+          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<center><h1>{{Question}}</h1><{{tag}}>{{One}}</{{tag}}><{{tag}}>{{Two}}</{{tag}}></center>", tag:"paper-button", url:"custom:new:{{uid}}:hash:q"}]))
 
           this.set("Question","")
           this.set("One","")
