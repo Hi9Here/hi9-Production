@@ -49,6 +49,7 @@
         </div>
       </paper-toolbar>
     </template>
+    <iron-ajax id="set" method="POST" ></iron-ajax>
   </template>
   <script>
     (function() {
@@ -74,9 +75,12 @@
           return [{data:"<center><h1>"+Question+"</h1><paper-button raised>"+One+"</paper-button><paper-button raised>"+Two+"</paper-button></center>","url":"custom"}]
         },
         add: function () {
-
-          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<center><h1>{{Question}}</h1><{{tag}} raised>{{One}}</{{tag}}><{{tag}} raised>{{Two}}</{{tag}}></center>", tag:"paper-button", url:"custom:new:"+this.uid+":hash:" this.hash(this.uid, this.Question), readableBy:{this.uid: true} }]))
+          var hash = this.hash(this.uid, this.Question)
+          var readableBy = {}
+          readableBy[this.uid] = true
 // TODO readableBy other Admins
+
+          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<center><h1>{{Question}}</h1><{{tag}} raised>{{One}}</{{tag}}><{{tag}} raised>{{Two}}</{{tag}}></center>", tag:"paper-button", url:"custom:"+this.uid+":"+hash, readableBy:readableBy}]))
 
           this.set("Question","")
           this.set("One","")
@@ -164,8 +168,10 @@
             
             for (var s = 0; s < this.selected.length; s++) {
               for (var u = 0; u < this.selectedUsers.length; u++) {
-                console.log(this.usersAsA[u].url) 
-                console.log(this.cards[s])
+                this.$.set.headers = {'content-type':'application/json'}
+                this.$.set.body = JSON.stringify(this.cards[s])
+                this.$.set.url = "https://g1.firebaseio.com/share/yhg/google:"+this.usersAsA[u].url.split(":")[2]+"/cards.json?auth="+this.token
+                this.$.set.generateRequest()
               }
             }
             
