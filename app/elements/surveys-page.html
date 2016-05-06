@@ -7,17 +7,19 @@
       paper-fab { position: absolute; bottom: 20px; right: 20px; }
     </style>
     <h2>Surveys</h2>
-    <paper-material elevation="1">
-      <paper-textarea label="Question" value="{{Question}}"></paper-textarea>
-      <paper-input label="Option 1" value="{{One}}"></paper-input>
-      <paper-input label="Option 2" value="{{Two}}"></paper-input>
-      <paper-fab icon="add" on-tap="add"></paper-fab>
-    </paper-material>
-    <template is="dom-if" if="{{Question}}">
-      <card-display cards='{{display}}' viewable></card-display>
+    <template is="dom-if" if="{{_mode}}">
+      <paper-material elevation="1">
+        <paper-textarea label="Question" value="{{Question}}"></paper-textarea>
+        <paper-input label="Option 1" value="{{One}}"></paper-input>
+        <paper-input label="Option 2" value="{{Two}}"></paper-input>
+        <paper-fab icon="add" on-tap="add"></paper-fab>
+        <template is="dom-if" if="{{Question}}">
+          <card-display cards='{{display}}' viewable></card-display>
+        </template>
+      </paper-material>
+      <hr style="clear:both">
     </template>
-    <hr style="clear:both">
-    <card-data cards="{{cards}}" url="https://g1.firebaseio.com/demo/surveys" ></card-data>
+    <card-data cards="{{cards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
     <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
     <template is="dom-if" if="{{!_mode}}">
       <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
@@ -30,8 +32,15 @@
       <hr style="clear:both">
       <paper-toolbar style="position:fixed;bottom:0;right:0;">
         <div class="container">
-          <template is="dom-if" if="{{selected.length}}">
-            <paper-button on-tap="doneIt" raised><iron-icon icon="done"></iron-icon>{{_mode}}</paper-button>
+          <template is="dom-if" if="{{_modeIs('Share with selected user')}}">
+            <template is="dom-if" if="{{selectedUsers.length}}">
+              <paper-button on-tap="doneIt" raised><iron-icon icon="done"></iron-icon>{{_mode}}</paper-button>
+            </template>
+          </template>
+          <template is="dom-if" if="{{!_modeIs('Share with selected user')}}">
+            <template is="dom-if" if="{{selected.length}}">
+              <paper-button on-tap="doneIt" raised><iron-icon icon="done"></iron-icon>{{_mode}}</paper-button>
+            </template>
           </template>
           <paper-button raised on-tap="cancel"><iron-icon icon="cancel"></iron-icon>cancel</paper-button>
         </div>
@@ -120,9 +129,12 @@
           }
           
         },
+        _modeIs:function(test) {
+          return this._mode === test
+        }, 
         doneIt: function() {
           if (this._mode === "share") {
-            this._mode = "Pick the users to share with"
+            this._mode = "Share with selected user"
             this.set("pickUsers", true)
           } else if (this._mode === "Pick the users to share with") {
             // https://g1.firebaseio.com/share/yhg/google%3A108143381081229631011/cards
