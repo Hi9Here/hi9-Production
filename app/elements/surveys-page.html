@@ -9,6 +9,8 @@
     <h2>Surveys</h2>
     <paper-material elevation="1">
       <paper-textarea label="Question" char-counter maxlength="100" value="{{q}}"></paper-textarea>
+      <paper-input label="Option 1" value="{{one}}"></paper-input>
+      <paper-input label="Option 2" value="{{two}}"></paper-input>
       <paper-fab icon="add" on-tap="add"></paper-fab>
     </paper-material>
     <hr style="clear:both">
@@ -52,7 +54,8 @@
         },
         add: function () {
 
-          this.set("cards" ,this.cards.concat([{q: this.q, data:"<centre><h1>{{q}}</h1><{{tag}}>Yes</{{tag}}><{{tag}}>One day</{{tag}}></centre>",tag:"paper-button", url:"custom:new:{{uid}}:hash:q"}]))
+          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<centre><h1>{{Question}}</h1><{{tag}}>{{One}}</{{tag}}><{{tag}}>{{Two}}</{{tag}}></centre>", tag:"paper-button", url:"custom:new:{{uid}}:hash:q"}]))
+
           this.set("q","")
         },
         picked: function (e,d) {
