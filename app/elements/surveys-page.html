@@ -7,20 +7,23 @@
       paper-fab { position: absolute; bottom: 20px; right: 20px; }
     </style>
     <h2>Surveys</h2>
-    <template is="dom-if" if="{{_mode}}">
+    <template is="dom-if" if="{{!_mode}}">
       <paper-material elevation="1">
         <paper-textarea label="Question" value="{{Question}}"></paper-textarea>
         <paper-input label="Option 1" value="{{One}}"></paper-input>
         <paper-input label="Option 2" value="{{Two}}"></paper-input>
         <paper-fab icon="add" on-tap="add"></paper-fab>
-        <template is="dom-if" if="{{Question}}">
-          <card-display cards='{{display}}' viewable></card-display>
-        </template>
       </paper-material>
+      <template is="dom-if" if="{{Question}}">
+        <card-display cards='{{display}}' viewable></card-display>
+      </template>
       <hr style="clear:both">
     </template>
     <card-data cards="{{cards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
-    <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
+
+    <template is="dom-if" if="{{!pickUsers}}">
+      <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
+    </template>
     <template is="dom-if" if="{{!_mode}}">
       <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
     </template>
@@ -65,6 +68,7 @@
           },
           _select: {type: Array},
           _mode: {type: String, value: ""},
+          pickUsers: {type: Boolean, value: false},
         },
         getDisplay: function(Question, One, Two) {
           return [{data:"<center><h1>"+Question+"</h1><paper-button raised>"+One+"</paper-button><paper-button raised>"+Two+"</paper-button></center>","url":"custom"}]
@@ -170,6 +174,12 @@
             this.set("selectable", false)
             this.set("pickable", false)
           }
+        },
+        cancel: function() {
+          this._mode = ""
+          this.selected = []
+          this.set("selectable", false)
+          this.set("pickable", false)
         }
       });
     })();
