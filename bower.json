@@ -38,6 +38,7 @@
     "iron-icon": "master",
     "iron-icons": "master",
     "polymer": "^1.4.0",
-    "mediator-data": "master"
+    "mediator-data": "master",
+    "iron-dropdown": "fbd0bde2aefd25161b639314157d9914f378ac4e"
   }
 }

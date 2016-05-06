@@ -38,6 +38,9 @@ Polymer({
     moreUrl: {
       notify: true, computed: "getPath(_url, 'yhg' )"
     },
+    token: {
+      notify: true, computed: "got(user.token)"
+    },
     uid: {
       notify: true, computed: "got(user.uid)"
     }
