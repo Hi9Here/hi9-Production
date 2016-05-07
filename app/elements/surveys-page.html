@@ -11,7 +11,7 @@
         <paper-input label="Option 1" value="{{One}}"></paper-input>
         <paper-input label="Option 2" value="{{Two}}"></paper-input>
         <template is="dom-if" if="{{Question}}">
-          <card-display cards='{{display}}' viewable></card-display>
+          <card-display style="display:block" cards='{{display}}' viewable></card-display>
           <paper-fab icon="add" on-tap="add"></paper-fab>
         </template>
       </paper-material>
