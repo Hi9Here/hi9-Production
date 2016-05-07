@@ -47,6 +47,7 @@
       </paper-toolbar>
     </template>
     <iron-ajax id="set" method="POST" ></iron-ajax>
+    <iron-ajax id="get" method="GET" ></iron-ajax>
   </template>
   <script>
     (function() {
@@ -63,8 +64,8 @@
             ],
             type: Array
           },
-          _lookup: {
-            computed:"lookupSurveys(cards)"
+          __lookup: {
+            computed:"lookupSurveys(cards, playerCards)"
           },
           _select: {type: Array},
           _mode: {type: String, value: ""},
@@ -72,14 +73,27 @@
           Two: {type: String, value: "No"},
           pickUsers: {type: Boolean, value: false},
         },
-        lookupSurveys:function(cards)  {
+        lookupSurveys:function(cards, players)  {
           var output = {}
           for (var s = 0; s < this.cards.length; s++) {
             output[cards[s].url] = cards[s]
-            output[cards[s].url]['title'] = ' 1 2 3 '
+            output[cards[s].url]['title'] = this.getResults(cards[s].url, players)
           }
           
           return output 
+        },
+        getResults: function(url, players) {
+          if (Array.isArray(players)){
+            for (var u = 0; u < this.players.length; u++) {
+              this.$.get.headers = {'content-type':'application/json'}
+              this.$.get.url = "https://g1.firebaseio.com/share/google:"+players[u].url.split(":")[2]+"/"+url+".json?auth="+this.token
+              this.$.get.onResponse="addUpReplys"
+              this.$.get.generateRequest()
+            }
+          }
+        },
+        addUpReplys: function(a, b) {
+          console.log(a)
         },
         getDisplay: function(Question, One, Two) {
           return [{data:"<center><h1>"+Question+"</h1><paper-button raised>"+One+"</paper-button><paper-button raised>"+Two+"</paper-button></center>","url":"custom"}]
