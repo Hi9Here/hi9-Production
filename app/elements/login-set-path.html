@@ -14,10 +14,12 @@
     </template>
     <hi9-login hidden user="{{user}}"  location="{{_url}}"></hi9-login>
     <template is="dom-if" if="{{user}}">
-      <paper-tabs selected="0">
-        <paper-tab on-tap="setToYours">Yours</paper-tab>
-        <paper-tab on-tap="setToMore">YHG</paper-tab>
-      </paper-tabs>
+      <a data-route="home" href="/" on-click="onDataRouteClick">
+        <paper-tabs selected="0">
+          <paper-tab on-tap="setToYours">Yours</paper-tab>
+          <paper-tab on-tap="setToMore">YHG</paper-tab>
+        </paper-tabs>
+      </a>
     </template>
   </template>
 </dom-module>
