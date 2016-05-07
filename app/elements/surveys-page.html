@@ -15,9 +15,8 @@
           <paper-fab icon="add" on-tap="add"></paper-fab>
         </template>
       </paper-material>
-      <hr style="clear:both">
     </template>
-    <card-data cards="{{cards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
+    <card-data cards="{{cards}}" player-cards="{{playerCards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
 
     <template is="dom-if" if="{{!pickUsers}}">
       <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
@@ -25,12 +24,10 @@
     <template is="dom-if" if="{{!_mode}}">
       <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
     </template>
-    <iron-ajax auto url="https://g1.firebaseio.com/demo/users.json?auth={{token}}" last-response="{{users}}"></iron-ajax>  
     <template is="dom-if" if="{{pickUsers}}">
-      <card-display cards="{{usersAsA}}" selectable selected="{{selectedUsers}}" ></card-display>
+      <card-display cards="{{playerCards}}" selectable selected="{{selectedUsers}}" ></card-display>
     </template>
     <template is="dom-if" if="{{_mode}}">
-      <hr style="clear:both">
       <paper-toolbar style="position:fixed;bottom:0;right:0;">
         <div class="container">
           <template is="dom-if" if="{{_modeIs('Share with selected user')}}">
@@ -57,7 +54,6 @@
         properties: {
           display: {computed :"getDisplay(Question, One, Two)"}, 
           cards: {type: Array, value:[]},
-          usersAsA: {computed:"objectToArray(users)"},
           _menu:{ 
             value: [
               {label:"Delete",icon:"delete",fire:{type:"delete"}},
@@ -107,18 +103,6 @@
           this._mode = "Delete"
           this.set("pickable", true)
         },
-        objectToArray: function (data) {
-          var output = []
-          if (data) {
-            var keys = Object.keys(data)
-            for (var i = 0; i < keys.length; i++) {
-              if (typeof data[keys[i]] === 'object') {
-                output.push(data[keys[i]])
-              }
-            }
-          }
-          return output
-        },
         fabAdd: function(e,detail) {
           if (detail === "deck") {
             this._mode = "Add to a Deck"
@@ -160,7 +144,7 @@
             this._mode = "Share with selected user"
             this.set("pickUsers", true)
           } else if (this._mode === "Share with selected user") {
-            // https://g1.firebaseio.com/share/yhg/google%3A108143381081229631011/cards
+            // https://g1.firebaseio.com/share/yhg/google%3A108143381081229631011/cards TODO
             this.set("_mode","")
 
             
@@ -168,7 +152,7 @@
               for (var u = 0; u < this.selectedUsers.length; u++) {
                 this.$.set.headers = {'content-type':'application/json'}
                 this.$.set.body = JSON.stringify(this.cards[s])
-                this.$.set.url = "https://g1.firebaseio.com/share/yhg/google:"+this.usersAsA[u].url.split(":")[2]+"/cards.json?auth="+this.token
+                this.$.set.url = "https://g1.firebaseio.com/share/yhg/google:"+this.playerCards[u].url.split(":")[2]+"/cards.json?auth="+this.token
                 this.$.set.generateRequest()
               }
             }
