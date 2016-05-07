@@ -1,8 +1,8 @@
 <dom-module id="surveys-page">
   <template>
-    <style is="custom-style" include="shared-styles"></style>
     <style>
-      paper-textarea { margin: 10px; }
+      paper-material { margin: 10px; }
+      paper-input { display: inline-block }
     </style>
     <h2>Surveys</h2>
     <template is="dom-if" if="{{!_mode}}">
@@ -63,6 +63,8 @@
           },
           _select: {type: Array},
           _mode: {type: String, value: ""},
+          One: {type: String, value: "Yes"},
+          Two: {type: String, value: "No"},
           pickUsers: {type: Boolean, value: false},
         },
         getDisplay: function(Question, One, Two) {
@@ -77,8 +79,8 @@
           this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<center><h1>{{Question}}</h1><{{tag}} raised>{{One}}</{{tag}}><{{tag}} raised>{{Two}}</{{tag}}></center>", tag:"paper-button", url:hash, readableBy:readableBy}]))
 
           this.set("Question","")
-          this.set("One","")
-          this.set("Two","")
+          this.set("One","Yes")
+          this.set("Two","No")
         },
         hash: function(a,b) {
           function hex32(val) {
