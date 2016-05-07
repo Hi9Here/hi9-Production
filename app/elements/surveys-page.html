@@ -21,7 +21,7 @@
     <card-data cards="{{cards}}" player-cards="{{playerCards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
 
     <template is="dom-if" if="{{!pickUsers}}">
-      <card-display cards="{{cards}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
+      <card-display cards="{{cards}}" lookup="{{_lookup}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
     </template>
     <template is="dom-if" if="{{!_mode}}">
       <fab-menu label="Share / Delete" on-share="fabShare" on-delete="fabDelete" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{_menu}}"></fab-menu>
@@ -63,11 +63,19 @@
             ],
             type: Array
           },
+          _lookup: {
+            computed:"lookupSurveys(cards)"
+          },
           _select: {type: Array},
           _mode: {type: String, value: ""},
           One: {type: String, value: "Yes"},
           Two: {type: String, value: "No"},
           pickUsers: {type: Boolean, value: false},
+        },
+        lookupSurveys:function(cards)  {
+          return {
+            
+          }
         },
         getDisplay: function(Question, One, Two) {
           return [{data:"<center><h1>"+Question+"</h1><paper-button raised>"+One+"</paper-button><paper-button raised>"+Two+"</paper-button></center>","url":"custom"}]
