@@ -73,9 +73,13 @@
           pickUsers: {type: Boolean, value: false},
         },
         lookupSurveys:function(cards)  {
-          return {
-            
+          var output = {}
+          for (var s = 0; s < this.cards.length; s++) {
+            output[cards[s].url] = cards[s]
+            output[cards[s].url]['title'] = ' 1 2 3 '
           }
+          
+          return output 
         },
         getDisplay: function(Question, One, Two) {
           return [{data:"<center><h1>"+Question+"</h1><paper-button raised>"+One+"</paper-button><paper-button raised>"+Two+"</paper-button></center>","url":"custom"}]
