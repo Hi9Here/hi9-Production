@@ -3,8 +3,6 @@
     <style is="custom-style" include="shared-styles"></style>
     <style>
       paper-textarea { margin: 10px; }
-      paper-material { width: 200px; height: 250px;}
-      paper-fab { position: absolute; bottom: 20px; right: 20px; }
     </style>
     <h2>Surveys</h2>
     <template is="dom-if" if="{{!_mode}}">
@@ -12,11 +10,11 @@
         <paper-textarea label="Question" value="{{Question}}"></paper-textarea>
         <paper-input label="Option 1" value="{{One}}"></paper-input>
         <paper-input label="Option 2" value="{{Two}}"></paper-input>
+        <template is="dom-if" if="{{Question}}">
+          <card-display cards='{{display}}' viewable></card-display>
+          <paper-fab icon="add" on-tap="add"></paper-fab>
+        </template>
       </paper-material>
-      <template is="dom-if" if="{{Question}}">
-        <card-display cards='{{display}}' viewable></card-display>
-        <paper-fab icon="add" on-tap="add"></paper-fab>
-      </template>
       <hr style="clear:both">
     </template>
     <card-data cards="{{cards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
