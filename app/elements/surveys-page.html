@@ -80,7 +80,7 @@
           readableBy[this.uid] = true
 // TODO readableBy other Admins
 
-          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<center><h1>{{Question}}</h1><{{tag}} raised>{{One}}</{{tag}}><{{tag}} raised>{{Two}}</{{tag}}></center>", tag:"paper-button", url:"custom:"+this.uid+":"+hash, readableBy:readableBy}]))
+          this.set("cards" ,this.cards.concat([{Question: this.Question, Two: this.Two, One: this.One, data:"<center><h1>{{Question}}</h1><{{tag}} raised>{{One}}</{{tag}}><{{tag}} raised>{{Two}}</{{tag}}></center>", tag:"paper-button", url:hash, readableBy:readableBy}]))
 
           this.set("Question","")
           this.set("One","")
