@@ -88,7 +88,7 @@
             for (var u = 0; u < players.length; u++) {
               if (players[u].url) {
                 this.$.get.headers = {'content-type':'application/json'}
-                this.$.get.url = "https://g1.firebaseio.com/share/google:"+players[u].url.split(":")[2]+"/"+url+"/cards.json?auth="+this.token
+                this.$.get.url = "https://g1.firebaseio.com/share/google:"+players[u].url.split(":")[2]+"/cards/"+url+"/.json?auth="+this.token
                 this.$.get.onResponse="addUpReplys"
                 this.$.get.generateRequest()
               }
