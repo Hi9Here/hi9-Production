@@ -3,10 +3,69 @@
 <dom-module id="admins-page">
   <template>
     <style>
+      paper-material {
+        width: 157px;
+        height: 210px;
+        padding: 10px;
+      }
+      iron-image {
+        height: 120px;
+        width: 120px;
+        margin-left: 23px;
+      }
+      #putitle {
+        margin: 20px;
+      }
+      .pu {
+        float: left;
+        margin: 10px;
+      }
       
     </style>
-    <h2>Colleagues</h2>
-    <p>This is where you add colleagues that you want to help you Administrate/Help your users</p>
+    
+      <h2>Colleagues</h2>
+    
+      <h3>When You Go Live with Real Data this is Where you will be able to add other Power Users who can create Cards </br> and share them with Users Also</h3>
+    
+    <div class="pu">
+       <paper-material elevation="1">
+      <div id="puimage">
+        <iron-image src="../images/power-users/adele.jpeg" preload sizing="cover"></iron-image>
+      </div>
+      
+      <div id="putitle">
+        <h3>Adele Singer</h3>
+      </div>
+    </paper-material>
+    </div>
+    
+    <div class="pu">
+       <paper-material elevation="1">
+      <div id="puimage">
+        <iron-image src="../images/power-users/celebrity.jpeg" preload sizing="cover"></iron-image>
+      </div>
+      
+      <div id="putitle">
+        <h3>Rhianna</h3>
+      </div>
+    </paper-material>
+    </div>
+    
+    <div class="pu">
+       <paper-material elevation="1">
+      <div id="puimage">
+        <iron-image src="../images/power-users/rhianna.jpg" preload sizing="cover"></iron-image>
+      </div>
+      
+      <div id="putitle">
+        <h3>Mr Jones</h3>
+      </div>
+    </paper-material>
+    </div>
+   
+    
+  
+  
   </template>
 
   <script>
