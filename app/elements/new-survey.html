@@ -1,0 +1,34 @@
+<!doctype html>
+
+<dom-module id="new-survey">
+    <template>
+    <style is="custom-style" include="shared-styles"></style>
+    <style>
+ 
+    </style>
+
+        <paper-textarea label="Question" value="{{Question}}" char-counter maxlength="140" required auto-validate error-message="Needs a Question!"></paper-textarea>
+        
+        <center>
+       
+        <paper-input label="Option 1" value="{{One}}" char-counter maxlength="10"></paper-input>
+        
+        <paper-input label="Option 2" value="{{Two}}" char-counter maxlength="10"></paper-input>
+        
+        </center>
+    
+    </template>
+
+    <script>
+        (function() {
+            'use strict';
+
+            Polymer({
+                is: 'new-survey',
+
+
+            });
+        })();
+    </script>
+
+</dom-module>
