@@ -115,7 +115,7 @@
           this.set("Two","No")
         },
         hash: function(a) {
-          return this.$.card.hash(a)
+          return this.$.cards.hash(a)
         },
         picked: function (e,d) {
           this.splice("cards",d ,1)
@@ -172,7 +172,7 @@
             for (var s = 0; s < this.selected.length; s++) {
               for (var u = 0; u < this.selectedUsers.length; u++) {
                 this.$.set.headers = {'content-type':'application/json'}
-                this.$.set.body = JSON.stringify(this.cards[s])
+                this.$.set.body = JSON.stringify(this.cards[this.selected[s]])
                 this.$.set.url = "https://g1.firebaseio.com/share/yhg/google:"+this.playerCards[u].url.split(":")[2]+"/cards.json?auth="+this.token
                 this.$.set.generateRequest()
               }
