@@ -7,9 +7,7 @@
     <style>
  
     </style>
-    
         <div id="surveycards">
-            
             <div id="surveyq">
                 <paper-material elevation="1">
                     <paper-textarea label="Question" value="{{Question}}" char-counter maxlength="140" required auto-validate error-message="Needs a Question!"></paper-textarea>
@@ -21,20 +19,15 @@
                     </center>
                 </paper-material>
             </div>
-            
             <div id="surveya">
                 <card-display style="display:block" cards='{{display}}' viewable></card-display>
-                <div class="buttons">
-                    
-                    <paper-button on-tap="add" raised>OK</paper-button>
-                    <paper-button on-tap="dontdoit" raised>Cancel</paper-button>
-                
-                </div>
             </div>
         </div>
-        
+        <div class="buttons">
+          <paper-button on-tap="add" raised>OK</paper-button>
+          <paper-button on-tap="dontdoit" raised>Cancel</paper-button>
+        </div>
     </template>
-
     <script>
         (function() {
             'use strict';
@@ -78,5 +71,4 @@
             });
         })();
     </script>
-
 </dom-module>
