@@ -18,7 +18,8 @@
         </template>
       </paper-material>
     </template>
-    <card-data cards="{{cards}}" player-cards="{{playerCards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
+    
+    <card-data id="cards" cards="{{cards}}" player-cards="{{playerCards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
 
     <template is="dom-if" if="{{!pickUsers}}">
       <card-display cards="{{cards}}" lookup="{{_lookup}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
@@ -88,7 +89,7 @@
             for (var u = 0; u < players.length; u++) {
               if (players[u].url) {
                 this.$.get.headers = {'content-type':'application/json'}
-                this.$.get.url = "https://g1.firebaseio.com/share/google:"+players[u].url.split(":")[2]+"/cards/"+url+"/.json?auth="+this.token
+                this.$.get.url = "https://g1.firebaseio.com/share/google:"+players[u].url.split(":")[2]+"/cards/"+this.hash(url)+"/.json?auth="+this.token
                 this.$.get.onResponse="addUpReplys"
                 this.$.get.generateRequest()
               }
@@ -102,7 +103,7 @@
           return [{data:"<center><h1>"+Question+"</h1><paper-button raised>"+One+"</paper-button><paper-button raised>"+Two+"</paper-button></center>","url":"custom"}]
         },
         add: function () {
-          var hash = this.hash(this.uid, this.Question)
+          var hash = this.hash(this.uid + this.Question)
           var readableBy = {}
           readableBy[this.uid] = true
 // TODO readableBy other Admins
@@ -113,21 +114,8 @@
           this.set("One","Yes")
           this.set("Two","No")
         },
-        hash: function(a,b) {
-          function hex32(val) {
-            val &= 0xFFFFFFFF
-            var hex = val.toString(16).toUpperCase()
-            return ("00000000" + hex).slice(-8)
-          }
-          var hash = 0
-          var message = a+b
-          if (message.length === 0) return hash
-            for (i = 0;i < message.length;i++) {
-              var char = message.charCodeAt(i)
-              hash = ((hash<<5)-hash)+char
-              hash = hash & hash // Convert to 32bit integer
-            }
-          return hex32(hash)
+        hash: function(a) {
+          return this.$.card.hash(a)
         },
         picked: function (e,d) {
           this.splice("cards",d ,1)
