@@ -1,12 +1,12 @@
-<!doctype html>
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<link rel="import" href="/bower_components/card-display/card-display.html">
+<link rel="import" href="/bower_components/paper-material/paper-material.html">
+<link rel="import" href="/bower_components/paper-input/paper-input.html">
+<link rel="import" href="/bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="/bower_components/polymer/polymer.html">
 
 <dom-module id="new-survey">
   <template>
-        
-    <style is="custom-style" include="shared-styles"></style>
-    <style>
- 
-    </style>
     <div id="surveycards">
       <div id="surveyq">
         <paper-material elevation="1">
@@ -62,7 +62,7 @@
         dontdoit: function() {
           this.fire("close")
         }
-     });
-   })();
+     })
+   })()
  </script>
 </dom-module>
