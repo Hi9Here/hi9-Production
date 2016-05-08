@@ -2,29 +2,37 @@
 
 <dom-module id="new-survey">
     <template>
+        
     <style is="custom-style" include="shared-styles"></style>
     <style>
  
     </style>
-        
-        <paper-textarea label="Question" value="{{Question}}" char-counter maxlength="140" required auto-validate error-message="Needs a Question!"></paper-textarea>
-        
-        <center>
-       
-        <paper-input label="Option 1" value="{{One}}" char-counter maxlength="10"></paper-input>
-        
-        <paper-input label="Option 2" value="{{Two}}" char-counter maxlength="10"></paper-input>
-        
-        </center>
-        
-        <card-display style="display:block" cards='{{display}}' viewable></card-display>
-        
-        <div class="buttons">
+    
+        <div id="surveycards">
             
-            <paper-button on-tap="add" raised>OK</paper-button>
-            <paper-button on-tap="dontdoit" raised>Cancel</paper-button>
+            <div id="surveyq">
+                <paper-material elevation="1">
+                    <paper-textarea label="Question" value="{{Question}}" char-counter maxlength="140" required auto-validate error-message="Needs a Question!"></paper-textarea>
+                    <center>
+                
+                    <paper-input label="Option 1" value="{{One}}" char-counter maxlength="10"></paper-input>           
+                    <paper-input label="Option 2" value="{{Two}}" char-counter maxlength="10"></paper-input>
+                    
+                    </center>
+                </paper-material>
+            </div>
             
+            <div id="surveya">
+                <card-display style="display:block" cards='{{display}}' viewable></card-display>
+                <div class="buttons">
+                    
+                    <paper-button on-tap="add" raised>OK</paper-button>
+                    <paper-button on-tap="dontdoit" raised>Cancel</paper-button>
+                
+                </div>
+            </div>
         </div>
+        
     </template>
 
     <script>
