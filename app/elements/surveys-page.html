@@ -173,7 +173,7 @@
               for (var u = 0; u < this.selectedUsers.length; u++) {
                 this.$.set.headers = {'content-type':'application/json'}
                 this.$.set.body = JSON.stringify(this.cards[this.selected[s]])
-                this.$.set.url = "https://g1.firebaseio.com/share/yhg/google:"+this.playerCards[u].url.split(":")[2]+"/cards.json?auth="+this.token
+                this.$.set.url = "https://g1.firebaseio.com/share/yhg/google:"+this.playerCards[this.selectedUsers[u]].url.split(":")[2]+"/cards.json?auth="+this.token
                 this.$.set.generateRequest()
               }
             }
