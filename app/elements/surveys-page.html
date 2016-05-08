@@ -1,25 +1,51 @@
 <dom-module id="surveys-page">
   <template>
     <style>
-      paper-material { margin: 10px; }
-      paper-input { display: inline-block }
+      paper-material { 
+        margin: 10px;
+        width: 180px;
+        padding: 20px;    
+        background: #fff;
+      }
+      paper-input { 
+        display: inline-block 
+      }
+      #question {
+        float: left;
+      }
+      #questionpreview {
+        float: left;
+      }
+      #alreadyquestions {
+        float: left;
+      }
+      paper-fab {
+        color: var(--button-background-color);
+        background: var(--accent-color);
+      }
     </style>
     <h2>Surveys</h2>
     <template is="dom-if" if="{{!_mode}}">
-      <paper-material elevation="1">
-        <paper-textarea label="Question" value="{{Question}}"></paper-textarea>
-        <center>
-          <paper-input label="Option 1" value="{{One}}"></paper-input>
-          <paper-input label="Option 2" value="{{Two}}"></paper-input>
-        </center>
+      <div id="question">
+        <paper-material elevation="1">
+          <paper-textarea label="Question" value="{{Question}}" char-counter maxlength="140" required auto-validate error-message="Needs a Question!"></paper-textarea>
+          <center>
+            <paper-input label="Option 1" value="{{One}}" char-counter maxlength="10"></paper-input>
+            <paper-input label="Option 2" value="{{Two}}" char-counter maxlength="10"></paper-input>
+          </center>
+        </paper-material>
+      </div>
+        <div id="questionpreview"> 
         <template is="dom-if" if="{{Question}}">
           <card-display style="display:block" cards='{{display}}' viewable></card-display>
           <paper-fab icon="add" on-tap="add"></paper-fab>
         </template>
-      </paper-material>
+        </div>
     </template>
-    
-    <card-data id="cards" cards="{{cards}}" player-cards="{{playerCards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
+
+    <div id="alreadyquestions">
+      <card-data id="cards" cards="{{cards}}" player-cards="{{playerCards}}" url="https://g1.firebaseio.com/demo/surveys" uid="{{uid}}" token="{{token}}"></card-data>
+    </div>
 
     <template is="dom-if" if="{{!pickUsers}}">
       <card-display cards="{{cards}}" lookup="{{_lookup}}" pickable="{{pickable}}" selectable="{{selectable}}" selected="{{selected}}" on-picked="picked"></card-display>
