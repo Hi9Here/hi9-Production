@@ -9,9 +9,9 @@
 
 
         <h2>Users</h2>
-<p>Here's where administrators can see all users individually listed on cards. Users can be displayed as individual cards or grouped together in decks.</p>
-
-<p>Decks can be customised by location, employment status etc.</br> Any one user can appear in multiple decks eg someone who's unemployed + living in Plymouth could appear in both decks at the administrators discretion</p>
+        
+        
+  
        <iron-ajax auto url="https://g1.firebaseio.com/share/users.json" last-response="{{cards}}"></iron-ajax>  
         <card-display cards="{{cardsAsA}}" ></card-display>
 
@@ -25,20 +25,22 @@
       Polymer({
         is: 'users-page',
         properties: {
-          cardsAsA: {computed:"objectToArray(cards)"},
-      },
-      objectToArray: function (data) {
-        var output = []
-        if (data) {
-          var keys = Object.keys(data)
-          for (var i = 0; i < keys.length; i++) {
-            if (typeof data[keys[i]] === 'object') {
-              output.push(data[keys[i]])
+          cardsAsA: {
+            computed: "objectToArray(cards)"
+          },
+        },
+        objectToArray: function(data) {
+          var output = []
+          if (data) {
+            var keys = Object.keys(data)
+            for (var i = 0; i < keys.length; i++) {
+              if (typeof data[keys[i]] === 'object') {
+                output.push(data[keys[i]])
+              }
             }
           }
+          return output
         }
-        return output
-      }
       });
     })();
   </script>
