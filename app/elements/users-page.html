@@ -2,9 +2,9 @@
 
 <dom-module id="users-page">
   <template>
-    <h2>Users</h2>
-    <iron-ajax auto url="https://g1.firebaseio.com/share/users.json" last-response="{{cards}}"></iron-ajax>  
-    <card-display cards="{{cardsAsA}}" ></card-display>
+    <h2>Users</h2> 
+    <card-data player-cards="{{playerCards}}" uid="{{uid}}" url="https://g1.firebaseio.com/" token="{{token}}"></card-data>
+    <card-display cards="{{playerCards}}" ></card-display>
   </template>
   <script>
     (function() {
