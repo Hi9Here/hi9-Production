@@ -2,26 +2,13 @@
 
 <dom-module id="users-page">
   <template>
-    <style is="custom-style" include="shared-styles"></style>
-    <style>
-     
-    </style>
-
-
-        <h2>Users</h2>
-        
-        
-  
-       <iron-ajax auto url="https://g1.firebaseio.com/share/users.json" last-response="{{cards}}"></iron-ajax>  
-        <card-display cards="{{cardsAsA}}" ></card-display>
-
+    <h2>Users</h2>
+    <iron-ajax auto url="https://g1.firebaseio.com/share/users.json" last-response="{{cards}}"></iron-ajax>  
+    <card-display cards="{{cardsAsA}}" ></card-display>
   </template>
-
   <script>
     (function() {
       'use strict';
-
-
       Polymer({
         is: 'users-page',
         properties: {
@@ -44,5 +31,4 @@
       });
     })();
   </script>
-
 </dom-module>
