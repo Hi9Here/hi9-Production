@@ -36,5 +36,3 @@
   app.scrollPageToTop = function() {
   };
 })(document);
-
-

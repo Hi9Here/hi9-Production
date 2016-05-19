@@ -126,7 +126,7 @@
 
           this.$.set.headers = {'content-type':'application/json'}
           this.$.set.body = JSON.stringify({title: google.displayName, image: image, url: "user:" + uid})
-          this.$.set.url = "https://g1.firebaseio.com/share/users/" + uid + ".json"
+          this.$.set.url = "https://fire-login-1104.firebaseio.com/share/users/" + uid + ".json"
           this.$.set.generateRequest()
 
           if (chrome.app.isInstalled) {
