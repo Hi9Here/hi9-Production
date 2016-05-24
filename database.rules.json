@@ -1,0 +1,75 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      },
+      "default": {
+        "card-data": {
+          ".read": true
+        }
+      }
+    },
+    "admin": {
+      "$uid": {
+        ".read": "auth != null && (auth.uid == $uid || data.child('readableBy').child(auth.uid).val() == true)",
+        ".write": "auth != null && (auth.uid == $uid || data.child('writableBy').child(auth.uid).val() == true)"
+      }
+    },
+    "players": {
+       "$uid": {
+        ".write": "auth != null && (auth.uid == $uid || data.child('writableBy').child(auth.uid).val() == true)",
+        ".read": "data.child('readableBy').child('all').val() == true || (auth != null && (auth.uid == $uid || data.child('readableBy').child(auth.uid).val() == true))",
+        "$key": {
+          ".read": "auth != null && data.child('readableBy').child(auth.uid).val() == true"
+        },
+        "default": {
+          ".read": true
+        }
+      }
+    },
+    "share": {
+      "default": {
+        ".read": true
+      },
+      "$uid": {
+        ".write": "auth != null && (auth.uid == $uid || data.child('writableBy').child('all').val() == true || data.child('writableBy').child(auth.uid).val() == true)",
+        ".read": "data.child('readableBy').child('all').val() == true || (auth != null && (auth.uid == $uid || data.child('readableBy').child(auth.uid).val() == true))",
+        "cards": {
+          "$hashUid" : {
+            ".write": "auth != null && (auth.uid == $uid || data.child('writableBy').child('all').val() == true || data.child('writableBy').child(auth.uid).val() == true)",
+            ".read": "data.child('readableBy').child('all').val() == true || (auth != null && (auth.uid == $uid || data.child('readableBy').child(auth.uid).val() == true))"
+          }
+        },
+        "$key": {
+          ".read": "auth != null && data.child('readableBy').child(auth.uid).val() == true || auth.uid == $uid || auth.uid == $key",
+          ".write": "auth != null && data.child('writableBy').child(auth.uid).val() == true || auth.uid == $uid || auth.uid == $key",
+          "default": {
+            ".read": true
+          }
+        },
+         "default": {
+          ".read": true
+        }
+      }
+    },
+    "listing": {
+      ".write": "auth != null && !data.hasChild('uid')",
+      //".validate": "newData.hasChildren(['uid', 'readableBy'])", // TODO && newData.child('uid').val() == auth.uid && newData.child('readableBy').val() == 'all'",
+      ".read": "data.child('readableBy').child('all').val() == true",
+      "users": {
+        ".write": "auth != null && !data.hasChild('uid')",
+        ".read": "(auth != null && (data.child('readableBy').child(auth.uid).val() == true))"
+      }
+    },
+    "default": {
+      ".read": true,
+      ".write": false
+    },
+    "demo": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}
