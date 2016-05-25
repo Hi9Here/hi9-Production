@@ -3,11 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "dist",
-    "headers" : [ {
-      "key" : "X-Frame-Options",
-      "value" : "GOFORIT"
-    } ]
+    "public": "dist"
   },
   "headers" : [ {
     "key" : "X-Frame-Options",
