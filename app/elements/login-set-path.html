@@ -10,9 +10,9 @@
       }
     </style>
     <template is="dom-if" if="{{!user}}">
-      <hi9-login location="{{_url}}"></hi9-login>
+      <hi9-login api-key="{{apiKey}}" location="{{_url}}"></hi9-login>
     </template>
-    <hi9-login hidden user="{{user}}"  location="{{_url}}"></hi9-login>
+    <hi9-login api-key="{{apiKey}}" hidden user="{{user}}"  location="{{_url}}"></hi9-login>
     <template is="dom-if" if="{{user}}">
       <a data-route="home" href="/" style="text-decoration: none">
         <paper-tabs selected="0">
@@ -27,6 +27,7 @@
 Polymer({
   is: "login-set-path",
   properties: {
+    apiKey: {value:"AIzaSyCPvKcr5GIXKCVsbOG9s5SuPh8l4bsLYrY"},
     yours: {notify: true, value: true},
     _url: {
       computed: "get_url(app)"
