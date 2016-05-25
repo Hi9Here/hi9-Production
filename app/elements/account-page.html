@@ -105,7 +105,7 @@
           usercounty: { value: 'Cornwall' },
           usercountry: { value: 'United Kingdom' },
           userpostcode: { value: 'TR18 2ED' },
-          cards: { computed: "getCards(user.uid, user.google, saveMe)" }
+          cards: { computed: "getCards(user.uid, user, saveMe)" }
         },
         openInterests: function() {
           this.$.interests.open()
@@ -120,16 +120,16 @@
             this.install
           }
         },
-        getCards: function(uid, google, image, installed) {
+        getCards: function(uid, user, image, installed) {
 
           this.$.set.headers = {'content-type':'application/json'}
           this.$.set.body = JSON.stringify({title: google.displayName, image: image, url: "user:" + uid})
-          this.$.set.url = "https://fire-login-1104.firebaseio.com/share/users/" + uid + ".json"
+          this.$.set.url = "https://auth-c5e05.firebaseio.com/share/users/" + uid + ".json"
           this.$.set.generateRequest()
 
           if (chrome.app.isInstalled) {
             return [{
-              title: google.displayName,
+              title: user.displayName,
               image: image,
               url: "user:" + uid
             }]
