@@ -28,7 +28,7 @@
 Polymer({
   is: "login-set-path",
   properties: {
-    locationDomain: {computed: "getLocationDomain(_url)"},
+    locationDomain: {computed: "getLocationDomain(app)"},
     apiKey: {value:"AIzaSyCPvKcr5GIXKCVsbOG9s5SuPh8l4bsLYrY"},
     yours: {notify: true, value: true},
     _url: { computed: "get_url(app)"
@@ -49,8 +49,8 @@ Polymer({
       notify: true, computed: "got(user.uid)"
     }
   },
-  getLocationDomain: function (location) {
-    return location.replace("https://","")
+  getLocationDomain: function (app) {
+     return "https://"+app+".firebaseapp.com"
   },
   get_url: function(app) {
     return "https://"+app+".firebaseio.com"
