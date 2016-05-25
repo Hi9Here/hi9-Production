@@ -5,8 +5,26 @@
   "hosting": {
     "public": "dist"
   },
-  "headers" : [ {
-    "key" : "X-Frame-Options",
-    "value" : "GOFORIT"
+ "headers": [ {
+    "source" : "**/*.*",
+    "headers" : [ {
+      "key" : "Access-Control-Allow-Origin",
+      "value" : "*"
+    },{
+      "key" : "X-Frame-Options",
+      "value" : "SAMEORIGIN"
+    } ]
+  }, {
+    "source" : "**/*.@(jpg|jpeg|gif|png)",
+    "headers" : [ {
+    "key" : "Cache-Control",
+    "value" : "max-age=7200"
+    } ]
+  }, {
+    "source" : "404.html",
+    "headers" : [ {
+    "key" : "Cache-Control",
+    "value" : "max-age=300"
+    } ]
   } ]
 }
