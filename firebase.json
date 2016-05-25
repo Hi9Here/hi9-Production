@@ -5,18 +5,19 @@
   "hosting": {
     "public": "dist"
   },
- "headers": [ {
-    "source" : "index.html",
-    "headers" : [ {
-      "key" : "X-Frame-Options",
-      "value" : "SAMEORIGIN"
-    } ]
-  }, {
-    "source" : "*",
-    "headers" : [ {
-      "key" : "X-Frame-Options",
-      "value" : "SAMEORIGIN"
-    } ]
-  } ]
-  } ]
+ "headers": [
+    {
+      "source" : "index.html",
+      "headers" : [ {
+        "key" : "X-Frame-Options",
+        "value" : "SAMEORIGIN"
+      } ]
+    }, {
+      "source" : "*",
+      "headers" : [ {
+        "key" : "X-Frame-Options",
+        "value" : "SAMEORIGIN"
+      } ]
+    }
+  ]
 }
