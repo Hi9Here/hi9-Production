@@ -10,9 +10,9 @@
       }
     </style>
     <template is="dom-if" if="{{!user}}">
-      <hi9-login api-key="{{apiKey}}" app="{{app}}" location="{{_url}}"></hi9-login>
+      <hi9-login api-key="{{apiKey}}" client-id="{{clientId}}" app="{{app}}" location="{{_url}}"></hi9-login>
     </template>
-    <hi9-login api-key="{{apiKey}}" app="{{app}}" hidden user="{{user}}" location="{{_url}}"></hi9-login>
+    <hi9-login api-key="{{apiKey}}" app="{{app}}" client-id="{{clientId}}" hidden user="{{user}}" location="{{_url}}"></hi9-login>
     <template is="dom-if" if="{{user}}">
       <a data-route="home" href="/" style="text-decoration: none">
         <paper-tabs selected="0">
@@ -21,7 +21,6 @@
         </paper-tabs>
       </a>
     </template>
-    <firebase-app name="{{locationDomain}}" auth-domain="{{locationDomain}}" database-url="{{_url}}" api-key="{{apiKey}}"></firebase-app>
   </template>
 </dom-module>
 <script>
@@ -30,6 +29,7 @@ Polymer({
   properties: {
     locationDomain: {computed: "getLocationDomain(app)"},
     apiKey: {value:"AIzaSyCPvKcr5GIXKCVsbOG9s5SuPh8l4bsLYrY"},
+    clientId: {value:"551069572646-45krf1jinr34otbu46gur33vgjsco0op.apps.googleusercontent.com"},
     yours: {notify: true, value: true},
     _url: { computed: "get_url(app)"},
     user: {
