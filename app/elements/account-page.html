@@ -38,9 +38,9 @@
     <paper-dialog id="acc" style="background: #512da8" >
       <h2>Account</h2>
       <div class="accountdetails">
-        <paper-input label="Name" value="{{user.google.displayName}}"></paper-input>
+        <paper-input label="Name" value="{{user.displayName}}"></paper-input>
         <paper-input label="Tel" value="{{usertel}}"></paper-input>
-        <paper-input label="EmailName" value="{{user.google.email}}"></paper-input>
+        <paper-input label="EmailName" value="{{user.email}}"></paper-input>
         <paper-input label="Twitter" value="{{usertwitter}}"></paper-input>
       
         <div id="papbutts">
@@ -59,7 +59,7 @@
         <paper-input label="Post Code" value="{{userpostcode}}"></paper-input>
       </div>
     </paper-dialog>
-    <image-base64 url="{{user.google.profileImageURL}}" width="250" base64="{{saveMe}}"></image-base64>
+    <image-base64 url="{{user.profileImage}}" width="250" base64="{{saveMe}}"></image-base64>
     <paper-dialog id="interests" modal>
       <h2>Interests</h2>
       <p>Please Share your Interests. More we know the more we can recommend cards to you</p>
