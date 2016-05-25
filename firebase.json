@@ -11,6 +11,9 @@
       "headers" : [ {
         "key" : "X-Frame-Options",
         "value" : "SAMEORIGIN"
+      }, {
+       "key" : "Access-Control-Allow-Origin",
+       "value" : "*"
       } ]
     },
     {
