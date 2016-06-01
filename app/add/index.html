@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>add-card demo</title>
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="add-card.html">
+  </head>
+  <body>
+    <h3>add-card Demo</h3>
+    <add-card></add-card>
+  </body>
+</html>
+
+<link rel="import" href="/bower_components/iron-location/iron-location.html">
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<!--
+`<add-card></add-card>` 
+@demo demo.html
+-->
+
+<dom-module id="add-card">
+<template>
+<iron-location hash="{{a}}"></iron-location>
+{{a}}
+</template>
+</dom-module>
+<script>
+Polymer({
+  is: "add-card",
+  properties: {}
+})
+</script>
