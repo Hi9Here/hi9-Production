@@ -21,12 +21,20 @@
 <dom-module id="add-card">
 <template>
 <iron-location hash="{{a}}"></iron-location>
-{{a}}
+
+{{b.title}}
+<img src="{{b.fav}}" />
+
 </template>
 </dom-module>
 <script>
 Polymer({
   is: "add-card",
-  properties: {}
+  properties: {
+    b: {computed: "c(a)"}
+  },
+  c: function(a) {
+    return JSON.parse(decodeURIComponent(a))
+  }
 })
 </script>
