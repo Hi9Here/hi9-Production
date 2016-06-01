@@ -19,18 +19,15 @@
 -->
 
 <dom-module id="add-card">
-<template>
-<iron-location hash="{{a}}"></iron-location>
-
-{{b.title}}
-<img src="{{b.fav}}" />
-<img src="{{b.image}}" />
-
-<template is="dom-repeat" items="{{b.alt}}">
-  <img src="{{item}}" />
-</template>
-
-</template>
+  <template>
+    <iron-location hash="{{a}}"></iron-location>
+    {{b.title}}
+    <img src="{{b.fav}}" />
+    <img src="{{b.image}}" />
+    <template is="dom-repeat" items="{{b.alt}}">
+      <img src="{{item}}" />
+    </template>
+  </template>
 </dom-module>
 <script>
 Polymer({
