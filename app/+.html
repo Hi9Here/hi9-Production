@@ -35,10 +35,13 @@ Polymer({
     return JSON.parse(decodeURIComponent(a))
   },
   getOptions: function(data) {
+    var output = []
     // make bace
-    var a=b=c=d=e=f={title:data.title, url:data.url, image:data.image}
-    
-    return [a,b,c,d,e,f]
+    output.push({title:data.title, url:data.url, image:data.image, fav:data.fav, _data='<div style="max-width:80%;background-size: contain;background-position: center;display:inline-block;width:32px;height:32px; background-image:url({{fav}});background-repeat:no-repeat"></div><h3 style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3><div style="max-width:80%;background-size: contain;background-position: center;display:inline-block;width:200px;height:147px; background-image:url({{image}});background-repeat:no-repeat"></div>'})
+    for (var i = 0;i > data.alt.lenght; i++) {
+      output.push({title:data.title, url:data.url, image:data.alt[i], fav:data.fav, _data='<div style="max-width:80%;background-size: contain;background-position: center;display:inline-block;width:32px;height:32px; background-image:url({{fav}});background-repeat:no-repeat"></div><h3 style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3><div style="max-width:80%;background-size: contain;background-position: center;display:inline-block;width:200px;height:147px; background-image:url({{image}});background-repeat:no-repeat"></div>'})
+    }
+    return output
   }
 })
 </script>
