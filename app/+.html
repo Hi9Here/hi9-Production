@@ -28,14 +28,17 @@
 Polymer({
   is: "add-card",
   properties: {
-    b: {computed: "decode(a)"},
-    cards: {computed: "getOptions(b)"}
+    data: {computed: "decode(a)"},
+    cards: {computed: "getOptions(data)"}
   },
   decode: function(a) {
     return JSON.parse(decodeURIComponent(a))
   },
-  getOptions: function(b) {
-    return [b]
+  getOptions: function(data) {
+    // make bace
+    var a=b=c=d=e=f={title:data.title, url:data.url}
+    
+    return [a,b,c,d,e,f]
   }
 })
 </script>
