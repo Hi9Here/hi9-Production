@@ -4,6 +4,7 @@
     <title>add-card demo</title>
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="/bower_components/iron-location/iron-location.html">
+    <link rel="import" href="/bower_components/card-display/card-display.html">
     <link rel="import" href="/bower_components/polymer/polymer.html">
   </head>
   <body>
@@ -20,21 +21,16 @@
 <dom-module id="add-card">
   <template>
     <iron-location hash="{{a}}"></iron-location>
-    {{b.title}}
-    <img src="{{b.fav}}" />
-    <img src="{{b.image}}" />
-    <template is="dom-repeat" items="{{b.alt}}">
-      <img src="{{item}}" />
-    </template>
+    <card-display pickable cards='[{"{{b}}",{"html":"ls","url":"http://hi9.uk"}]'></card-display>
   </template>
 </dom-module>
 <script>
 Polymer({
   is: "add-card",
   properties: {
-    b: {computed: "c(a)"}
+    b: {computed: "decode(a)"}
   },
-  c: function(a) {
+  decode: function(a) {
     return JSON.parse(decodeURIComponent(a))
   }
 })
