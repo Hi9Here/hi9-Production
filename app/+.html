@@ -36,7 +36,7 @@ Polymer({
   },
   getOptions: function(data) {
     var output = []
-    var tpl = '<div style="max-width:80%;background-size: contain;background-position: center;display:inline-block;width:32px;height:32px; background-image:url({{_fav}});background-repeat:no-repeat"></div><h3 style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3><div style="max-width:80%;background-size: contain;background-position: center;display:inline-block;width:200px;height:147px; background-image:url({{_image}});background-repeat:no-repeat"></div>'
+    var tpl = '<div style="float:left;background-size: contain;background-position: center;display:inline-block;width:32px;height:32px; background-image:url({{_fav}});background-repeat:no-repeat"></div><h3 style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3><div style="max-width:80%;background-size: contain;background-position: center;display:inline-block;width:200px;height:147px; background-image:url({{_image}});background-repeat:no-repeat"></div>'
     output.push({title: data.title, url:data.url, _image:data.image, _fav:data.fav, _data:tpl})
     for (var i = 0;i < data.alt.length; i++) {
       output.push({title: data.title, url:data.url, _image:data.alt[i], _fav:data.fav, _data:tpl})
