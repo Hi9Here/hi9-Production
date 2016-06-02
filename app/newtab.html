@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Hi9 Personal Web" />
+  <title>Hi9 - Web Made Simple</title>
+  <!-- Place favicon.ico in the `app/` directory -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#512da8">
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <!-- Tile color for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Hi9">
+  <link rel="icon" sizes="192x192" href="/images/hi9-logos/hi9-logo-color-white-bg-192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Hi9 Personal Web">
+  <link rel="apple-touch-icon" href="images/hi9-logos/hi9-logo-color-152.png">
+
+  <!-- Tile icon for Win8 (144x144) -->
+  <meta name="msapplication-TileImage" content="/images/hi9-logos/hi9-logo-color-white-144.png">
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- endbuild -->
+
+  <!-- will be replaced with elements/elements.vulcanized.html -->
+  <link rel="import" href="/elements/elements.html">
+  <!-- endreplace-->
+
+  <!-- For shared styles, shared-styles.html import in elements.html -->
+  <style is="custom-style" include="shared-styles"></style>
+  <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/nkbabmancickiacfoeoadibicncombep">
+</head>
+
+<body unresolved class="fullbleed layout vertical">
+  <span id="browser-sync-binding"></span>
+  <template is="dom-bind" id="app">
+    <template is="dom-if" if="{{user}}">
+      <paper-drawer-panel id="paperDrawerPanel" responsive-width="870px">
+        <!-- Drawer Scroll Header Panel -->
+        <paper-scroll-header-panel  drawer fixed keep-condensed-header="true">
+  
+          <!-- Drawer Toolbar -->
+          <paper-toolbar id="drawerToolbar">
+            <span class="paper-font-title">Menu</span>
+          </paper-toolbar>
+  
+          <!-- Drawer Content -->
+          <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+            <div id="all">
+              <a data-route="home" href="/" on-click="onDataRouteClick">
+                <iron-icon icon="apps"></iron-icon>
+                <span>All</span>
+              </a>
+            </div>
+            <!--<div id="surveys">
+              <a data-route="surveys" href="/surveys" on-click="onDataRouteClick">
+                <iron-icon icon="check-box"></iron-icon>
+                <span>Surveys</span>
+              </a>
+            </div>-->
+            <!--<div id="events">
+              <a data-route="events" href="/events" on-click="onDataRouteClick">
+                <iron-icon icon="today"></iron-icon>
+                <span>Events</span>
+              </a>
+            </div>
+            <div id="services">
+              <a data-route="services" href="/services" on-click="onDataRouteClick">
+                <iron-icon icon="shopping-cart"></iron-icon>
+                <span>Services</span>
+              </a>
+            </div>   -->
+            <hr> 
+            <a data-route="account" href="/account" on-click="onDataRouteClick">
+              <iron-icon icon="account-circle"></iron-icon>
+              <span>Account</span>
+            </a>    
+            <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+              <iron-icon icon="mail"></iron-icon>
+              <span>Contact</span>
+            </a>
+            <div id="menubottom">
+              <hr>          
+              <div id="users">
+                <a data-route="users" href="/users" on-click="onDataRouteClick">
+                  <iron-icon icon="face"></iron-icon>
+                  <span>Users</span>
+                </a>
+              </div>
+              <div id="colleagues">
+                <a data-route="admins" href="/colleagues" on-click="onDataRouteClick">
+                  <iron-icon icon="perm-identity"></iron-icon>
+                  <span>Colleagues</span>
+                </a>
+              </div>
+              <div id="dashboard">
+                <a data-route="dashboard" href="/dashboard" on-click="onDataRouteClick" id="dashb">
+                  <iron-icon icon="assessment"></iron-icon>
+                  <span>Dashboard</span>
+                </a>
+              </div>
+            </div>
+              
+          </paper-menu>
+        </paper-scroll-header-panel>
+  
+        <!-- Main Area -->
+        <paper-scroll-header-panel main keep-condensed-header>
+  
+          <!-- Main Toolbar -->
+          <paper-toolbar>
+            
+              <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+              <paper-input label="Search" value="{{search}}" no-label-float>
+                <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
+              </paper-input>
+                   
+            <span class="flex"></span>
+            <login-set-path app="auth-c5e05" user="{{user}}" token="{{token}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
+
+            <!--  Logo -->
+            <div id="logo">
+              <img src="/images/hi9-logos/hi9-logo-128.png" alt="Hi9 Logo">
+            </div>
+  
+          </paper-toolbar>
+    
+          <!-- Main Content -->
+          <div class="content">
+            <iron-pages attr-for-selected="data-route" selected="{{route}}">
+  
+              <section data-route="home">
+                <template is="dom-if" if="{{yours}}">
+                  <card-control url="{{urlForCards}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
+                </template>
+                <template is="dom-if" if="{{!yours}}">
+                  <card-control url="{{urlForMore}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
+                </template>
+              </section>
+  
+              <section data-route="surveys">
+                <surveys-page token="{{token}}" uid="{{uid}}"></surveys-page>
+              </section>
+              
+              <section data-route="events">
+                <events-page token="{{token}}" uid="{{uid}}"></events-page>
+              </section>
+  
+              <section data-route="services">
+                <services-page token="{{token}}" uid="{{uid}}"></services-page>
+              </section>
+              
+              <section data-route="projects">
+                <projects-page token="{{token}}" uid="{{uid}}"></projects-page>
+              </section>
+              
+              <section data-route="users">
+                <users-page token="{{token}}" uid="{{uid}}"></users-page>
+              </section>
+              
+              <section data-route="colleagues">
+                <admins-page token="{{token}}" uid="{{uid}}"></admins-page>
+              </section>
+              
+              <section data-route="dashboard">
+                <dash-board token="{{token}}" uid="{{uid}}"></dash-board>
+              </section>
+            
+              <section data-route="accountpage">
+                <account-page user="{{user}}"></account-page>
+              </section>
+              
+              <section data-route="contactpage">
+                <contact-page token="{{token}}" uid="{{uid}}"></contact-page>
+              </section>
+
+            </iron-pages>
+          </div>
+        </paper-scroll-header-panel>
+      </paper-drawer-panel>
+
+      <!-- Uncomment next block to enable Service Worker support (1/2) -->
+      <!--
+      <paper-toast id="caching-complete"
+                   duration="6000"
+                   text="Caching complete! This app will work offline.">
+      </paper-toast>
+  
+      <platinum-sw-register auto-register
+                            clients-claim
+                            skip-waiting
+                            on-service-worker-installed="displayInstalledToast">
+        <platinum-sw-cache default-cache-strategy="fastest"
+                           cache-config-file="cache-config.json">
+        </platinum-sw-cache>
+    </platinum-sw-register>
+    -->
+
+    </template>
+  </template>
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+
+</body>
+
+</html>
