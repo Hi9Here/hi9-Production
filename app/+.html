@@ -43,12 +43,12 @@ Polymer({
       output.push({title: data.title, url:data.url, _image:data.alt[i], _fav:data.fav, _data:tpl})
     }
     if (data.title !== data.title.split(" | ")[0]) {
-      output.push({title: data.title.split(" | ")[0], url:data.url, _image:data.alt[i], _fav:data.fav, _data:tpl})
-      output.push({title: data.title.split(" | ")[1], url:data.url, _image:data.alt[i], _fav:data.fav, _data:tpl})
+      output.push({title: data.title.split(" | ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl})
+      output.push({title: data.title.split(" | ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl})
     }
     if (data.title !== data.title.split(" - ")[0]) {
-      output.push({title: data.title.split(" - ")[0], url:data.url, _image:data.alt[i], _fav:data.fav, _data:tpl})
-      output.push({title: data.title.split(" - ")[1], url:data.url, _image:data.alt[i], _fav:data.fav, _data:tpl})
+      output.push({title: data.title.split(" - ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl})
+      output.push({title: data.title.split(" - ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl})
     }
     return output
   }

@@ -1,6 +1,5 @@
 <dom-module id="login-set-path">
   <template>
-    <style is="custom-style" include="shared-styles"></style>
     <style>
       paper-tabs {
         font-size: 18px;
@@ -49,7 +48,7 @@ Polymer({
     }
   },
   getLocationDomain: function (app) {
-     return app+".firebaseapp.com"
+    return app+".firebaseapp.com"
   },
   get_url: function(app) {
     return "https://"+app+".firebaseio.com/"
