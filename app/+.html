@@ -42,7 +42,7 @@ Polymer({
     if (data.title !== title.split(" | ")[0]) {
       output.push({title: title.split(" | ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl, Desc:data.desc})
       output.push({title: title.split(" | ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl, Desc:data.desc})
-      if (title.split(" | ")[1].length < title.split(" | ")[0]) {
+      if ( ((title.split(" | ")[1].length - 12)*(title.split(" | ")[1].length - 12)) < ((title.split(" | ")[0].length - 12)*(title.split(" | ")[0].length - 12)) ) {
         title = data.title.split(" | ")[1]
       } else {
         title = data.title.split(" | ")[0]
