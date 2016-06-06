@@ -70,7 +70,7 @@ Polymer({
     return this.$.cardDisplay.hash(it)
   },
   add: function(e) {
-    if (this.addme) {
+    if (!this.addme) {
       this.addme = {}
     }
     var hash = this.hash(this.cards[e.detail].url)
