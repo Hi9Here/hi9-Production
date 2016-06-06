@@ -22,7 +22,7 @@
 <dom-module id="add-card">
   <template>
     <iron-location hash="{{a}}"></iron-location>
-    <card-display id="cardDisplay"  pickable cards="{{cards}}"></card-display>
+    <card-display id="cardDisplay" on-picked="add"  pickable cards="{{cards}}"></card-display>
     <iron-localstorage name="addme" value="{{addme}}"></iron-localstorage>
   </template>
 </dom-module>
@@ -68,6 +68,9 @@ Polymer({
   },
   hash: function(it) {
     return this.$.cardDisplay.hash(it)
-  }
+  },
+  add: function(e) {
+    e.details
+  },
 })
 </script>
