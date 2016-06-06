@@ -75,6 +75,7 @@ Polymer({
     }
     var hash = this.hash(this.cards[e.detail].url)
     this.addme[hash] = this.cards[e.detail]
+    window.location.href = '/'
   }
 })
 </script>
