@@ -145,10 +145,10 @@
   
               <section data-route="home">
                 <template is="dom-if" if="{{yours}}">
-                  <card-control url="{{urlForCards}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
+                  <card-control sort-by-ext url="{{urlForCards}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
                 </template>
                 <template is="dom-if" if="{{!yours}}">
-                  <card-control url="{{urlForMore}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
+                  <card-control sort-by-ext url="{{urlForMore}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
                 </template>
               </section>
   
