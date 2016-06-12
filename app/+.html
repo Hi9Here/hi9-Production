@@ -74,8 +74,8 @@ Polymer({
       this.addme = {}
     }
     var hash = this.hash(this.cards[e.detail].url)
-    this.addme[hash] = this.cards[e.detail]
-    window.location.href = '/'
+    this.set("addme." + hash, this.cards[e.detail])
+    setTimeout(function(){ window.location.href = '/' }, 100)
   }
 })
 </script>
