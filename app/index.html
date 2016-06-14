@@ -143,12 +143,7 @@
             <iron-pages attr-for-selected="data-route" selected="{{route}}">
   
               <section data-route="home">
-                <template is="dom-if" if="{{yours}}">
-                  <card-control sort-by-ext name="cards" url="{{urlForCards}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
-                </template>
-                <template is="dom-if" if="{{!yours}}">
-                  <card-control sort-by-ext url="{{urlForMore}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
-                </template>
+                <card-control sort-by-ext ext-id="aimpjcndoplcgohfdcdkfpioogpkcaeb" name="cards" url="{{urlForCards}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
               </section>
   
               <section data-route="surveys">
