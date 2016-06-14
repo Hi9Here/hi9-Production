@@ -12,14 +12,14 @@
       <hi9-login api-key="{{apiKey}}" client-id="{{clientId}}" app="{{app}}" location="{{_url}}"></hi9-login>
     </template>
     <hi9-login api-key="{{apiKey}}" app="{{app}}" client-id="{{clientId}}" hidden user="{{user}}" location="{{_url}}"></hi9-login>
-    <template is="dom-if" if="{{user}}">
+    <!--<template is="dom-if" if="{{user}}">
       <a data-route="home" href="/" style="text-decoration: none">
-        <paper-tabs selected="0">
+          <paper-tabs selected="0">
           <paper-tab on-tap="setToYours">Yours</paper-tab>
           <paper-tab on-tap="setToMore">YHG</paper-tab>
-        </paper-tabs>
+        </paper-tabs> 
       </a>
-    </template>
+    </template>-->
   </template>
 </dom-module>
 <script>
