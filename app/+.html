@@ -50,12 +50,13 @@ Polymer({
       } else {
         data.image = defaultArtical
       }
-      var tpl = '<div title="{{Desc}}" style="float:left;background-size: contain;background-position: center;display:inline-block;width:32px;height:32px; background-image:url({{_fav}});background-repeat:no-repeat"></div><h3  title="{{Desc}}" style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3>{{_image}}'
-      
+      var tpl2 = '<div title="{{Desc}}" style="float:left;background-size: contain;background-position: center;display:inline-block;width:32px;height:32px; background-image:url({{_fav}});background-repeat:no-repeat"></div><h3  title="{{Desc}}" style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3>{{_image}}'
+    } else {
+      var tpl2 = tpl
     }
     if (data.title !== title.split(" | ")[0]) {
-      output.push({title: title.split(" | ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl, Desc:data.desc})
-      output.push({title: title.split(" | ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl, Desc:data.desc})
+      output.push({title: title.split(" | ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
+      output.push({title: title.split(" | ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
       if ( ((title.split(" | ")[1].length - 12)*(title.split(" | ")[1].length - 12)) < ((title.split(" | ")[0].length - 12)*(title.split(" | ")[0].length - 12)) ) {
         title = data.title.split(" | ")[1]
       } else {
