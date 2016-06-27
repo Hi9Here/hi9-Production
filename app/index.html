@@ -123,10 +123,10 @@
           <!-- Main Toolbar -->
           <paper-toolbar>
             
-              <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-              <paper-input label="Search" value="{{search}}" no-label-float>
-                <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
-              </paper-input>
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+            <paper-input label="Search" value="{{search}}" no-label-float>
+              <iron-icon prefix icon="search" id="searchicon"></iron-icon>                
+            </paper-input>
                    
             <span class="flex"></span>
             <login-set-path app="auth-c5e05" user="{{user}}" token="{{token}}" url="{{urlForCards}}" more-url="{{urlForMore}}" yours="{{yours}}" uid="{{uid}}"></login-set-path>
@@ -143,7 +143,12 @@
             <iron-pages attr-for-selected="data-route" selected="{{route}}">
   
               <section data-route="home">
-                <card-control sort-by-ext ext-id="aimpjcndoplcgohfdcdkfpioogpkcaeb" name="cards" url="{{urlForCards}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
+                <template is="dom-if" if="{{uid}}">
+                  <card-control sort-by-ext ext-id="aimpjcndoplcgohfdcdkfpioogpkcaeb" name="cards" url="{{urlForCards}}" search="{{search}}" shared="{{shared}}" token="{{token}}" uid="{{uid}}"></card-control>
+                </template>
+                <template is="dom-if" if="{{!uid}}">
+                  <login-set-path app="auth-c5e05"></login-set-path>
+                </template>
               </section>
   
               <section data-route="surveys">
