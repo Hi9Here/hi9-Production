@@ -11,6 +11,7 @@
     <template is="dom-if" if="{{!user}}">
       <hi9-login api-key="{{apiKey}}" client-id="{{clientId}}" app="{{app}}" location="{{_url}}"></hi9-login>
     </template>
+    <iron-localstorage name="user" value="{{user}}"></iron-localstorage>
     <hi9-login api-key="{{apiKey}}" app="{{app}}" client-id="{{clientId}}" hidden user="{{user}}" location="{{_url}}"></hi9-login>
     <!--<template is="dom-if" if="{{user}}">
       <a data-route="home" href="/" style="text-decoration: none">
