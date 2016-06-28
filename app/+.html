@@ -34,48 +34,53 @@ Polymer({
   properties: {
     cards: {computed: "getOptions(data)"}
   },
-  getOptions: function(data, deko) {
-    var output = []
-    var title = data.title
-    
-    var tpl = '<div title="{{Desc}}" style="float:left;background-size: contain;background-position: center;display:inline-block;width:16px;height:16px; background-image:url({{_fav}});background-repeat:no-repeat"></div><h3  title="{{Desc}}" style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3><img title="{{Desc}}" style="width:167px;left:0;bottom:0;position:absolute" src="{{_image}}" />'
-    
-    var defaultArtical = '<svg viewBox="0 0 24 24" style="fill:#ff5252"  preserveAspectRatio="xMidYMid meet"><g class="style-scope iron-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z" class="style-scope iron-icon"></path></g></svg>'
-    var defaultHome = '<svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" style="fill:#ff5252"><g class="style-scope iron-icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" class="style-scope iron-icon"></path></g></svg>'
-    if (!data.image) {
-      if (data.url.split('/').length < 5) { //home
-        data.image = defaultHome
-      } else {
-        data.image = defaultArtical
-      }
-      var tpl2 = '<div title="{{Desc}}" style="float:left;background-size: contain;background-position: center;display:inline-block;width:16px;height:16px; background-image:url({{_fav}});background-repeat:no-repeat"></div><h3  title="{{Desc}}" style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3>{{_image}}'
+  getOptions: function(data) {
+    if (Array.isArray(data)) {
+      return data
     } else {
-      var tpl2 = tpl
-    }
-    if (data.title !== title.split(" | ")[0]) {
-      output.push({title: title.split(" | ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
-      output.push({title: title.split(" | ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
-      if ( ((title.split(" | ")[1].length - 12)*(title.split(" | ")[1].length - 12)) < ((title.split(" | ")[0].length - 12)*(title.split(" | ")[0].length - 12)) ) {
-        title = data.title.split(" | ")[1]
+      var output = []
+      var title = data.title
+      
+      var tpl = '<div title="{{Desc}}" style="float:left;background-size: contain;background-position: center;display:inline-block;width:16px;height:16px; background-image:url({{_fav}});background-repeat:no-repeat"></div><h3  title="{{Desc}}" style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3><img title="{{Desc}}" style="width:167px;left:0;bottom:0;position:absolute" src="{{_image}}" />'
+    
+      var defaultArtical = '<svg viewBox="0 0 24 24" style="fill:#ff5252"  preserveAspectRatio="xMidYMid meet"><g class="style-scope iron-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z" class="style-scope iron-icon"></path></g></svg>'
+      var defaultHome = '<svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" style="fill:#ff5252"><g class="style-scope iron-icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" class="style-scope iron-icon"></path></g></svg>'
+      if (!data.image) {
+        if (data.url.split('/').length < 5) { //home
+          data.image = defaultHome
+        } else {
+          data.image = defaultArtical
+        }
+        var tpl2 = '<div title="{{Desc}}" style="float:left;background-size: contain;background-position: center;display:inline-block;width:16px;height:16px; background-image:url({{_fav}});background-repeat:no-repeat"></div><h3  title="{{Desc}}" style="margin:0px;padding:10px;font-size: 15px;">{{title}}</h3>{{_image}}'
       } else {
-        title = data.title.split(" | ")[0]
+        var tpl2 = tpl
       }
-    } else if (title !== title.split(" - ")[0]) {
-      output.push({title: data.title.split(" - ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
-      output.push({title: data.title.split(" - ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
-      if ( ((title.split(" - ")[1].length - 12)*(title.split(" - ")[1].length - 12)) < ((title.split(" - ")[0].length - 12)*(title.split(" - ")[0].length - 12)) ) {
-        title = data.title.split(" - ")[1]
+      if (data.title !== title.split(" | ")[0]) {
+        output.push({title: title.split(" | ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
+        output.push({title: title.split(" | ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
+        if ( ((title.split(" | ")[1].length - 12)*(title.split(" | ")[1].length - 12)) < ((title.split(" | ")[0].length - 12)*(title.split(" | ")[0].length - 12)) ) {
+          title = data.title.split(" | ")[1]
+        } else {
+          title = data.title.split(" | ")[0]
+        }
+      } else if (title !== title.split(" - ")[0]) {
+        output.push({title: data.title.split(" - ")[0], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
+        output.push({title: data.title.split(" - ")[1], url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
+        if ( ((title.split(" - ")[1].length - 12)*(title.split(" - ")[1].length - 12)) < ((title.split(" - ")[0].length - 12)*(title.split(" - ")[0].length - 12)) ) {
+          title = data.title.split(" - ")[1]
+        } else {
+          title = data.title.split(" - ")[0]
+        }
       } else {
-        title = data.title.split(" - ")[0]
+        output.push({title: title, url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
       }
-    } else {
-      output.push({title: title, url:data.url, _image:data.image, _fav:data.fav, _data:tpl2, Desc:data.desc})
+      if (data.alt) {
+        for (var i = 0;i < data.alt.length; i++) {
+          output.push({title: title, url:data.url, _image:data.alt[i], _fav:data.fav, _data:tpl, Desc:data.desc})
+        }
+      }
+      return output
     }
-    if (data.alt)
-    for (var i = 0;i < data.alt.length; i++) {
-      output.push({title: title, url:data.url, _image:data.alt[i], _fav:data.fav, _data:tpl, Desc:data.desc})
-    }
-    return output
   },
   hash: function(it) {
     return this.$.cardDisplay.hash(it)
