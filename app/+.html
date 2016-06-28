@@ -23,23 +23,18 @@
 <dom-module id="add-card">
   <template>
     <iron-location hash="{{a}}"></iron-location>
-    <card-display id="cardDisplay" on-picked="add"  pickable cards="{{cards}}"></card-display>
-    <card-display id="cardDisplay" on-picked="add"  pickable cards="{{deko}}"></card-display>
-    <url-data string="{{a}}" data="{{deko}}"></url-data>
+    <url-data string="{{a}}" data="{{data}}"></url-data>
     <iron-localstorage name="addme" value="{{addme}}"></iron-localstorage>
+    <card-display id="cardDisplay" on-picked="add" pickable cards="{{cards}}"></card-display>
   </template>
 </dom-module>
 <script>
 Polymer({
   is: "add-card",
   properties: {
-    data: {computed: "decode(a)"},
     cards: {computed: "getOptions(data)"}
   },
-  decode: function(a) {
-    return JSON.parse(decodeURIComponent(a))
-  },
-  getOptions: function(data) {
+  getOptions: function(data, deko) {
     var output = []
     var title = data.title
     
