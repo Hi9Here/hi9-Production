@@ -8,6 +8,7 @@
     <link rel="import" href="/bower_components/iron-localstorage/iron-localstorage.html">
     <link rel="import" href="/bower_components/url-data/url-data.html">
     <link rel="import" href="/bower_components/paper-button/paper-button.html">
+    <link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
     <link rel="import" href="/bower_components/polymer/polymer.html">
     <link rel="import" href="/styles/app-theme.html">
   </head>
@@ -29,15 +30,13 @@
     <url-data string="{{a}}" data="{{data}}"></url-data>
     <iron-localstorage name="addme" value="{{addme}}"></iron-localstorage>
     <card-display id="cardDisplay" on-picked="add" selected="{{selected}}" pickable="{{!selectable}}" selectable="{{selectable}}" cards="{{cards}}"></card-display>
-    <template is="dom-if" if="{{selectable}}">
-      <paper-toolbar style="position:fixed;bottom:0;right:0;width:100%">
-        <span class="flex"></span>
-        <template is="dom-if" if="{{selected.length}}">
-          <paper-button on-tap="addThese" raised><iron-icon icon="done"></iron-icon>add</paper-button>
-        </template>
-        <paper-button raised on-tap="goHome"><iron-icon icon="cancel"></iron-icon>cancel</paper-button>
-      </paper-toolbar>
-    </template>
+    <paper-toolbar style="position:fixed;bottom:0;right:0;width:100%">
+      <span class="flex"></span>
+      <template is="dom-if" if="{{selected.length}}">
+        <paper-button on-tap="addThese" raised><iron-icon icon="done"></iron-icon>add</paper-button>
+      </template>
+      <paper-button raised on-tap="goHome"><iron-icon icon="cancel"></iron-icon>cancel</paper-button>
+    </paper-toolbar>
   </template>
 </dom-module>
 <script>
