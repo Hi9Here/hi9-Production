@@ -23,6 +23,7 @@
 
 <dom-module id="add-card">
   <template>
+    <center><h1>{{title}}</h1></center>
     <iron-location hash="{{a}}"></iron-location>
     <url-data string="{{a}}" data="{{data}}"></url-data>
     <iron-localstorage name="addme" value="{{addme}}"></iron-localstorage>
@@ -48,7 +49,14 @@ Polymer({
   },
   getOptions: function(data) {
     if (Array.isArray(data)) {
-      this.selectable = true 
+      if (data.length > 1) {
+        this.selectable = true 
+      } else {
+        if (data[0].data && data[0].title) {
+          this.title = data[0].title
+          return this.$.cardDisplay.objectToArray(data.data)
+        }
+      }
       return data
     } else {
       var output = []
