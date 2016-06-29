@@ -37,7 +37,12 @@
       </template>
       <template is="dom-if" if="{{selectable}}">
         <template is="dom-if" if="{{!selected.length}}">
-          <paper-button on-tap="addAll" raised><iron-icon icon="done"></iron-icon>Add Deko</paper-button>
+          <template is="dom-if" if="{{!title}}">
+            <paper-button on-tap="addAll" raised><iron-icon icon="done"></iron-icon>Add All</paper-button>
+          </template>
+          <template is="dom-if" if="{{title}}">
+            <paper-button on-tap="addAll" raised><iron-icon icon="done"></iron-icon>Add Deko</paper-button>
+          </template>
         </template>
       </template>
       <paper-button raised on-tap="goHome"><iron-icon icon="cancel"></iron-icon>Cancel</paper-button>
