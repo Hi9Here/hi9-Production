@@ -25,17 +25,19 @@
     <iron-location hash="{{a}}"></iron-location>
     <url-data string="{{a}}" data="{{data}}"></url-data>
     <iron-localstorage name="addme" value="{{addme}}"></iron-localstorage>
-    <card-display id="cardDisplay" on-picked="add" pickable cards="{{cards}}"></card-display>
+    <card-display id="cardDisplay" on-picked="add" pickable="{{!selectable}}" selectable="{{selectable}}" cards="{{cards}}"></card-display>
   </template>
 </dom-module>
 <script>
 Polymer({
   is: "add-card",
   properties: {
-    cards: {computed: "getOptions(data)"}
+    cards: {computed: "getOptions(data)"},
+    selectable: {value: false, type: Boolean}
   },
   getOptions: function(data) {
     if (Array.isArray(data)) {
+      this.selectable = true 
       return data
     } else {
       var output = []
