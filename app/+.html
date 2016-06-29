@@ -54,7 +54,7 @@ Polymer({
       } else {
         if (data[0].data && data[0].title) {
           this.title = data[0].title
-          return this.$.cardDisplay.objectToArray(data.data)
+          return this.$.cardDisplay.objectToArray(data[0].data)
         }
       }
       return data
