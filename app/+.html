@@ -43,7 +43,8 @@ Polymer({
   is: "add-card",
   properties: {
     cards: {computed: "getOptions(data)"},
-    selectable: {value: false, type: Boolean}
+    selectable: {value: false, type: Boolean},
+    selectedCards: {computed: "getCards(selected.*)"}
   },
   getOptions: function(data) {
     if (Array.isArray(data)) {
@@ -104,6 +105,23 @@ Polymer({
     var hash = this.hash(this.cards[e.detail].url)
     this.set("addme." + hash, this.cards[e.detail])
     setTimeout(function(){ window.location.href = '/' }, 100)
+  },
+  addThese: function() {
+    if (!this.addme) {
+      this.addme = {}
+    }
+    for (card in selectedCards) {
+      var hash = this.hash(card.url)
+      this.set("addme." + hash, card)
+    }
+    setTimeout(function(){ window.location.href = '/' }, 100)
+  },
+  getCards: function(selected) {
+    var cards = []
+    for (var i = 0; i < selected.base.length; i++) {
+      cards.push(this.cards[selected.base[i]])
+    }
+    return cards
   }
 })
 </script>
