@@ -122,7 +122,7 @@ Polymer({
     if (!this.addme) {
       this.addme = {}
     }
-    for (card in selectedCards) {
+    for (card in this.selectedCards) {
       var hash = this.hash(card.url)
       this.set("addme." + hash, card)
     }
