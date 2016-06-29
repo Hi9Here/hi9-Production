@@ -50,7 +50,8 @@ Polymer({
   properties: {
     cards: {computed: "getOptions(data)"},
     selectable: {value: false, type: Boolean},
-    selectedCards: {computed: "getCards(selected.*)"}
+    selectedCards: {computed: "getCards(selected.*)"},
+    selected: {value: [], type: Array}
   },
   getOptions: function(data) {
     if (Array.isArray(data)) {
