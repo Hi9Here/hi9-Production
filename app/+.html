@@ -54,6 +54,10 @@ Polymer({
       } else {
         if (data[0].data && data[0].title) {
           this.title = data[0].title
+          var deko = this.$.cardDisplay.objectToArray(data[0].data)
+          if (deko.length > 1) {
+            this.selectable = true
+          }
           return this.$.cardDisplay.objectToArray(data[0].data)
         }
       }
