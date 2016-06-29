@@ -54,6 +54,7 @@ Polymer({
   is: "add-card",
   properties: {
     cards: {computed: "getOptions(data)"},
+    title: {value:""},
     selectable: {value: false, type: Boolean},
     selectedCards: {computed: "getCards(selected.*)"},
     selected: {value: [], type: Array}
