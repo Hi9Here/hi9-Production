@@ -37,7 +37,7 @@
       </template>
       <template is="dom-if" if="{{selectable}}">
         <template is="dom-if" if="{{!selected.length}}">
-          <paper-button on-tap="addAll" raised><iron-icon icon="done"></iron-icon>Add All</paper-button>
+          <paper-button on-tap="addAll" raised><iron-icon icon="done"></iron-icon>Add Deko</paper-button>
         </template>
       </template>
       <paper-button raised on-tap="goHome"><iron-icon icon="cancel"></iron-icon>Cancel</paper-button>
@@ -135,9 +135,15 @@ Polymer({
     setTimeout(function(){ window.location.href = '/' }, 100)
   },
   addAll: function() {
+    if (Array.isArray(this.data)) {
+      if (this.data.length === 1 && this.data[0].data && this.data[0].title) {
+        this.cards = this.data
+      }
+    }
     if (!this.addme) {
       this.addme = {}
     }
+    
     for (card in this.cards) {
       var hash = this.hash(card.url)
       this.set("addme." + hash, card)
