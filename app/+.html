@@ -26,7 +26,16 @@
     <iron-location hash="{{a}}"></iron-location>
     <url-data string="{{a}}" data="{{data}}"></url-data>
     <iron-localstorage name="addme" value="{{addme}}"></iron-localstorage>
-    <card-display id="cardDisplay" on-picked="add" pickable="{{!selectable}}" selectable="{{selectable}}" cards="{{cards}}"></card-display>
+    <card-display id="cardDisplay" on-picked="add" selected="{{selected}}" pickable="{{!selectable}}" selectable="{{selectable}}" cards="{{cards}}"></card-display>
+    <template is="dom-if" if="{{selectable}}">
+      <paper-toolbar style="position:fixed;bottom:0;right:0;width:100%">
+        <span class="flex"></span>
+        <template is="dom-if" if="{{selected.length}}">
+          <paper-button on-tap="add" raised><iron-icon icon="done"></iron-icon>add</paper-button>
+        </template>
+        <paper-button raised on-tap="goHome"><iron-icon icon="cancel"></iron-icon>cancel</paper-button>
+      </paper-toolbar>
+    </template>
   </template>
 </dom-module>
 <script>
