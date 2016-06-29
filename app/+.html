@@ -33,9 +33,12 @@
     <paper-toolbar style="position:fixed;bottom:0;right:0;width:100%">
       <span class="flex"></span>
       <template is="dom-if" if="{{selected.length}}">
-        <paper-button on-tap="addThese" raised><iron-icon icon="done"></iron-icon>add</paper-button>
+        <paper-button on-tap="addThese" raised><iron-icon icon="done"></iron-icon>Add</paper-button>
       </template>
-      <paper-button raised on-tap="goHome"><iron-icon icon="cancel"></iron-icon>cancel</paper-button>
+      <template is="dom-if" if="{{selected.length}}">
+        <paper-button on-tap="addAll" raised><iron-icon icon="done"></iron-icon>Add All</paper-button>
+      </template>
+      <paper-button raised on-tap="goHome"><iron-icon icon="cancel"></iron-icon>Cancel</paper-button>
     </paper-toolbar>
   </template>
 </dom-module>
@@ -123,6 +126,16 @@ Polymer({
       this.addme = {}
     }
     for (card in this.selectedCards) {
+      var hash = this.hash(card.url)
+      this.set("addme." + hash, card)
+    }
+    setTimeout(function(){ window.location.href = '/' }, 100)
+  },
+  addAll: function() {
+    if (!this.addme) {
+      this.addme = {}
+    }
+    for (card in this.cards) {
       var hash = this.hash(card.url)
       this.set("addme." + hash, card)
     }
